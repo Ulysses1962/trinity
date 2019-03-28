@@ -1,0 +1,476 @@
+Removed Pin From Net: NetName=GND Pin=R14-1
+Removed Pin From Net: NetName=EUROMAP13 Pin=R14-2
+Removed Pin From Net: NetName=GND Pin=R17-1
+Removed Pin From Net: NetName=EUROMAP14 Pin=R17-2
+Removed Pin From Net: NetName=GND Pin=R20-1
+Removed Pin From Net: NetName=EUROMAP15 Pin=R20-2
+Removed Pin From Net: NetName=GND Pin=R23-1
+Removed Pin From Net: NetName=EUROMAP16 Pin=R23-2
+Removed Pin From Net: NetName=GND Pin=R26-1
+Removed Pin From Net: NetName=EUROMAP17 Pin=R26-2
+Removed Pin From Net: NetName=GND Pin=R29-1
+Removed Pin From Net: NetName=EUROMAP18 Pin=R29-2
+Removed Pin From Net: NetName=GND Pin=R32-1
+Removed Pin From Net: NetName=EUROMAP19 Pin=R32-2
+Removed Pin From Net: NetName=GND Pin=R35-1
+Removed Pin From Net: NetName=EUROMAP20 Pin=R35-2
+Removed Pin From Net: NetName=EUROMAP68 Pin=R105-2
+Removed Pin From Net: NetName=EUROMAP7 Pin=R106-1
+Removed Pin From Net: NetName=EUROMAP67 Pin=R106-2
+Removed Pin From Net: NetName=EUROMAP5 Pin=R107-1
+Removed Pin From Net: NetName=EUROMAP69 Pin=R107-2
+Removed Pin From Net: NetName=EUROMAP8 Pin=R108-1
+Removed Pin From Net: NetName=EUROMAP66 Pin=R108-2
+Removed Pin From Net: NetName=EUROMAP4 Pin=R109-1
+Removed Pin From Net: NetName=EUROMAP70 Pin=R109-2
+Removed Pin From Net: NetName=EUROMAP9 Pin=R110-1
+Removed Pin From Net: NetName=EUROMAP65 Pin=R110-2
+Removed Pin From Net: NetName=EUROMAP3 Pin=R111-1
+Removed Pin From Net: NetName=EUROMAP71 Pin=R111-2
+Removed Pin From Net: NetName=EUROMAP10 Pin=R112-1
+Removed Pin From Net: NetName=EUROMAP64 Pin=R112-2
+Removed Pin From Net: NetName=EUROMAP2 Pin=R113-1
+Removed Pin From Net: NetName=EUROMAP72 Pin=R113-2
+Removed Pin From Net: NetName=EUROMAP11 Pin=R114-1
+Removed Pin From Net: NetName=EUROMAP63 Pin=R114-2
+Removed Pin From Net: NetName=EUROMAP1 Pin=R115-1
+Removed Pin From Net: NetName=EUROMAP73 Pin=R115-2
+Removed Pin From Net: NetName=EUROMAP61 Pin=R116-1
+Removed Pin From Net: NetName=EUROMAP62 Pin=R116-2
+Removed Pin From Net: NetName=GND Pin=USB CONSOLE-G
+Removed Pin From Net: NetName=GND Pin=USB CONSOLE-G
+Removed Pin From Net: NetName=GND Pin=USB CONSOLE-G
+Removed Pin From Net: NetName=GND Pin=USB CONSOLE-G
+Removed Pin From Net: NetName=EUROMAP73 Pin=VD5-1
+Removed Pin From Net: NetName=GND Pin=VD5-2
+Removed Pin From Net: NetName=EUROMAP72 Pin=VD5-3
+Removed Pin From Net: NetName=EUROMAP71 Pin=VD5-4
+Removed Pin From Net: NetName=GND Pin=VD5-5
+Removed Pin From Net: NetName=EUROMAP70 Pin=VD5-6
+Removed Pin From Net: NetName=EUROMAP69 Pin=VD7-1
+Removed Pin From Net: NetName=GND Pin=VD7-2
+Removed Pin From Net: NetName=EUROMAP68 Pin=VD7-3
+Removed Pin From Net: NetName=EUROMAP67 Pin=VD7-4
+Removed Pin From Net: NetName=GND Pin=VD7-5
+Removed Pin From Net: NetName=EUROMAP66 Pin=VD7-6
+Removed Pin From Net: NetName=EUROMAP64 Pin=VD9-1
+Removed Pin From Net: NetName=GND Pin=VD9-2
+Removed Pin From Net: NetName=EUROMAP65 Pin=VD9-3
+Removed Pin From Net: NetName=EUROMAP62 Pin=VD9-4
+Removed Pin From Net: NetName=GND Pin=VD9-5
+Removed Pin From Net: NetName=EUROMAP63 Pin=VD9-6
+Removed Pin From Net: NetName=GND Pin=VD26-1
+Removed Pin From Net: NetName=EUROMAP68 Pin=VD26-3
+Removed Pin From Net: NetName=GND Pin=VD27-1
+Removed Pin From Net: NetName=EUROMAP67 Pin=VD27-3
+Removed Pin From Net: NetName=GND Pin=VD28-1
+Removed Pin From Net: NetName=EUROMAP69 Pin=VD28-3
+Removed Pin From Net: NetName=GND Pin=VD29-1
+Removed Pin From Net: NetName=EUROMAP66 Pin=VD29-3
+Removed Pin From Net: NetName=GND Pin=VD30-1
+Removed Pin From Net: NetName=EUROMAP70 Pin=VD30-3
+Removed Pin From Net: NetName=GND Pin=VD31-1
+Removed Pin From Net: NetName=EUROMAP65 Pin=VD31-3
+Removed Pin From Net: NetName=GND Pin=VD32-1
+Removed Pin From Net: NetName=EUROMAP71 Pin=VD32-3
+Removed Pin From Net: NetName=GND Pin=VD33-1
+Removed Pin From Net: NetName=EUROMAP64 Pin=VD33-3
+Removed Pin From Net: NetName=GND Pin=VD34-1
+Removed Pin From Net: NetName=EUROMAP72 Pin=VD34-3
+Removed Pin From Net: NetName=GND Pin=VD35-1
+Removed Pin From Net: NetName=EUROMAP63 Pin=VD35-3
+Removed Pin From Net: NetName=GND Pin=VD36-1
+Removed Pin From Net: NetName=EUROMAP73 Pin=VD36-3
+Removed Pin From Net: NetName=GND Pin=VD37-1
+Removed Pin From Net: NetName=EUROMAP62 Pin=VD37-3
+Removed Pin From Net: NetName=NetR16_1 Pin=VT3-1
+Removed Pin From Net: NetName=EUROMAP13 Pin=VT3-2
+Removed Pin From Net: NetName=EUROMAP22 Pin=VT3-3
+Removed Pin From Net: NetName=NetR19_1 Pin=VT4-1
+Removed Pin From Net: NetName=EUROMAP14 Pin=VT4-2
+Removed Pin From Net: NetName=EUROMAP22 Pin=VT4-3
+Removed Pin From Net: NetName=NetR22_1 Pin=VT5-1
+Removed Pin From Net: NetName=EUROMAP15 Pin=VT5-2
+Removed Pin From Net: NetName=EUROMAP22 Pin=VT5-3
+Removed Pin From Net: NetName=NetR25_1 Pin=VT6-1
+Removed Pin From Net: NetName=EUROMAP16 Pin=VT6-2
+Removed Pin From Net: NetName=EUROMAP22 Pin=VT6-3
+Removed Pin From Net: NetName=NetR28_1 Pin=VT7-1
+Removed Pin From Net: NetName=EUROMAP17 Pin=VT7-2
+Removed Pin From Net: NetName=EUROMAP22 Pin=VT7-3
+Removed Pin From Net: NetName=NetR31_1 Pin=VT8-1
+Removed Pin From Net: NetName=EUROMAP18 Pin=VT8-2
+Removed Pin From Net: NetName=EUROMAP22 Pin=VT8-3
+Removed Pin From Net: NetName=NetR34_1 Pin=VT9-1
+Removed Pin From Net: NetName=EUROMAP19 Pin=VT9-2
+Removed Pin From Net: NetName=EUROMAP22 Pin=VT9-3
+Removed Pin From Net: NetName=NetR37_1 Pin=VT10-1
+Removed Pin From Net: NetName=EUROMAP20 Pin=VT10-2
+Removed Pin From Net: NetName=EUROMAP22 Pin=VT10-3
+Removed Pin From Net: NetName=NetR40_1 Pin=VT11-1
+Removed Pin From Net: NetName=EUROMAP21 Pin=VT11-2
+Removed Pin From Net: NetName=EUROMAP22 Pin=VT11-3
+Removed Member From Class: ClassName=A3 Member=VD5
+Removed Member From Class: ClassName=A3 Member=VD7
+Removed Member From Class: ClassName=A3 Member=VD9
+Removed Member From Class: ClassName=A3 Member=VD26
+Removed Member From Class: ClassName=A3 Member=VD27
+Removed Member From Class: ClassName=A3 Member=VD28
+Removed Member From Class: ClassName=A3 Member=VD29
+Removed Member From Class: ClassName=A3 Member=VD30
+Removed Member From Class: ClassName=A3 Member=VD31
+Removed Member From Class: ClassName=A3 Member=VD32
+Removed Member From Class: ClassName=A3 Member=VD33
+Removed Member From Class: ClassName=A3 Member=VD34
+Removed Member From Class: ClassName=A3 Member=VD35
+Removed Member From Class: ClassName=A3 Member=VD36
+Removed Member From Class: ClassName=A3 Member=VD37
+Change Component Footprint: Designator=R16 Old Footprint=RESC3216X05N New Footprint=RESC2012X04N
+Change Component Footprint: Designator=R19 Old Footprint=RESC3216X05N New Footprint=RESC2012X04N
+Change Component Footprint: Designator=R22 Old Footprint=RESC3216X05N New Footprint=RESC2012X04N
+Change Component Footprint: Designator=R25 Old Footprint=RESC3216X05N New Footprint=RESC2012X04N
+Change Component Footprint: Designator=R28 Old Footprint=RESC3216X05N New Footprint=RESC2012X04N
+Change Component Footprint: Designator=R31 Old Footprint=RESC3216X05N New Footprint=RESC2012X04N
+Change Component Footprint: Designator=R34 Old Footprint=RESC3216X05N New Footprint=RESC2012X04N
+Change Component Footprint: Designator=R37 Old Footprint=RESC3216X05N New Footprint=RESC2012X04N
+Change Component Footprint: Designator=R38 Old Footprint=RESC3216X05N New Footprint=RESC2012X04N
+Change Component Footprint: Designator=R40 Old Footprint=RESC3216X05N New Footprint=RESC2012X04N
+Change Component Comment : Designator=R105 Old Comment=5.1k New Comment=2.4k
+Added Component: Designator=R14(RESC2012X04N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/prodlist.php?name=res1206"; VariantName = "[No Variations]"
+Added Component: Designator=R17(RESC2012X04N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/prodlist.php?name=res1206"; VariantName = "[No Variations]"
+Added Component: Designator=R20(RESC2012X04N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/prodlist.php?name=res1206"; VariantName = "[No Variations]"
+Added Component: Designator=R23(RESC2012X04N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/prodlist.php?name=res1206"; VariantName = "[No Variations]"
+Added Component: Designator=R26(RESC2012X04N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/prodlist.php?name=res1206"; VariantName = "[No Variations]"
+Added Component: Designator=R29(RESC2012X04N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/prodlist.php?name=res1206"; VariantName = "[No Variations]"
+Added Component: Designator=R32(RESC2012X04N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/prodlist.php?name=res1206"; VariantName = "[No Variations]"
+Added Component: Designator=R35(RESC2012X04N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/prodlist.php?name=res1206"; VariantName = "[No Variations]"
+Added Component: Designator=R106(RESC2012X04N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/prodlist.php?name=res1206"; VariantName = "[No Variations]"
+Added Component: Designator=R107(RESC2012X04N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/prodlist.php?name=res1206"; VariantName = "[No Variations]"
+Added Component: Designator=R108(RESC2012X04N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/prodlist.php?name=res1206"; VariantName = "[No Variations]"
+Added Component: Designator=R109(RESC2012X04N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/prodlist.php?name=res1206"; VariantName = "[No Variations]"
+Added Component: Designator=R110(RESC2012X04N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/prodlist.php?name=res1206"; VariantName = "[No Variations]"
+Added Component: Designator=R111(RESC2012X04N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/prodlist.php?name=res1206"; VariantName = "[No Variations]"
+Added Component: Designator=R112(RESC2012X04N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/prodlist.php?name=res1206"; VariantName = "[No Variations]"
+Added Component: Designator=R113(RESC2012X04N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/prodlist.php?name=res1206"; VariantName = "[No Variations]"
+Added Component: Designator=R114(RESC2012X04N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/prodlist.php?name=res1206"; VariantName = "[No Variations]"
+Added Component: Designator=R115(RESC2012X04N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/prodlist.php?name=res1206"; VariantName = "[No Variations]"
+Added Component: Designator=R116(RESC2012X04N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/prodlist.php?name=res1206"; VariantName = "[No Variations]"
+Added Component: Designator=R117(RESC2012X04N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/prodlist.php?name=res1206"; VariantName = "[No Variations]"
+Added Component: Designator=R118(RESC2012X04N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/prodlist.php?name=res1206"; VariantName = "[No Variations]"
+Added Component: Designator=R119(RESC2012X04N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/prodlist.php?name=res1206"; VariantName = "[No Variations]"
+Added Component: Designator=R120(RESC2012X04N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/prodlist.php?name=res1206"; VariantName = "[No Variations]"
+Added Component: Designator=R121(RESC2012X04N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/prodlist.php?name=res1206"; VariantName = "[No Variations]"
+Added Component: Designator=R122(RESC2012X04N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/prodlist.php?name=res1206"; VariantName = "[No Variations]"
+Added Component: Designator=R123(RESC2012X04N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/prodlist.php?name=res1206"; VariantName = "[No Variations]"
+Added Component: Designator=R124(RESC2012X04N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/prodlist.php?name=res1206"; VariantName = "[No Variations]"
+Added Component: Designator=R125(RESC2012X04N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/prodlist.php?name=res1206"; VariantName = "[No Variations]"
+Added Component: Designator=R126(RESC2012X04N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/prodlist.php?name=res1206"; VariantName = "[No Variations]"
+Added Component: Designator=R127(RESC2012X04N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/prodlist.php?name=res1206"; VariantName = "[No Variations]"
+Added Component: Designator=R128(RESC2012X04N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/prodlist.php?name=res1206"; VariantName = "[No Variations]"
+Added Component: Designator=U13(SOP254P1020X350-4N)
+Add component. Clean all parameters for all variants
+Added Component: Designator=U14(SOP254P1020X350-4N)
+Add component. Clean all parameters for all variants
+Added Component: Designator=U42(SOP254P1020X350-4N)
+Add component. Clean all parameters for all variants
+Added Component: Designator=U43(SOP254P1020X350-4N)
+Add component. Clean all parameters for all variants
+Added Component: Designator=U44(SOP254P1020X350-4N)
+Add component. Clean all parameters for all variants
+Added Component: Designator=U45(SOP254P1020X350-4N)
+Add component. Clean all parameters for all variants
+Added Component: Designator=U46(SOP254P1020X350-4N)
+Add component. Clean all parameters for all variants
+Added Component: Designator=U47(SOP254P1020X350-4N)
+Add component. Clean all parameters for all variants
+Added Component: Designator=U48(SOP254P1020X350-4N)
+Add component. Clean all parameters for all variants
+Added Component: Designator=U49(SOP254P1020X350-4N)
+Add component. Clean all parameters for all variants
+Added Component: Designator=U50(SOP254P1020X350-4N)
+Add component. Clean all parameters for all variants
+Added Component: Designator=U51(SOP254P1020X350-4N)
+Add component. Clean all parameters for all variants
+Added Component: Designator=VT3(TSOP95P280X145-6N)
+Add component. Clean all parameters for all variants
+Added Component: Designator=VT4(TSOP95P280X145-6N)
+Add component. Clean all parameters for all variants
+Added Component: Designator=VT5(TSOP95P280X145-6N)
+Add component. Clean all parameters for all variants
+Added Component: Designator=VT6(TSOP95P280X145-6N)
+Add component. Clean all parameters for all variants
+Added Component: Designator=VT7(TSOP95P280X145-6N)
+Add component. Clean all parameters for all variants
+Added Component: Designator=VT8(TSOP95P280X145-6N)
+Add component. Clean all parameters for all variants
+Added Component: Designator=VT9(TSOP95P280X145-6N)
+Add component. Clean all parameters for all variants
+Added Component: Designator=VT10(TSOP95P280X145-6N)
+Add component. Clean all parameters for all variants
+Added Component: Designator=VT11(TSOP95P280X145-6N)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=GND Pin=R14-1
+Added Pin To Net: NetName=EUROMAP21 Pin=R14-2
+Added Pin To Net: NetName=GND Pin=R17-1
+Added Pin To Net: NetName=EUROMAP21 Pin=R17-2
+Added Pin To Net: NetName=GND Pin=R20-1
+Added Pin To Net: NetName=EUROMAP21 Pin=R20-2
+Added Pin To Net: NetName=GND Pin=R23-1
+Added Pin To Net: NetName=EUROMAP16 Pin=R23-2
+Added Pin To Net: NetName=EUROMAP7 Pin=R26-1
+Added Pin To Net: NetName=EUROMAP67 Pin=R29-1
+Added Pin To Net: NetName=CPU17 Pin=R29-2
+Added Pin To Net: NetName=EUROMAP8 Pin=R32-1
+Added Pin To Net: NetName=EUROMAP66 Pin=R35-1
+Added Pin To Net: NetName=CPU17 Pin=R35-2
+Added Pin To Net: NetName=GND Pin=R106-1
+Added Pin To Net: NetName=EUROMAP17 Pin=R106-2
+Added Pin To Net: NetName=EUROMAP9 Pin=R107-1
+Added Pin To Net: NetName=EUROMAP65 Pin=R108-1
+Added Pin To Net: NetName=CPU17 Pin=R108-2
+Added Pin To Net: NetName=GND Pin=R109-1
+Added Pin To Net: NetName=EUROMAP18 Pin=R109-2
+Added Pin To Net: NetName=EUROMAP10 Pin=R110-1
+Added Pin To Net: NetName=EUROMAP64 Pin=R111-1
+Added Pin To Net: NetName=CPU17 Pin=R111-2
+Added Pin To Net: NetName=GND Pin=R112-1
+Added Pin To Net: NetName=EUROMAP19 Pin=R112-2
+Added Pin To Net: NetName=EUROMAP11 Pin=R113-1
+Added Pin To Net: NetName=EUROMAP63 Pin=R114-1
+Added Pin To Net: NetName=CPU17 Pin=R114-2
+Added Pin To Net: NetName=GND Pin=R115-1
+Added Pin To Net: NetName=EUROMAP20 Pin=R115-2
+Added Pin To Net: NetName=EUROMAP68 Pin=R116-1
+Added Pin To Net: NetName=CPU17 Pin=R116-2
+Added Pin To Net: NetName=EUROMAP5 Pin=R117-1
+Added Pin To Net: NetName=EUROMAP69 Pin=R118-1
+Added Pin To Net: NetName=CPU17 Pin=R118-2
+Added Pin To Net: NetName=EUROMAP4 Pin=R119-1
+Added Pin To Net: NetName=EUROMAP70 Pin=R120-1
+Added Pin To Net: NetName=CPU17 Pin=R120-2
+Added Pin To Net: NetName=EUROMAP3 Pin=R121-1
+Added Pin To Net: NetName=EUROMAP71 Pin=R122-1
+Added Pin To Net: NetName=CPU17 Pin=R122-2
+Added Pin To Net: NetName=EUROMAP2 Pin=R123-1
+Added Pin To Net: NetName=EUROMAP72 Pin=R124-1
+Added Pin To Net: NetName=CPU17 Pin=R124-2
+Added Pin To Net: NetName=EUROMAP1 Pin=R125-1
+Added Pin To Net: NetName=EUROMAP73 Pin=R126-1
+Added Pin To Net: NetName=CPU17 Pin=R126-2
+Added Pin To Net: NetName=EUROMAP61 Pin=R127-1
+Added Pin To Net: NetName=EUROMAP62 Pin=R128-1
+Added Pin To Net: NetName=CPU17 Pin=R128-2
+Added Pin To Net: NetName=GND Pin=U13-2
+Added Pin To Net: NetName=GND Pin=U13-3
+Added Pin To Net: NetName=EUROMAP67 Pin=U13-4
+Added Pin To Net: NetName=GND Pin=U14-2
+Added Pin To Net: NetName=GND Pin=U14-3
+Added Pin To Net: NetName=EUROMAP66 Pin=U14-4
+Added Pin To Net: NetName=GND Pin=U42-2
+Added Pin To Net: NetName=GND Pin=U42-3
+Added Pin To Net: NetName=EUROMAP65 Pin=U42-4
+Added Pin To Net: NetName=GND Pin=U43-2
+Added Pin To Net: NetName=GND Pin=U43-3
+Added Pin To Net: NetName=EUROMAP64 Pin=U43-4
+Added Pin To Net: NetName=GND Pin=U44-2
+Added Pin To Net: NetName=GND Pin=U44-3
+Added Pin To Net: NetName=EUROMAP63 Pin=U44-4
+Added Pin To Net: NetName=GND Pin=U45-2
+Added Pin To Net: NetName=GND Pin=U45-3
+Added Pin To Net: NetName=EUROMAP68 Pin=U45-4
+Added Pin To Net: NetName=GND Pin=U46-2
+Added Pin To Net: NetName=GND Pin=U46-3
+Added Pin To Net: NetName=EUROMAP69 Pin=U46-4
+Added Pin To Net: NetName=GND Pin=U47-2
+Added Pin To Net: NetName=GND Pin=U47-3
+Added Pin To Net: NetName=EUROMAP70 Pin=U47-4
+Added Pin To Net: NetName=GND Pin=U48-2
+Added Pin To Net: NetName=GND Pin=U48-3
+Added Pin To Net: NetName=EUROMAP71 Pin=U48-4
+Added Pin To Net: NetName=GND Pin=U49-2
+Added Pin To Net: NetName=GND Pin=U49-3
+Added Pin To Net: NetName=EUROMAP72 Pin=U49-4
+Added Pin To Net: NetName=GND Pin=U50-2
+Added Pin To Net: NetName=GND Pin=U50-3
+Added Pin To Net: NetName=EUROMAP73 Pin=U50-4
+Added Pin To Net: NetName=GND Pin=U51-2
+Added Pin To Net: NetName=GND Pin=U51-3
+Added Pin To Net: NetName=EUROMAP62 Pin=U51-4
+Added Pin To Net: NetName=EUROMAP21 Pin=VT3-1
+Added Pin To Net: NetName=EUROMAP21 Pin=VT3-2
+Added Pin To Net: NetName=NetR16_1 Pin=VT3-3
+Added Pin To Net: NetName=EUROMAP22 Pin=VT3-4
+Added Pin To Net: NetName=EUROMAP21 Pin=VT3-5
+Added Pin To Net: NetName=EUROMAP21 Pin=VT3-6
+Added Pin To Net: NetName=EUROMAP21 Pin=VT4-1
+Added Pin To Net: NetName=EUROMAP21 Pin=VT4-2
+Added Pin To Net: NetName=NetR19_1 Pin=VT4-3
+Added Pin To Net: NetName=EUROMAP22 Pin=VT4-4
+Added Pin To Net: NetName=EUROMAP21 Pin=VT4-5
+Added Pin To Net: NetName=EUROMAP21 Pin=VT4-6
+Added Pin To Net: NetName=EUROMAP21 Pin=VT5-1
+Added Pin To Net: NetName=EUROMAP21 Pin=VT5-2
+Added Pin To Net: NetName=NetR22_1 Pin=VT5-3
+Added Pin To Net: NetName=EUROMAP22 Pin=VT5-4
+Added Pin To Net: NetName=EUROMAP21 Pin=VT5-5
+Added Pin To Net: NetName=EUROMAP21 Pin=VT5-6
+Added Pin To Net: NetName=EUROMAP16 Pin=VT6-1
+Added Pin To Net: NetName=EUROMAP16 Pin=VT6-2
+Added Pin To Net: NetName=NetR25_1 Pin=VT6-3
+Added Pin To Net: NetName=EUROMAP22 Pin=VT6-4
+Added Pin To Net: NetName=EUROMAP16 Pin=VT6-5
+Added Pin To Net: NetName=EUROMAP16 Pin=VT6-6
+Added Pin To Net: NetName=EUROMAP17 Pin=VT7-1
+Added Pin To Net: NetName=EUROMAP17 Pin=VT7-2
+Added Pin To Net: NetName=NetR28_1 Pin=VT7-3
+Added Pin To Net: NetName=EUROMAP22 Pin=VT7-4
+Added Pin To Net: NetName=EUROMAP17 Pin=VT7-5
+Added Pin To Net: NetName=EUROMAP17 Pin=VT7-6
+Added Pin To Net: NetName=EUROMAP18 Pin=VT8-1
+Added Pin To Net: NetName=EUROMAP18 Pin=VT8-2
+Added Pin To Net: NetName=NetR31_1 Pin=VT8-3
+Added Pin To Net: NetName=EUROMAP22 Pin=VT8-4
+Added Pin To Net: NetName=EUROMAP18 Pin=VT8-5
+Added Pin To Net: NetName=EUROMAP18 Pin=VT8-6
+Added Pin To Net: NetName=EUROMAP19 Pin=VT9-1
+Added Pin To Net: NetName=EUROMAP19 Pin=VT9-2
+Added Pin To Net: NetName=NetR34_1 Pin=VT9-3
+Added Pin To Net: NetName=EUROMAP22 Pin=VT9-4
+Added Pin To Net: NetName=EUROMAP19 Pin=VT9-5
+Added Pin To Net: NetName=EUROMAP19 Pin=VT9-6
+Added Pin To Net: NetName=EUROMAP20 Pin=VT10-1
+Added Pin To Net: NetName=EUROMAP20 Pin=VT10-2
+Added Pin To Net: NetName=NetR37_1 Pin=VT10-3
+Added Pin To Net: NetName=EUROMAP22 Pin=VT10-4
+Added Pin To Net: NetName=EUROMAP20 Pin=VT10-5
+Added Pin To Net: NetName=EUROMAP20 Pin=VT10-6
+Added Pin To Net: NetName=EUROMAP21 Pin=VT11-1
+Added Pin To Net: NetName=EUROMAP21 Pin=VT11-2
+Added Pin To Net: NetName=NetR40_1 Pin=VT11-3
+Added Pin To Net: NetName=EUROMAP22 Pin=VT11-4
+Added Pin To Net: NetName=EUROMAP21 Pin=VT11-5
+Added Pin To Net: NetName=EUROMAP21 Pin=VT11-6
+Added Pin To Net: NetName=NetR26_2 Pin=R26-2
+Added Pin To Net: NetName=NetR26_2 Pin=U13-1
+Added Net: Name=NetR26_2
+Added Pin To Net: NetName=NetR32_2 Pin=R32-2
+Added Pin To Net: NetName=NetR32_2 Pin=U14-1
+Added Net: Name=NetR32_2
+Added Pin To Net: NetName=NetR105_2 Pin=R105-2
+Added Pin To Net: NetName=NetR105_2 Pin=U45-1
+Added Net: Name=NetR105_2
+Added Pin To Net: NetName=NetR107_2 Pin=R107-2
+Added Pin To Net: NetName=NetR107_2 Pin=U42-1
+Added Net: Name=NetR107_2
+Added Pin To Net: NetName=NetR110_2 Pin=R110-2
+Added Pin To Net: NetName=NetR110_2 Pin=U43-1
+Added Net: Name=NetR110_2
+Added Pin To Net: NetName=NetR113_2 Pin=R113-2
+Added Pin To Net: NetName=NetR113_2 Pin=U44-1
+Added Net: Name=NetR113_2
+Added Pin To Net: NetName=NetR117_2 Pin=R117-2
+Added Pin To Net: NetName=NetR117_2 Pin=U46-1
+Added Net: Name=NetR117_2
+Added Pin To Net: NetName=NetR119_2 Pin=R119-2
+Added Pin To Net: NetName=NetR119_2 Pin=U47-1
+Added Net: Name=NetR119_2
+Added Pin To Net: NetName=NetR121_2 Pin=R121-2
+Added Pin To Net: NetName=NetR121_2 Pin=U48-1
+Added Net: Name=NetR121_2
+Added Pin To Net: NetName=NetR123_2 Pin=R123-2
+Added Pin To Net: NetName=NetR123_2 Pin=U49-1
+Added Net: Name=NetR123_2
+Added Pin To Net: NetName=NetR125_2 Pin=R125-2
+Added Pin To Net: NetName=NetR125_2 Pin=U50-1
+Added Net: Name=NetR125_2
+Added Pin To Net: NetName=NetR127_2 Pin=R127-2
+Added Pin To Net: NetName=NetR127_2 Pin=U51-1
+Added Net: Name=NetR127_2
+Added Member To Class: ClassName=A3 Member=Component R117 2.4k
+Added Member To Class: ClassName=A3 Member=Component R118 330
+Added Member To Class: ClassName=A3 Member=Component R119 2.4k
+Added Member To Class: ClassName=A3 Member=Component R120 330
+Added Member To Class: ClassName=A3 Member=Component R121 2.4k
+Added Member To Class: ClassName=A3 Member=Component R122 330
+Added Member To Class: ClassName=A3 Member=Component R123 2.4k
+Added Member To Class: ClassName=A3 Member=Component R124 330
+Added Member To Class: ClassName=A3 Member=Component R125 2.4k
+Added Member To Class: ClassName=A3 Member=Component R126 330
+Added Member To Class: ClassName=A3 Member=Component R127 2.4k
+Added Member To Class: ClassName=A3 Member=Component R128 330
+Added Member To Class: ClassName=A3 Member=Component U13 LTV-816S
+Added Member To Class: ClassName=A3 Member=Component U14 LTV-816S
+Added Member To Class: ClassName=A3 Member=Component U42 LTV-816S
+Added Member To Class: ClassName=A3 Member=Component U43 LTV-816S
+Added Member To Class: ClassName=A3 Member=Component U44 LTV-816S
+Added Member To Class: ClassName=A3 Member=Component U45 LTV-816S
+Added Member To Class: ClassName=A3 Member=Component U46 LTV-816S
+Added Member To Class: ClassName=A3 Member=Component U47 LTV-816S
+Added Member To Class: ClassName=A3 Member=Component U48 LTV-816S
+Added Member To Class: ClassName=A3 Member=Component U49 LTV-816S
+Added Member To Class: ClassName=A3 Member=Component U50 LTV-816S
+Added Member To Class: ClassName=A3 Member=Component U51 LTV-816S
+Added Member To Class: ClassName=A3 Member=Component VT10 IRFTS9342TRPBF
+Added Member To Class: ClassName=A3 Member=Component VT11 IRFTS9342TRPBF

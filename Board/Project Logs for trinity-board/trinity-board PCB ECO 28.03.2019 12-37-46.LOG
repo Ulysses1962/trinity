@@ -1,0 +1,12 @@
+Removed Pin From Net: NetName=CPU17 Pin=X3-1
+Removed Pin From Net: NetName=CPU17 Pin=X3-3
+Removed Pin From Net: NetName=CPU19 Pin=X3-4
+Removed Pin From Net: NetName=CPU20 Pin=X3-6
+Removed Pin From Net: NetName=CPU18 Pin=X3-7
+Removed Pin From Net: NetName=GND Pin=X3-8
+Removed Pin From Net: NetName=CPU18 Pin=X3-9
+Change Component Footprint: Designator=X3 Old Footprint=DHP8-09F New Footprint=MINI-FIT-6WAY-SM
+Added Pin To Net: NetName=CPU20 Pin=X3-1
+Added Pin To Net: NetName=CPU19 Pin=X3-3
+Added Pin To Net: NetName=CPU18 Pin=X3-4
+Added Pin To Net: NetName=CPU17 Pin=X3-6

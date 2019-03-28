@@ -327,7 +327,7 @@
             <uC99>1</uC99>
             <uGnu>0</uGnu>
             <useXO>0</useXO>
-            <v6Lang>3</v6Lang>
+            <v6Lang>5</v6Lang>
             <v6LangP>6</v6LangP>
             <vShortEn>1</vShortEn>
             <vShortWch>1</vShortWch>
@@ -390,9 +390,6 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>::CMSIS</GroupName>
-        </Group>
-        <Group>
           <GroupName>Application/User</GroupName>
           <Files>
             <File>
@@ -429,6 +426,16 @@
               <FileName>main.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>..\Src\main.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>euromap.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\Src\euromap.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>channel.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\Src\channel.cpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -576,6 +583,9 @@
               <FilePath>../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Src/usbd_cdc.c</FilePath>
             </File>
           </Files>
+        </Group>
+        <Group>
+          <GroupName>::CMSIS</GroupName>
         </Group>
       </Groups>
     </Target>

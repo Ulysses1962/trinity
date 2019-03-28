@@ -1,13 +1,14 @@
 /**
-  @author Sergey Rotanov aka Ulysses
-  @date   March 2019
-  @brief  EUROMAP API definitions
+    @author Sergey Rotanov aka Ulysses
+    @date   March 2019
+    @brief  EUROMAP API definitions
 */
 #ifndef __EUROMAP_API__
 #define __EUROMAP_API__
 
 #include "main.h"
 #include "vector"
+#include "channel.hpp"
 
 using namespace std;
 
@@ -30,6 +31,10 @@ class Euromap
 
     SPI out_port;
     vector<EUROMAP_LINE> lines {};
+
+    Channel<uint16_t> command_channel;
+    Channel<uint16_t> cmd_ack_channel;
+    Channel<uint16_t> machine_state_channel;
 
     uint16_t machine_state; 
     uint16_t control_word;
@@ -63,7 +68,7 @@ class Euromap
     static auto const CORE_PULLERS_IN_POS1_MASK 	{0x0400};
 
 public:
-    Euromap(uint8_t version, SPI port, vector<EUROMAP_LINE>& lines);
+    Euromap(uint8_t version, SPI port, vector<Channel<uint16_t>&> channels, vector<EUROMAP_LINE>& lines);
 
     auto update_state() -> void;
     auto process_command() -> void;

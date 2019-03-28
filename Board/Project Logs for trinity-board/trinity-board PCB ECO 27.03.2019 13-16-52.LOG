@@ -1,0 +1,58 @@
+Removed Pin From Net: NetName=EUROMAP21 Pin=R14-2
+Removed Pin From Net: NetName=EUROMAP21 Pin=R17-2
+Removed Pin From Net: NetName=EUROMAP21 Pin=R20-2
+Removed Pin From Net: NetName=EUROMAP21 Pin=VT3-1
+Removed Pin From Net: NetName=EUROMAP21 Pin=VT3-2
+Removed Pin From Net: NetName=EUROMAP21 Pin=VT3-5
+Removed Pin From Net: NetName=EUROMAP21 Pin=VT3-6
+Removed Pin From Net: NetName=EUROMAP21 Pin=VT4-1
+Removed Pin From Net: NetName=EUROMAP21 Pin=VT4-2
+Removed Pin From Net: NetName=EUROMAP21 Pin=VT4-5
+Removed Pin From Net: NetName=EUROMAP21 Pin=VT4-6
+Removed Pin From Net: NetName=EUROMAP21 Pin=VT5-1
+Removed Pin From Net: NetName=EUROMAP21 Pin=VT5-2
+Removed Pin From Net: NetName=EUROMAP21 Pin=VT5-5
+Removed Pin From Net: NetName=EUROMAP21 Pin=VT5-6
+Added Pin To Net: NetName=EUROMAP13 Pin=R14-2
+Added Pin To Net: NetName=EUROMAP14 Pin=R17-2
+Added Pin To Net: NetName=EUROMAP15 Pin=R20-2
+Added Pin To Net: NetName=EUROMAP13 Pin=VT3-1
+Added Pin To Net: NetName=EUROMAP13 Pin=VT3-2
+Added Pin To Net: NetName=EUROMAP13 Pin=VT3-5
+Added Pin To Net: NetName=EUROMAP13 Pin=VT3-6
+Added Pin To Net: NetName=EUROMAP14 Pin=VT4-1
+Added Pin To Net: NetName=EUROMAP14 Pin=VT4-2
+Added Pin To Net: NetName=EUROMAP14 Pin=VT4-5
+Added Pin To Net: NetName=EUROMAP14 Pin=VT4-6
+Added Pin To Net: NetName=EUROMAP15 Pin=VT5-1
+Added Pin To Net: NetName=EUROMAP15 Pin=VT5-2
+Added Pin To Net: NetName=EUROMAP15 Pin=VT5-5
+Added Pin To Net: NetName=EUROMAP15 Pin=VT5-6
+Added Member To Class: ClassName=A3 Member=Component R14 100k
+Added Member To Class: ClassName=A3 Member=Component R17 100k
+Added Member To Class: ClassName=A3 Member=Component R20 100k
+Added Member To Class: ClassName=A3 Member=Component R23 100k
+Added Member To Class: ClassName=A3 Member=Component R26 2.4k
+Added Member To Class: ClassName=A3 Member=Component R29 330
+Added Member To Class: ClassName=A3 Member=Component R32 2.4k
+Added Member To Class: ClassName=A3 Member=Component R35 330
+Added Member To Class: ClassName=A3 Member=Component R106 100k
+Added Member To Class: ClassName=A3 Member=Component R107 2.4k
+Added Member To Class: ClassName=A3 Member=Component R108 330
+Added Member To Class: ClassName=A3 Member=Component R109 100k
+Added Member To Class: ClassName=A3 Member=Component R110 2.4k
+Added Member To Class: ClassName=A3 Member=Component R111 330
+Added Member To Class: ClassName=A3 Member=Component R112 100k
+Added Member To Class: ClassName=A3 Member=Component R113 2.4k
+Added Member To Class: ClassName=A3 Member=Component R114 330
+Added Member To Class: ClassName=A3 Member=Component R115 100k
+Added Member To Class: ClassName=A3 Member=Component R116 330
+Added Member To Class: ClassName=A3 Member=Component VT3 IRFTS9342TRPBF
+Added Member To Class: ClassName=A3 Member=Component VT4 IRFTS9342TRPBF
+Added Member To Class: ClassName=A3 Member=Component VT5 IRFTS9342TRPBF
+Added Member To Class: ClassName=A3 Member=Component VT6 IRFTS9342TRPBF
+Added Member To Class: ClassName=A3 Member=Component VT7 IRFTS9342TRPBF
+Added Member To Class: ClassName=A3 Member=Component VT8 IRFTS9342TRPBF
+Added Member To Class: ClassName=A3 Member=Component VT9 IRFTS9342TRPBF
+Added Member To Class: ClassName=A3 Member=Component VT10 IRFTS9342TRPBF
+Added Member To Class: ClassName=A3 Member=Component VT11 IRFTS9342TRPBF

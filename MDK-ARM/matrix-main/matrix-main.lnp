@@ -7,6 +7,8 @@
 "matrix-main\stm32f7xx_it.o"
 "matrix-main\stm32f7xx_hal_msp.o"
 "matrix-main\main.o"
+"matrix-main\euromap.o"
+"matrix-main\channel.o"
 "matrix-main\stm32f7xx_hal_pcd.o"
 "matrix-main\stm32f7xx_hal_pcd_ex.o"
 "matrix-main\stm32f7xx_ll_usb.o"

@@ -1,0 +1,8 @@
+Removed Pin From Net: NetName=EUROMAP65 Pin=VD9-1
+Removed Pin From Net: NetName=EUROMAP64 Pin=VD9-3
+Removed Pin From Net: NetName=EUROMAP63 Pin=VD9-4
+Removed Pin From Net: NetName=EUROMAP62 Pin=VD9-6
+Added Pin To Net: NetName=EUROMAP64 Pin=VD9-1
+Added Pin To Net: NetName=EUROMAP65 Pin=VD9-3
+Added Pin To Net: NetName=EUROMAP62 Pin=VD9-4
+Added Pin To Net: NetName=EUROMAP63 Pin=VD9-6

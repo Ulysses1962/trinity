@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=EUROMAP73 Pin=U10-1
+Removed Pin From Net: NetName=EUROMAP71 Pin=U10-5
+Added Pin To Net: NetName=EUROMAP71 Pin=U10-1
+Added Pin To Net: NetName=EUROMAP73 Pin=U10-5
+Change Net Name : Old Net Name=EUROMAP35 New Net Name=EUROMAP37
+Change Net Name : Old Net Name=EUROMAP37 New Net Name=EUROMAP35

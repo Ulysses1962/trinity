@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=GND Pin=RS485 MODBUS-2
+Removed Pin From Net: NetName=CPU19 Pin=RS485 MODBUS-3
+Added Pin To Net: NetName=CPU19 Pin=RS485 MODBUS-2
+Added Pin To Net: NetName=GND Pin=RS485 MODBUS-3
+Added Member To Class: ClassName=A5 Member=Component U26 ULN2803ADWR
+Added Member To Class: ClassName=A5 Member=Component U37 74HC595

@@ -1,0 +1,6 @@
+Record=TopLevelDocument|FileName=main-board.SchDoc
+Record=SheetSymbol|SourceDocument=main-board.SchDoc|Designator=A1|SchDesignator=A1|FileName=cpu.SchDoc|SymbolType=Normal|RawFileName=cpu.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=main-board.SchDoc|Designator=A2|SchDesignator=A2|FileName=power.SchDoc|SymbolType=Normal|RawFileName=power.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=main-board.SchDoc|Designator=A3|SchDesignator=A3|FileName=euromap.SchDoc|SymbolType=Normal|RawFileName=euromap.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=main-board.SchDoc|Designator=A4|SchDesignator=A4|FileName=sensors.SchDoc|SymbolType=Normal|RawFileName=sensors.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=main-board.SchDoc|Designator=A5|SchDesignator=A5|FileName=servo.SchDoc|SymbolType=Normal|RawFileName=servo.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
