@@ -1,0 +1,20 @@
+Removed Pin From Net: NetName=CPU20 Pin=RS485 MODBUS-1
+Removed Pin From Net: NetName=CPU19 Pin=RS485 MODBUS-2
+Removed Pin From Net: NetName=GND Pin=RS485 MODBUS-3
+Removed Pin From Net: NetName=CPU18 Pin=RS485 MODBUS-4
+Removed Pin From Net: NetName=GND Pin=RS485 MODBUS-5
+Removed Pin From Net: NetName=CPU17 Pin=RS485 MODBUS-6
+Removed Member From Class: ClassName=A1 Member=RS485 MODBUS
+Added Component: Designator=X3(RJ45-CAN)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/el.php?name=TJ9S-8P8C"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=X3-1
+Added Pin To Net: NetName=CPU18 Pin=X3-2
+Added Pin To Net: NetName=CPU20 Pin=X3-3
+Added Pin To Net: NetName=CPU19 Pin=X3-4
+Added Pin To Net: NetName=GND Pin=X3-5
+Added Pin To Net: NetName=CPU17 Pin=X3-6
+Added Pin To Net: NetName=GND Pin=X3-7
+Added Pin To Net: NetName=CPU17 Pin=X3-8
+Added Member To Class: ClassName=A5 Member=Component U37 74HC595
+Added Member To Class: ClassName=A1 Member=Component X3 RS485 MODBUS

@@ -1,0 +1,12 @@
+Added Component: Designator=C61(CAPC2012X04N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/prodlist.php?name=cap1206"; VariantName = "[No Variations]"
+Added Component: Designator=C62(CAPC2012X04N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/prodlist.php?name=cap1206"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=CPU17 Pin=C61-1
+Added Pin To Net: NetName=GND Pin=C61-2
+Added Pin To Net: NetName=CPU17 Pin=C62-1
+Added Pin To Net: NetName=GND Pin=C62-2
+Added Member To Class: ClassName=A4 Member=Component C61 0.1
+Added Member To Class: ClassName=A4 Member=Component C62 0.1
