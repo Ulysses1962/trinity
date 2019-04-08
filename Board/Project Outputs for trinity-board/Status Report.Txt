@@ -1,10 +1,11 @@
-Output: Mixed Sim
-Type  : AdvSimNetlist
-From  : Project [trinity-board.PrjPcb]
-   Generated File[trinity-board.nsx]
+Output: Simple BOM
+Type  : SimpleBOM
+From  : Variant [[No Variations]] of Project [trinity-board.PrjPcb]
+   Generated File[euromap.BOM]
+   Generated File[euromap.CSV]
 
 
-Files Generated   : 1
+Files Generated   : 2
 Documents Printed : 0
 
-Finished Output Generation At 10:04:30 On 22.03.2019
+Finished Output Generation At 22:26:10 On 08.04.2019
