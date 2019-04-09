@@ -209,7 +209,7 @@ GenerateClassCluster=0
 DocumentUniqueId=XDDHXKDL
 
 [Document11]
-DocumentPath=trinity-board.PcbDoc
+DocumentPath=trinity-m.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0

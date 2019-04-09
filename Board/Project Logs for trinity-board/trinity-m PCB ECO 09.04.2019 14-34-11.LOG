@@ -1,0 +1,35 @@
+Added Pin To Net: NetName=SERVO11 Pin=K1-5
+Added Pin To Net: NetName=SERVO11 Pin=K2-5
+Added Pin To Net: NetName=SERVO11 Pin=K3-5
+Added Pin To Net: NetName=SERVO11 Pin=K4-5
+Added Pin To Net: NetName=SERVO11 Pin=K5-5
+Added Pin To Net: NetName=SERVO11 Pin=K6-5
+Added Pin To Net: NetName=SERVO11 Pin=K7-5
+Added Pin To Net: NetName=SERVO11 Pin=K8-5
+Added Pin To Net: NetName=SERVO11 Pin=K9-5
+Added Pin To Net: NetName=SERVO11 Pin=R36-1
+Added Pin To Net: NetName=SERVO11 Pin=R37-1
+Added Pin To Net: NetName=SERVO11 Pin=R40-1
+Added Pin To Net: NetName=SERVO11 Pin=R59-1
+Added Pin To Net: NetName=SERVO11 Pin=R62-1
+Added Pin To Net: NetName=SERVO11 Pin=R63-1
+Added Pin To Net: NetName=SERVO11 Pin=R66-1
+Added Pin To Net: NetName=SERVO11 Pin=R67-1
+Added Pin To Net: NetName=SERVO11 Pin=R70-1
+Added Pin To Net: NetName=SERVO11 Pin=R71-1
+Added Pin To Net: NetName=SERVO11 Pin=R74-1
+Added Pin To Net: NetName=SERVO11 Pin=R75-1
+Added Pin To Net: NetName=SERVO11 Pin=R102-1
+Added Pin To Net: NetName=SERVO11 Pin=R103-1
+Added Pin To Net: NetName=SERVO11 Pin=R106-1
+Added Pin To Net: NetName=SERVO11 Pin=R107-1
+Added Pin To Net: NetName=SERVO11 Pin=X10-16
+Added Member To Class: ClassName=A3 Member=Component K1 NRP02-C24DH-S
+Added Member To Class: ClassName=A3 Member=Component K2 NRP02-C24DH-S
+Added Member To Class: ClassName=A3 Member=Component K3 NRP02-C24DH-S
+Added Member To Class: ClassName=A3 Member=Component K4 NRP02-C24DH-S
+Added Member To Class: ClassName=A3 Member=Component K5 NRP02-C24DH-S
+Added Member To Class: ClassName=A3 Member=Component K6 NRP02-C24DH-S
+Added Member To Class: ClassName=A3 Member=Component K7 NRP02-C24DH-S
+Added Member To Class: ClassName=A3 Member=Component K8 NRP02-C24DH-S
+Added Member To Class: ClassName=A3 Member=Component K9 NRP02-C24DH-S
