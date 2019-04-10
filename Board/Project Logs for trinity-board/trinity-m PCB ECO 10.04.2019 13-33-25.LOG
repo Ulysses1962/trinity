@@ -1,0 +1,7 @@
+Removed Pin From Net: NetName=CPU18 Pin=C19-2
+Removed Pin From Net: NetName=CPU18 Pin=C20-2
+Removed Pin From Net: NetName=CPU18 Pin=U8-8
+Change Component Comment : Designator=U8 Old Comment=SN65176BD New Comment=ADM3485E
+Added Pin To Net: NetName=CPU17 Pin=C19-2
+Added Pin To Net: NetName=CPU17 Pin=C20-2
+Added Pin To Net: NetName=CPU17 Pin=U8-8

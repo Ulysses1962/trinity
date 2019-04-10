@@ -1,0 +1,23 @@
+Removed Pin From Net: NetName=M\A\C\H\I\N\E\-\E\M\G\S\ Pin=U12-51
+Removed Pin From Net: NetName=M\O\U\L\D\-\O\P\E\N\-\P\O\S\ Pin=U12-52
+Removed Pin From Net: NetName=M\A\C\H\I\N\E\-\S\A\F\E\T\Y\ Pin=U12-53
+Removed Pin From Net: NetName=E\J\E\C\T\O\R\-\I\N\-\B\A\C\K\-\P\O\S\ Pin=U12-54
+Removed Pin From Net: NetName=E\J\E\C\T\O\R\-\I\N\-\F\W\D\-\P\O\S\ Pin=U12-55
+Removed Pin From Net: NetName=C\O\R\E\-\P\U\L\L\E\R\S\-\I\N\-\P\O\S\-\1\ Pin=U12-56
+Removed Pin From Net: NetName=C\O\R\E\-\P\U\L\L\E\R\S\-\I\N\-\P\O\S\-\2\ Pin=U12-57
+Removed Pin From Net: NetName=R\E\J\E\C\T\ Pin=U12-58
+Removed Pin From Net: NetName=D\E\V\I\C\E\-\O\P\-\E\N\A\ Pin=U12-59
+Removed Pin From Net: NetName=M\O\U\L\D\-\C\L\O\S\E\D\ Pin=U12-61
+Removed Pin From Net: NetName=I\N\T\E\R\-\M\O\U\L\D\-\O\P\E\N\-\P\O\S\ Pin=U12-62
+Added Pin To Net: NetName=I\N\T\E\R\-\M\O\U\L\D\-\O\P\E\N\-\P\O\S\ Pin=U12-51
+Added Pin To Net: NetName=D\E\V\I\C\E\-\O\P\-\E\N\A\ Pin=U12-52
+Added Pin To Net: NetName=C\O\R\E\-\P\U\L\L\E\R\S\-\I\N\-\P\O\S\-\1\ Pin=U12-53
+Added Pin To Net: NetName=M\A\C\H\I\N\E\-\S\A\F\E\T\Y\ Pin=U12-54
+Added Pin To Net: NetName=R\E\J\E\C\T\ Pin=U12-55
+Added Pin To Net: NetName=E\J\E\C\T\O\R\-\I\N\-\F\W\D\-\P\O\S\ Pin=U12-56
+Added Pin To Net: NetName=M\O\U\L\D\-\O\P\E\N\-\P\O\S\ Pin=U12-57
+Added Pin To Net: NetName=M\O\U\L\D\-\C\L\O\S\E\D\ Pin=U12-58
+Added Pin To Net: NetName=C\O\R\E\-\P\U\L\L\E\R\S\-\I\N\-\P\O\S\-\2\ Pin=U12-59
+Added Pin To Net: NetName=E\J\E\C\T\O\R\-\I\N\-\B\A\C\K\-\P\O\S\ Pin=U12-61
+Added Pin To Net: NetName=M\A\C\H\I\N\E\-\E\M\G\S\ Pin=U12-62
+Added Member To Class: ClassName=A3 Member=Component K3 NRP02-C24DH-S
