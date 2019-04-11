@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=S\E\N\S\-\I\-\0\ Pin=R109-2
+Removed Pin From Net: NetName=S\E\N\S\-\I\-\0\ Pin=U58-4
+Added Pin To Net: NetName=S\E\N\S\-\I\-\1\5\ Pin=R109-2
+Added Pin To Net: NetName=S\E\N\S\-\I\-\1\5\ Pin=U58-4

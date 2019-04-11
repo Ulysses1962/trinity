@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=S\E\N\S\-\I\-\5\ Pin=U59-5
+Removed Pin From Net: NetName=S\E\N\S\-\I\-\6\ Pin=U59-9
+Added Pin To Net: NetName=S\E\N\S\-\I\-\6\ Pin=U59-5
+Added Pin To Net: NetName=S\E\N\S\-\I\-\5\ Pin=U59-9
+Added Member To Class: ClassName=A4 Member=Component U22 74HC4051PW.118

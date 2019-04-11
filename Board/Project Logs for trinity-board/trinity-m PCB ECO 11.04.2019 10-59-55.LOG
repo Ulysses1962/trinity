@@ -1,0 +1,32 @@
+Added Component: Designator=C80(CAPC2012X04N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/prodlist.php?name=cap1206"; VariantName = "[No Variations]"
+Added Component: Designator=C81(CAPC2012X04N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/prodlist.php?name=cap1206"; VariantName = "[No Variations]"
+Added Component: Designator=C82(CAPC2012X04N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/prodlist.php?name=cap1206"; VariantName = "[No Variations]"
+Added Component: Designator=C83(CAPC2012X04N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/prodlist.php?name=cap1206"; VariantName = "[No Variations]"
+Added Component: Designator=C84(CAPC2012X04N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/prodlist.php?name=cap1206"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=CPU17 Pin=C80-1
+Added Pin To Net: NetName=GND Pin=C80-2
+Added Pin To Net: NetName=GND Pin=C81-1
+Added Pin To Net: NetName=CPU17 Pin=C81-2
+Added Pin To Net: NetName=CPU17 Pin=C82-1
+Added Pin To Net: NetName=GND Pin=C82-2
+Added Pin To Net: NetName=CPU17 Pin=C83-1
+Added Pin To Net: NetName=GND Pin=C83-2
+Added Pin To Net: NetName=GND Pin=C84-1
+Added Pin To Net: NetName=CPU17 Pin=C84-2
+Added Pin To Net: NetName=CPU17 Pin=U60-14
+Added Member To Class: ClassName=A4 Member=Component C80 0.1
+Added Member To Class: ClassName=A4 Member=Component C81 0.1
+Added Member To Class: ClassName=A4 Member=Component C82 0.1
+Added Member To Class: ClassName=A4 Member=Component C83 0.1
+Added Member To Class: ClassName=A4 Member=Component C84 0.1
+Added Member To Class: ClassName=A4 Member=Component U17 H11L1M
