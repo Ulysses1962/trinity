@@ -1,0 +1,80 @@
+Added Component: Designator=VD1(DIOM4336X21N)
+Add component. Clean all parameters for all variants
+Added Component: Designator=VD2(DIOM4336X21N)
+Add component. Clean all parameters for all variants
+Added Component: Designator=VD3(DIOM4336X21N)
+Add component. Clean all parameters for all variants
+Added Component: Designator=VD4(DIOM4336X21N)
+Add component. Clean all parameters for all variants
+Added Component: Designator=VD5(DIOM4336X21N)
+Add component. Clean all parameters for all variants
+Added Component: Designator=VD6(DIOM4336X21N)
+Add component. Clean all parameters for all variants
+Added Component: Designator=VD7(DIOM4336X21N)
+Add component. Clean all parameters for all variants
+Added Component: Designator=VD8(DIOM4336X21N)
+Add component. Clean all parameters for all variants
+Added Component: Designator=VD9(DIOM4336X21N)
+Add component. Clean all parameters for all variants
+Added Component: Designator=VD10(DIOM4336X21N)
+Add component. Clean all parameters for all variants
+Added Component: Designator=VD11(DIOM4336X21N)
+Add component. Clean all parameters for all variants
+Added Component: Designator=VD12(DIOM4336X21N)
+Add component. Clean all parameters for all variants
+Added Component: Designator=VD17(DIOM4336X21N)
+Add component. Clean all parameters for all variants
+Added Component: Designator=VD18(DIOM4336X21N)
+Add component. Clean all parameters for all variants
+Added Component: Designator=VD19(DIOM4336X21N)
+Add component. Clean all parameters for all variants
+Added Component: Designator=VD20(DIOM4336X21N)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=CPU1 Pin=VD1-1
+Added Pin To Net: NetName=GND Pin=VD1-2
+Added Pin To Net: NetName=CPU2 Pin=VD2-1
+Added Pin To Net: NetName=GND Pin=VD2-2
+Added Pin To Net: NetName=CPU3 Pin=VD3-1
+Added Pin To Net: NetName=GND Pin=VD3-2
+Added Pin To Net: NetName=CPU4 Pin=VD4-1
+Added Pin To Net: NetName=GND Pin=VD4-2
+Added Pin To Net: NetName=CPU5 Pin=VD5-1
+Added Pin To Net: NetName=GND Pin=VD5-2
+Added Pin To Net: NetName=CPU6 Pin=VD6-1
+Added Pin To Net: NetName=GND Pin=VD6-2
+Added Pin To Net: NetName=CPU7 Pin=VD7-1
+Added Pin To Net: NetName=GND Pin=VD7-2
+Added Pin To Net: NetName=CPU8 Pin=VD8-1
+Added Pin To Net: NetName=GND Pin=VD8-2
+Added Pin To Net: NetName=CPU9 Pin=VD9-1
+Added Pin To Net: NetName=GND Pin=VD9-2
+Added Pin To Net: NetName=CPU10 Pin=VD10-1
+Added Pin To Net: NetName=GND Pin=VD10-2
+Added Pin To Net: NetName=CPU11 Pin=VD11-1
+Added Pin To Net: NetName=GND Pin=VD11-2
+Added Pin To Net: NetName=CPU12 Pin=VD12-1
+Added Pin To Net: NetName=GND Pin=VD12-2
+Added Pin To Net: NetName=CPU13 Pin=VD17-1
+Added Pin To Net: NetName=GND Pin=VD17-2
+Added Pin To Net: NetName=CPU14 Pin=VD18-1
+Added Pin To Net: NetName=GND Pin=VD18-2
+Added Pin To Net: NetName=CPU15 Pin=VD19-1
+Added Pin To Net: NetName=GND Pin=VD19-2
+Added Pin To Net: NetName=CPU16 Pin=VD20-1
+Added Pin To Net: NetName=GND Pin=VD20-2
+Added Member To Class: ClassName=A1 Member=Component VD1 SS26
+Added Member To Class: ClassName=A1 Member=Component VD2 SS26
+Added Member To Class: ClassName=A1 Member=Component VD3 SS26
+Added Member To Class: ClassName=A1 Member=Component VD4 SS26
+Added Member To Class: ClassName=A1 Member=Component VD5 SS26
+Added Member To Class: ClassName=A1 Member=Component VD6 SS26
+Added Member To Class: ClassName=A1 Member=Component VD7 SS26
+Added Member To Class: ClassName=A1 Member=Component VD8 SS26
+Added Member To Class: ClassName=A1 Member=Component VD9 SS26
+Added Member To Class: ClassName=A1 Member=Component VD10 SS26
+Added Member To Class: ClassName=A1 Member=Component VD11 SS26
+Added Member To Class: ClassName=A1 Member=Component VD12 SS26
+Added Member To Class: ClassName=A1 Member=Component VD17 SS26
+Added Member To Class: ClassName=A1 Member=Component VD18 SS26
+Added Member To Class: ClassName=A1 Member=Component VD19 SS26
+Added Member To Class: ClassName=A1 Member=Component VD20 SS26

@@ -1,0 +1,80 @@
+Change Component Footprint: Designator=VD1 Old Footprint=DIOM4336X21N New Footprint=SODFL370X135-2N
+Change Component Footprint: Designator=VD2 Old Footprint=DIOM4336X21N New Footprint=SODFL370X135-2N
+Change Component Footprint: Designator=VD3 Old Footprint=DIOM4336X21N New Footprint=SODFL370X135-2N
+Change Component Footprint: Designator=VD4 Old Footprint=DIOM4336X21N New Footprint=SODFL370X135-2N
+Change Component Footprint: Designator=VD5 Old Footprint=DIOM4336X21N New Footprint=SODFL370X135-2N
+Change Component Footprint: Designator=VD6 Old Footprint=DIOM4336X21N New Footprint=SODFL370X135-2N
+Change Component Footprint: Designator=VD7 Old Footprint=DIOM4336X21N New Footprint=SODFL370X135-2N
+Change Component Footprint: Designator=VD8 Old Footprint=DIOM4336X21N New Footprint=SODFL370X135-2N
+Change Component Footprint: Designator=VD9 Old Footprint=DIOM4336X21N New Footprint=SODFL370X135-2N
+Change Component Footprint: Designator=VD10 Old Footprint=DIOM4336X21N New Footprint=SODFL370X135-2N
+Change Component Footprint: Designator=VD11 Old Footprint=DIOM4336X21N New Footprint=SODFL370X135-2N
+Change Component Footprint: Designator=VD12 Old Footprint=DIOM4336X21N New Footprint=SODFL370X135-2N
+Change Component Footprint: Designator=VD17 Old Footprint=DIOM4336X21N New Footprint=SODFL370X135-2N
+Change Component Footprint: Designator=VD18 Old Footprint=DIOM4336X21N New Footprint=SODFL370X135-2N
+Change Component Footprint: Designator=VD19 Old Footprint=DIOM4336X21N New Footprint=SODFL370X135-2N
+Change Component Footprint: Designator=VD20 Old Footprint=DIOM4336X21N New Footprint=SODFL370X135-2N
+Change Component Comment : Designator=VD1 Old Comment=SS26 New Comment=1N5819HW-7-F
+Change Component Comment : Designator=VD2 Old Comment=SS26 New Comment=1N5819HW-7-F
+Change Component Comment : Designator=VD3 Old Comment=SS26 New Comment=1N5819HW-7-F
+Change Component Comment : Designator=VD4 Old Comment=SS26 New Comment=1N5819HW-7-F
+Change Component Comment : Designator=VD5 Old Comment=SS26 New Comment=1N5819HW-7-F
+Change Component Comment : Designator=VD6 Old Comment=SS26 New Comment=1N5819HW-7-F
+Change Component Comment : Designator=VD7 Old Comment=SS26 New Comment=1N5819HW-7-F
+Change Component Comment : Designator=VD8 Old Comment=SS26 New Comment=1N5819HW-7-F
+Change Component Comment : Designator=VD9 Old Comment=SS26 New Comment=1N5819HW-7-F
+Change Component Comment : Designator=VD10 Old Comment=SS26 New Comment=1N5819HW-7-F
+Change Component Comment : Designator=VD11 Old Comment=SS26 New Comment=1N5819HW-7-F
+Change Component Comment : Designator=VD12 Old Comment=SS26 New Comment=1N5819HW-7-F
+Change Component Comment : Designator=VD17 Old Comment=SS26 New Comment=1N5819HW-7-F
+Change Component Comment : Designator=VD18 Old Comment=SS26 New Comment=1N5819HW-7-F
+Change Component Comment : Designator=VD19 Old Comment=SS26 New Comment=1N5819HW-7-F
+Change Component Comment : Designator=VD20 Old Comment=SS26 New Comment=1N5819HW-7-F
+Change component parameters: Designator = "VD1"; Footprint = "SODFL370X135-2N"; UniqueID = "\BLESJWDI\LKXXWMLN"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/el.php?name=1N5819HW-7-F"; VariantName = "[No Variations]"
+Change component parameters: Designator = "VD2"; Footprint = "SODFL370X135-2N"; UniqueID = "\BLESJWDI\WXSADTST"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/el.php?name=1N5819HW-7-F"; VariantName = "[No Variations]"
+Change component parameters: Designator = "VD3"; Footprint = "SODFL370X135-2N"; UniqueID = "\BLESJWDI\AVMSHPGV"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/el.php?name=1N5819HW-7-F"; VariantName = "[No Variations]"
+Change component parameters: Designator = "VD4"; Footprint = "SODFL370X135-2N"; UniqueID = "\BLESJWDI\YECRKEWA"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/el.php?name=1N5819HW-7-F"; VariantName = "[No Variations]"
+Change component parameters: Designator = "VD5"; Footprint = "SODFL370X135-2N"; UniqueID = "\BLESJWDI\XLAJYMHM"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/el.php?name=1N5819HW-7-F"; VariantName = "[No Variations]"
+Change component parameters: Designator = "VD6"; Footprint = "SODFL370X135-2N"; UniqueID = "\BLESJWDI\BXMANSWU"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/el.php?name=1N5819HW-7-F"; VariantName = "[No Variations]"
+Change component parameters: Designator = "VD7"; Footprint = "SODFL370X135-2N"; UniqueID = "\BLESJWDI\WMNCWWNA"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/el.php?name=1N5819HW-7-F"; VariantName = "[No Variations]"
+Change component parameters: Designator = "VD8"; Footprint = "SODFL370X135-2N"; UniqueID = "\BLESJWDI\LMFSNLLP"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/el.php?name=1N5819HW-7-F"; VariantName = "[No Variations]"
+Change component parameters: Designator = "VD9"; Footprint = "SODFL370X135-2N"; UniqueID = "\BLESJWDI\EQUDDNXU"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/el.php?name=1N5819HW-7-F"; VariantName = "[No Variations]"
+Change component parameters: Designator = "VD10"; Footprint = "SODFL370X135-2N"; UniqueID = "\BLESJWDI\TKUATGTM"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/el.php?name=1N5819HW-7-F"; VariantName = "[No Variations]"
+Change component parameters: Designator = "VD11"; Footprint = "SODFL370X135-2N"; UniqueID = "\BLESJWDI\DHKSFWJL"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/el.php?name=1N5819HW-7-F"; VariantName = "[No Variations]"
+Change component parameters: Designator = "VD12"; Footprint = "SODFL370X135-2N"; UniqueID = "\BLESJWDI\NOVFFEHC"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/el.php?name=1N5819HW-7-F"; VariantName = "[No Variations]"
+Change component parameters: Designator = "VD17"; Footprint = "SODFL370X135-2N"; UniqueID = "\BLESJWDI\NAETIXFY"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/el.php?name=1N5819HW-7-F"; VariantName = "[No Variations]"
+Change component parameters: Designator = "VD18"; Footprint = "SODFL370X135-2N"; UniqueID = "\BLESJWDI\SBMYBGJH"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/el.php?name=1N5819HW-7-F"; VariantName = "[No Variations]"
+Change component parameters: Designator = "VD19"; Footprint = "SODFL370X135-2N"; UniqueID = "\BLESJWDI\ITWYFWVQ"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/el.php?name=1N5819HW-7-F"; VariantName = "[No Variations]"
+Change component parameters: Designator = "VD20"; Footprint = "SODFL370X135-2N"; UniqueID = "\BLESJWDI\BSVRXJDJ"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/el.php?name=1N5819HW-7-F"; VariantName = "[No Variations]"
