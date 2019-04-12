@@ -1,0 +1,64 @@
+Change Component Footprint: Designator=VD1 Old Footprint=SODFL370X135-2N New Footprint=DIOM4336X21N
+Change Component Footprint: Designator=VD2 Old Footprint=SODFL370X135-2N New Footprint=DIOM4336X21N
+Change Component Footprint: Designator=VD3 Old Footprint=SODFL370X135-2N New Footprint=DIOM4336X21N
+Change Component Footprint: Designator=VD4 Old Footprint=SODFL370X135-2N New Footprint=DIOM4336X21N
+Change Component Footprint: Designator=VD5 Old Footprint=SODFL370X135-2N New Footprint=DIOM4336X21N
+Change Component Footprint: Designator=VD6 Old Footprint=SODFL370X135-2N New Footprint=DIOM4336X21N
+Change Component Footprint: Designator=VD7 Old Footprint=SODFL370X135-2N New Footprint=DIOM4336X21N
+Change Component Footprint: Designator=VD8 Old Footprint=SODFL370X135-2N New Footprint=DIOM4336X21N
+Change Component Footprint: Designator=VD9 Old Footprint=SODFL370X135-2N New Footprint=DIOM4336X21N
+Change Component Footprint: Designator=VD10 Old Footprint=SODFL370X135-2N New Footprint=DIOM4336X21N
+Change Component Footprint: Designator=VD11 Old Footprint=SODFL370X135-2N New Footprint=DIOM4336X21N
+Change Component Footprint: Designator=VD12 Old Footprint=SODFL370X135-2N New Footprint=DIOM4336X21N
+Change Component Footprint: Designator=VD17 Old Footprint=SODFL370X135-2N New Footprint=DIOM4336X21N
+Change Component Footprint: Designator=VD18 Old Footprint=SODFL370X135-2N New Footprint=DIOM4336X21N
+Change Component Footprint: Designator=VD19 Old Footprint=SODFL370X135-2N New Footprint=DIOM4336X21N
+Change Component Footprint: Designator=VD20 Old Footprint=SODFL370X135-2N New Footprint=DIOM4336X21N
+Change Component Comment : Designator=VD1 Old Comment=1N5819HW-7-F New Comment=GS1M
+Change Component Comment : Designator=VD2 Old Comment=1N5819HW-7-F New Comment=GS1M
+Change Component Comment : Designator=VD3 Old Comment=1N5819HW-7-F New Comment=GS1M
+Change Component Comment : Designator=VD4 Old Comment=1N5819HW-7-F New Comment=GS1M
+Change Component Comment : Designator=VD5 Old Comment=1N5819HW-7-F New Comment=GS1M
+Change Component Comment : Designator=VD6 Old Comment=1N5819HW-7-F New Comment=GS1M
+Change Component Comment : Designator=VD7 Old Comment=1N5819HW-7-F New Comment=GS1M
+Change Component Comment : Designator=VD8 Old Comment=1N5819HW-7-F New Comment=GS1M
+Change Component Comment : Designator=VD9 Old Comment=1N5819HW-7-F New Comment=GS1M
+Change Component Comment : Designator=VD10 Old Comment=1N5819HW-7-F New Comment=GS1M
+Change Component Comment : Designator=VD11 Old Comment=1N5819HW-7-F New Comment=GS1M
+Change Component Comment : Designator=VD12 Old Comment=1N5819HW-7-F New Comment=GS1M
+Change Component Comment : Designator=VD17 Old Comment=1N5819HW-7-F New Comment=GS1M
+Change Component Comment : Designator=VD18 Old Comment=1N5819HW-7-F New Comment=GS1M
+Change Component Comment : Designator=VD19 Old Comment=1N5819HW-7-F New Comment=GS1M
+Change Component Comment : Designator=VD20 Old Comment=1N5819HW-7-F New Comment=GS1M
+Change component parameters: Designator = "VD1"; Footprint = "DIOM4336X21N"; UniqueID = "\BLESJWDI\WOVOYSWF"
+Change component parameters. Clean all parameters for all variants
+Change component parameters: Designator = "VD2"; Footprint = "DIOM4336X21N"; UniqueID = "\BLESJWDI\ELIGXDTS"
+Change component parameters. Clean all parameters for all variants
+Change component parameters: Designator = "VD3"; Footprint = "DIOM4336X21N"; UniqueID = "\BLESJWDI\ELGFSMWX"
+Change component parameters. Clean all parameters for all variants
+Change component parameters: Designator = "VD4"; Footprint = "DIOM4336X21N"; UniqueID = "\BLESJWDI\LRSEOMBL"
+Change component parameters. Clean all parameters for all variants
+Change component parameters: Designator = "VD5"; Footprint = "DIOM4336X21N"; UniqueID = "\BLESJWDI\EOPRBBQU"
+Change component parameters. Clean all parameters for all variants
+Change component parameters: Designator = "VD6"; Footprint = "DIOM4336X21N"; UniqueID = "\BLESJWDI\EMPYPBKD"
+Change component parameters. Clean all parameters for all variants
+Change component parameters: Designator = "VD7"; Footprint = "DIOM4336X21N"; UniqueID = "\BLESJWDI\LIADUSGO"
+Change component parameters. Clean all parameters for all variants
+Change component parameters: Designator = "VD8"; Footprint = "DIOM4336X21N"; UniqueID = "\BLESJWDI\KBJDMLYC"
+Change component parameters. Clean all parameters for all variants
+Change component parameters: Designator = "VD9"; Footprint = "DIOM4336X21N"; UniqueID = "\BLESJWDI\GBFTJTKA"
+Change component parameters. Clean all parameters for all variants
+Change component parameters: Designator = "VD10"; Footprint = "DIOM4336X21N"; UniqueID = "\BLESJWDI\SXPABFDT"
+Change component parameters. Clean all parameters for all variants
+Change component parameters: Designator = "VD11"; Footprint = "DIOM4336X21N"; UniqueID = "\BLESJWDI\WLVYMONN"
+Change component parameters. Clean all parameters for all variants
+Change component parameters: Designator = "VD12"; Footprint = "DIOM4336X21N"; UniqueID = "\BLESJWDI\KBVBNPNX"
+Change component parameters. Clean all parameters for all variants
+Change component parameters: Designator = "VD17"; Footprint = "DIOM4336X21N"; UniqueID = "\BLESJWDI\UJUEVDCF"
+Change component parameters. Clean all parameters for all variants
+Change component parameters: Designator = "VD18"; Footprint = "DIOM4336X21N"; UniqueID = "\BLESJWDI\VYBTDVXG"
+Change component parameters. Clean all parameters for all variants
+Change component parameters: Designator = "VD19"; Footprint = "DIOM4336X21N"; UniqueID = "\BLESJWDI\STWDSPFR"
+Change component parameters. Clean all parameters for all variants
+Change component parameters: Designator = "VD20"; Footprint = "DIOM4336X21N"; UniqueID = "\BLESJWDI\KOIGPIMA"
+Change component parameters. Clean all parameters for all variants
