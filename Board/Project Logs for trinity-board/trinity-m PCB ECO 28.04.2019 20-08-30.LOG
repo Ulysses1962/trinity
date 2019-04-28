@@ -1,0 +1,28 @@
+Removed Pin From Net: NetName=CPU17 Pin=C32-1
+Removed Pin From Net: NetName=CPU18 Pin=C38-1
+Removed Pin From Net: NetName=CPU17 Pin=R41-1
+Removed Pin From Net: NetName=CPU17 Pin=R46-2
+Removed Pin From Net: NetName=CPU17 Pin=R49-2
+Removed Pin From Net: NetName=CPU18 Pin=R50-1
+Removed Pin From Net: NetName=CPU18 Pin=R55-2
+Removed Pin From Net: NetName=CPU18 Pin=R58-2
+Added Component: Designator=PJ1(PJ CONNECTOR)
+Add component. Clean all parameters for all variants
+Added Component: Designator=PJ2(PJ CONNECTOR)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=CPU17 Pin=PJ1-2
+Added Pin To Net: NetName=CPU18 Pin=PJ2-2
+Added Pin To Net: NetName=NetC32_1 Pin=C32-1
+Added Pin To Net: NetName=NetC32_1 Pin=PJ1-1
+Added Pin To Net: NetName=NetC32_1 Pin=R41-1
+Added Pin To Net: NetName=NetC32_1 Pin=R46-2
+Added Pin To Net: NetName=NetC32_1 Pin=R49-2
+Added Net: Name=NetC32_1
+Added Pin To Net: NetName=NetC38_1 Pin=C38-1
+Added Pin To Net: NetName=NetC38_1 Pin=PJ2-1
+Added Pin To Net: NetName=NetC38_1 Pin=R50-1
+Added Pin To Net: NetName=NetC38_1 Pin=R55-2
+Added Pin To Net: NetName=NetC38_1 Pin=R58-2
+Added Net: Name=NetC38_1
+Added Member To Class: ClassName=A2 Member=Component PJ1 PJ CONNECTOR
+Added Member To Class: ClassName=A2 Member=Component PJ2 PJ CONNECTOR

@@ -1,0 +1,8 @@
+Change Component Footprint: Designator=C32 Old Footprint=CAPAE111103X100M New Footprint=C-LOW-ESR-10-12.5
+Change Component Footprint: Designator=C38 Old Footprint=CAPAE111103X100M New Footprint=C-LOW-ESR-10-12.5
+Change Component Comment : Designator=C32 Old Comment=470.0x16v New Comment=1000.0x25v
+Change Component Comment : Designator=C38 Old Comment=470.0x16v New Comment=1000.0x25v
+Change component parameters: Designator = "C32"; Footprint = "C-LOW-ESR-10-12.5"; UniqueID = "\WHNLFXRL\HSFOGPVX"
+Change component parameters. Clean all parameters for all variants
+Change component parameters: Designator = "C38"; Footprint = "C-LOW-ESR-10-12.5"; UniqueID = "\WHNLFXRL\CCGOJQJI"
+Change component parameters. Clean all parameters for all variants
