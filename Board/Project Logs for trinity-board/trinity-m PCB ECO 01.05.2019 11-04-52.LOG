@@ -1,0 +1,18 @@
+Added Component: Designator=VD13(P6KE27CA)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "https://prom.ua/p207053054-p6ke27ca;all.html"; VariantName = "[No Variations]"
+Added Component: Designator=VD15(P6KE27CA)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "https://prom.ua/p207053054-p6ke27ca;all.html"; VariantName = "[No Variations]"
+Added Component: Designator=VD26(P6KE27CA)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "https://prom.ua/p207053054-p6ke27ca;all.html"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=VD13-A
+Added Pin To Net: NetName=CPU18 Pin=VD13-K
+Added Pin To Net: NetName=GND Pin=VD15-A
+Added Pin To Net: NetName=CPU17 Pin=VD15-K
+Added Pin To Net: NetName=GND Pin=VD26-A
+Added Pin To Net: NetName=SERVO11 Pin=VD26-K
+Added Member To Class: ClassName=A2 Member=Component VD13 P6KE27CA
+Added Member To Class: ClassName=A2 Member=Component VD15 P6KE27CA
+Added Member To Class: ClassName=A2 Member=Component VD26 P6KE27CA

@@ -1,0 +1,8 @@
+Removed Pin From Net: NetName=CPU48 Pin=U3-40
+Removed Pin From Net: NetName=CPU47 Pin=U3-41
+Removed Pin From Net: NetName=CPU45 Pin=U3-43
+Removed Pin From Net: NetName=CPU49 Pin=U3-44
+Added Pin To Net: NetName=CPU49 Pin=U3-40
+Added Pin To Net: NetName=CPU45 Pin=U3-41
+Added Pin To Net: NetName=CPU47 Pin=U3-43
+Added Pin To Net: NetName=CPU48 Pin=U3-44

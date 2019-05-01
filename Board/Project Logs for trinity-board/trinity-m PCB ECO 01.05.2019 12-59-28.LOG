@@ -1,0 +1,11 @@
+Removed Pin From Net: NetName=CPU17 Pin=C21-1
+Removed Pin From Net: NetName=GND Pin=C21-2
+Removed Pin From Net: NetName=GND Pin=U9-1
+Removed Pin From Net: NetName=CPU60 Pin=U9-2
+Removed Pin From Net: NetName=GND Pin=U9-3
+Removed Pin From Net: NetName=CPU17 Pin=U9-5
+Removed Member From Class: ClassName=A1 Member=C21
+Removed Member From Class: ClassName=A1 Member=U9
+Change Component Comment : Designator=VD13 Old Comment=P6KE27CA New Comment=P6KE6.8CA-LF
+Change Component Comment : Designator=VD15 Old Comment=P6KE27CA New Comment=P6KE6.8CA-LF
+Added Pin To Net: NetName=CPU60 Pin=U12-5

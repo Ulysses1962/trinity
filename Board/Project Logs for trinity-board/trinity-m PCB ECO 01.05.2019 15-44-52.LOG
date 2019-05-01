@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=CPU43 Pin=U3-39
+Removed Pin From Net: NetName=CPU42 Pin=U3-46
+Removed Pin From Net: NetName=GND Pin=X3-GND
+Removed Pin From Net: NetName=GND Pin=X3-GND
+Added Pin To Net: NetName=CPU42 Pin=U3-39
+Added Pin To Net: NetName=CPU43 Pin=U3-46

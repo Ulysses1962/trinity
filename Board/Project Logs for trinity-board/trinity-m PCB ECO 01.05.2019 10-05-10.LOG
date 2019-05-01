@@ -1,0 +1,146 @@
+Removed Pin From Net: NetName=GND Pin=C31-1
+Removed Pin From Net: NetName=SERVO11 Pin=C31-2
+Removed Pin From Net: NetName=GND Pin=C34-1
+Removed Pin From Net: NetName=GND Pin=C35-1
+Removed Pin From Net: NetName=GND Pin=C37-1
+Removed Pin From Net: NetName=SERVO11 Pin=C37-2
+Removed Pin From Net: NetName=GND Pin=C38-2
+Removed Pin From Net: NetName=GND Pin=C40-1
+Removed Pin From Net: NetName=GND Pin=C41-1
+Removed Pin From Net: NetName=SERVO11 Pin=L1-1
+Removed Pin From Net: NetName=GND Pin=L2-1
+Removed Pin From Net: NetName=SERVO11 Pin=L3-1
+Removed Pin From Net: NetName=GND Pin=L4-1
+Removed Pin From Net: NetName=CPU17 Pin=PJ1-2
+Removed Pin From Net: NetName=CPU18 Pin=PJ2-2
+Removed Pin From Net: NetName=GND Pin=R8-1
+Removed Pin From Net: NetName=CPU18 Pin=R8-2
+Removed Pin From Net: NetName=CPU18 Pin=R9-1
+Removed Pin From Net: NetName=GND Pin=R42-1
+Removed Pin From Net: NetName=GND Pin=R43-1
+Removed Pin From Net: NetName=GND Pin=R45-1
+Removed Pin From Net: NetName=GND Pin=R47-1
+Removed Pin From Net: NetName=GND Pin=R51-1
+Removed Pin From Net: NetName=GND Pin=R52-1
+Removed Pin From Net: NetName=GND Pin=R54-1
+Removed Pin From Net: NetName=GND Pin=R56-1
+Removed Pin From Net: NetName=GND Pin=U15-4
+Removed Pin From Net: NetName=GND Pin=U15-5
+Removed Pin From Net: NetName=SERVO11 Pin=U15-8
+Removed Pin From Net: NetName=GND Pin=U16-4
+Removed Pin From Net: NetName=GND Pin=U16-5
+Removed Pin From Net: NetName=SERVO11 Pin=U16-8
+Removed Pin From Net: NetName=CPU18 Pin=X3-2
+Removed Pin From Net: NetName=CPU20 Pin=X3-3
+Removed Pin From Net: NetName=CPU17 Pin=X3-6
+Removed Pin From Net: NetName=CPU17 Pin=X3-8
+Removed Pin From Net: NetName=SERVO11 Pin=X11-1
+Removed Pin From Net: NetName=GND Pin=X11-2
+Removed Pin From Net: NetName=SERVO11 Pin=X11-3
+Removed Pin From Net: NetName=SERVO11 Pin=X11-5
+Removed Member From Class: ClassName=A2 Member=C35
+Removed Member From Class: ClassName=A2 Member=C36
+Removed Member From Class: ClassName=A2 Member=C37
+Removed Member From Class: ClassName=A2 Member=C38
+Removed Member From Class: ClassName=A2 Member=C39
+Removed Member From Class: ClassName=A2 Member=C40
+Removed Member From Class: ClassName=A2 Member=C41
+Removed Member From Class: ClassName=A2 Member=L1
+Removed Member From Class: ClassName=A2 Member=L2
+Removed Member From Class: ClassName=A2 Member=L3
+Removed Member From Class: ClassName=A2 Member=L4
+Removed Member From Class: ClassName=A2 Member=PJ1
+Removed Member From Class: ClassName=A2 Member=PJ2
+Removed Member From Class: ClassName=A1 Member=R8
+Removed Member From Class: ClassName=A1 Member=R9
+Removed Member From Class: ClassName=A2 Member=R41
+Removed Member From Class: ClassName=A2 Member=R42
+Removed Member From Class: ClassName=A2 Member=R43
+Removed Member From Class: ClassName=A2 Member=R44
+Removed Member From Class: ClassName=A2 Member=R45
+Removed Member From Class: ClassName=A2 Member=R46
+Removed Member From Class: ClassName=A2 Member=R47
+Removed Member From Class: ClassName=A2 Member=R48
+Removed Member From Class: ClassName=A2 Member=R50
+Removed Member From Class: ClassName=A2 Member=R51
+Removed Member From Class: ClassName=A2 Member=R52
+Removed Member From Class: ClassName=A2 Member=R53
+Removed Member From Class: ClassName=A2 Member=R54
+Removed Member From Class: ClassName=A2 Member=R55
+Removed Member From Class: ClassName=A2 Member=R56
+Removed Member From Class: ClassName=A2 Member=R57
+Removed Member From Class: ClassName=A2 Member=U15
+Removed Member From Class: ClassName=A2 Member=U16
+Removed Member From Class: ClassName=A2 Member=VD13
+Removed Member From Class: ClassName=A2 Member=VD15
+Removed Member From Class: ClassName=A2 Member=VT12
+Removed Member From Class: ClassName=A2 Member=VT13
+Change Component Footprint: Designator=C32 Old Footprint=C-LOW-ESR-10-12.5 New Footprint=CAPC3216X05N
+Change Component Footprint: Designator=C33 Old Footprint=CAPC2012X04N New Footprint=C-LOW-ESR-16-18
+Change Component Footprint: Designator=C34 Old Footprint=CAPC2012X04N New Footprint=CAPC3216X05N
+Change Component Footprint: Designator=C31 Old Footprint=CAPC3216X05N New Footprint=C-LOW-ESR-16-18
+Change Component Footprint: Designator=C30 Old Footprint=TDK B32529 New Footprint=CAPC3216X05N
+Change Component Comment : Designator=C31 Old Comment=1.0x50v New Comment=1000.0x50v
+Change Component Comment : Designator=C34 Old Comment=1nF New Comment=0.1x50v
+Change Component Comment : Designator=C33 Old Comment=33nF New Comment=1000.0x50v
+Change Component Comment : Designator=C32 Old Comment=1000.0x10v New Comment=0.1x50v
+Change Component Comment : Designator=C30 Old Comment=TDK B32529 1.0mkf x 63v New Comment=0.1x50v
+Change component parameters: Designator = "C30"; Footprint = "CAPC3216X05N"; UniqueID = "\WHNLFXRL\IUACVUYG"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/prodlist.php?name=cap1206"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C31"; Footprint = "C-LOW-ESR-16-18"; UniqueID = "\WHNLFXRL\BAFDLFAX"
+Change component parameters. Clean all parameters for all variants
+Change component parameters: Designator = "C32"; Footprint = "CAPC3216X05N"; UniqueID = "\WHNLFXRL\FLFKDPOS"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/prodlist.php?name=cap1206"; VariantName = "[No Variations]"
+Change component parameters: Designator = "C33"; Footprint = "C-LOW-ESR-16-18"; UniqueID = "\WHNLFXRL\QNWWHNGE"
+Change component parameters. Clean all parameters for all variants
+Added Component: Designator=C5(C-LOW-ESR-16-18)
+Add component. Clean all parameters for all variants
+Added Component: Designator=F1(MRT-FUSE)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/el.php?name=RFT-2.5A"; VariantName = "[No Variations]"
+Added Component: Designator=F2(MRT-FUSE)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/el.php?name=RFT-2.5A"; VariantName = "[No Variations]"
+Added Component: Designator=F3(MRT-FUSE)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/el.php?name=RFT-2.5A"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=SERVO11 Pin=C5-1
+Added Pin To Net: NetName=GND Pin=C5-2
+Added Pin To Net: NetName=SERVO11 Pin=C30-1
+Added Pin To Net: NetName=GND Pin=C30-2
+Added Pin To Net: NetName=CPU17 Pin=C31-1
+Added Pin To Net: NetName=GND Pin=C31-2
+Added Pin To Net: NetName=CPU17 Pin=C32-1
+Added Pin To Net: NetName=CPU18 Pin=C33-1
+Added Pin To Net: NetName=GND Pin=C33-2
+Added Pin To Net: NetName=CPU18 Pin=C34-1
+Added Pin To Net: NetName=GND Pin=C34-2
+Added Pin To Net: NetName=CPU18 Pin=F1-1
+Added Pin To Net: NetName=CPU17 Pin=F2-1
+Added Pin To Net: NetName=SERVO11 Pin=F3-1
+Added Pin To Net: NetName=CPU20 Pin=X3-2
+Added Pin To Net: NetName=GND Pin=X3-3
+Added Pin To Net: NetName=GND Pin=X3-6
+Added Pin To Net: NetName=GND Pin=X3-8
+Added Pin To Net: NetName=GND Pin=X11-5
+Added Pin To Net: NetName=NetF1_2 Pin=F1-2
+Added Pin To Net: NetName=NetF1_2 Pin=X11-1
+Added Net: Name=NetF1_2
+Added Pin To Net: NetName=NetF2_2 Pin=F2-2
+Added Pin To Net: NetName=NetF2_2 Pin=X11-2
+Added Net: Name=NetF2_2
+Added Pin To Net: NetName=NetF3_2 Pin=F3-2
+Added Pin To Net: NetName=NetF3_2 Pin=X11-3
+Added Net: Name=NetF3_2
+Added Member To Class: ClassName=A2 Member=Component C5 1000.0x50v
+Added Member To Class: ClassName=A2 Member=Component F1 RFS-3.15A
+Added Member To Class: ClassName=A2 Member=Component F2 RFS-3.15A
+Added Member To Class: ClassName=A2 Member=Component F3 RFS-3.15A
+Added Member To Class: ClassName=A4 Member=Component U61 74HCT10D.652
+Added Room: Name=A1
+Added Room: Name=A2
+Added Room: Name=A3
+Added Room: Name=A4
+Added Room: Name=A5
