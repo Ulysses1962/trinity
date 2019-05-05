@@ -1,0 +1,5 @@
+Added Component: Designator=C19(CAPC2012X04N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Ref"; Value = "http://www.kosmodrom.com.ua/prodlist.php?name=cap1206"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=C19-1
+Added Pin To Net: NetName=+3.3 Pin=C19-2

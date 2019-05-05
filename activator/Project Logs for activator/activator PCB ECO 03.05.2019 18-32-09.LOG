@@ -1,0 +1,4 @@
+Change Component Comment : Designator=C10 Old Comment=1000.0x25v New Comment=1000.0x16v
+Change Component Comment : Designator=C12 Old Comment=1000.0x25v New Comment=1000.0x16v
+Change Component Comment : Designator=C15 Old Comment=1000.0x25v New Comment=1000.0x16v
+Added Pin To Net: NetName=NetU2_4 Pin=U2-12

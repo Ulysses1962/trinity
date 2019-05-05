@@ -1,0 +1,4 @@
+Change Component Footprint: Designator=R11 Old Footprint=RESC3216X05N New Footprint=RESC2012X04N
+Change Component Footprint: Designator=R13 Old Footprint=RESC3216X05N New Footprint=RESC2012X04N
+Change Component Comment : Designator=R11 Old Comment=330 New Comment=1k
+Change Component Comment : Designator=R13 Old Comment=330 New Comment=1k

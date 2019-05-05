@@ -1,0 +1,7 @@
+Removed Pin From Net: NetName=INDUCTOR- Pin=VD1-1
+Removed Pin From Net: NetName=INDUCTOR- Pin=VT1-2
+Added Pin To Net: NetName=RM-POS2 Pin=U2-12
+Added Pin To Net: NetName=INDUCTOR+ Pin=VD1-1
+Added Pin To Net: NetName=INDUCTOR+ Pin=VT1-2
+Change Net Name : Old Net Name=INDUCTOR+ New Net Name=INDUCTOR-
+Change Net Name : Old Net Name=INDUCTOR- New Net Name=INDUCTOR+
