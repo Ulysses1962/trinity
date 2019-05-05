@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=INDUCTOR- Pin=X4-4
+Removed Pin From Net: NetName=+12 Pin=X4-7
+Removed Pin From Net: NetName=+12 Pin=X4-8
+Change Component Footprint: Designator=X4 Old Footprint=MINI-FIT-8-WAY-SM New Footprint=MINI-FIT-6WAY-SM
+Added Pin To Net: NetName=+12 Pin=X4-4
