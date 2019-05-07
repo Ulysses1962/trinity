@@ -1,0 +1,16 @@
+Removed Pin From Net: NetName=M\O\U\L\D\-\A\R\E\A\-\F\R\E\E\ Pin=U4-52
+Removed Pin From Net: NetName=D\E\V\I\C\E\-\E\M\G\S\ Pin=U4-53
+Removed Pin From Net: NetName=D\E\V\I\C\E\-\O\P\-\M\O\D\E\ Pin=U4-54
+Removed Pin From Net: NetName=E\J\E\C\T\O\R\-\B\A\C\K\-\E\N\A\ Pin=U4-55
+Removed Pin From Net: NetName=E\J\E\C\T\O\R\-\F\O\R\W\A\R\D\-\E\N\A\ Pin=U4-56
+Removed Pin From Net: NetName=C\O\R\E\-\P\U\L\L\E\R\S\-\P\O\S\-\2\-\E\N\A\ Pin=U4-57
+Removed Pin From Net: NetName=C\O\R\E\-\P\U\L\L\E\R\S\-\P\O\S\-\1\-\E\N\A\ Pin=U4-58
+Removed Pin From Net: NetName=F\U\L\L\-\M\O\U\L\D\-\O\P\E\N\-\E\N\A\ Pin=U4-59
+Added Pin To Net: NetName=D\E\V\I\C\E\-\E\M\G\S\ Pin=U4-52
+Added Pin To Net: NetName=E\J\E\C\T\O\R\-\F\O\R\W\A\R\D\-\E\N\A\ Pin=U4-53
+Added Pin To Net: NetName=M\O\U\L\D\-\A\R\E\A\-\F\R\E\E\ Pin=U4-54
+Added Pin To Net: NetName=D\E\V\I\C\E\-\O\P\-\M\O\D\E\ Pin=U4-55
+Added Pin To Net: NetName=C\O\R\E\-\P\U\L\L\E\R\S\-\P\O\S\-\1\-\E\N\A\ Pin=U4-56
+Added Pin To Net: NetName=F\U\L\L\-\M\O\U\L\D\-\O\P\E\N\-\E\N\A\ Pin=U4-57
+Added Pin To Net: NetName=E\J\E\C\T\O\R\-\B\A\C\K\-\E\N\A\ Pin=U4-58
+Added Pin To Net: NetName=C\O\R\E\-\P\U\L\L\E\R\S\-\P\O\S\-\2\-\E\N\A\ Pin=U4-59

@@ -1,0 +1,14 @@
+Project Outputs Generation Report
+---------------------------------
+Start Output Generation At 9:19:17 On 07.05.2019
+
+Output: Bill of Materials
+Type  : BOM
+From  : Variant [[No Variations]] of Project [activator.PrjPcb]
+   Generated File[Bill of Materials-activator.xls]
+
+
+Files Generated   : 1
+Documents Printed : 0
+
+Finished Output Generation At 9:19:17 On 07.05.2019

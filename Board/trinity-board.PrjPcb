@@ -243,15 +243,11 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [GeneratedDocument1]
-DocumentPath=Project Outputs for trinity-board\euromap.BOM
+DocumentPath=Project Outputs for trinity-board\BOM\Bill of Materials-main-board.xls
 DItemRevisionGUID=
 
 [GeneratedDocument2]
-DocumentPath=Project Outputs for trinity-board\euromap.CSV
-DItemRevisionGUID=
-
-[GeneratedDocument3]
-DocumentPath=Project Outputs for trinity-board\trinity-board.nsx
+DocumentPath=Project Outputs for trinity-board\BOM\Bill of Materials-trinity-board.xls
 DItemRevisionGUID=
 
 [Configuration1]

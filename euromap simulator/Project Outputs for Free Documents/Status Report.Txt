@@ -1,0 +1,14 @@
+Project Outputs Generation Report
+---------------------------------
+Start Output Generation At 9:22:55 On 07.05.2019
+
+Output: Bill of Materials
+Type  : BOM
+From  : Variant [[No Variations]] of Schematic Document [phantom.SchDoc]
+   Generated File[Bill of Materials-phantom.xls]
+
+
+Files Generated   : 1
+Documents Printed : 0
+
+Finished Output Generation At 9:22:56 On 07.05.2019

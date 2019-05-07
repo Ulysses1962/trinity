@@ -1,0 +1,2 @@
+Removed Pin From Net: NetName=USB-RESET Pin=U4-41
+Added Pin To Net: NetName=USB-RESET Pin=U4-16
