@@ -243,10 +243,6 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [GeneratedDocument1]
-DocumentPath=Project Outputs for trinity-board\BOM\Bill of Materials-main-board.xls
-DItemRevisionGUID=
-
-[GeneratedDocument2]
 DocumentPath=Project Outputs for trinity-board\BOM\Bill of Materials-trinity-board.xls
 DItemRevisionGUID=
 
