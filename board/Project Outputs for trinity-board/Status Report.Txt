@@ -1,0 +1,21 @@
+Output: Gerber Files
+Type  : Gerber
+From  : Variant [[No Variations]] of PCB Document [trinity-m.PcbDoc]
+   Generated File[trinity-m.GTL]
+   Generated File[trinity-m.G1]
+   Generated File[trinity-m.G2]
+   Generated File[trinity-m.GBL]
+   Generated File[trinity-m.GTO]
+   Generated File[trinity-m.GTS]
+   Generated File[trinity-m.GBS]
+   Generated File[trinity-m.GBO]
+   Generated File[trinity-m.GM1]
+   Generated File[trinity-m.RUL]
+   Generated File[trinity-m.EXTREP]
+   Generated File[trinity-m.REP]
+
+
+Files Generated   : 12
+Documents Printed : 0
+
+Finished Output Generation At 10:40:30 On 30.05.2019
