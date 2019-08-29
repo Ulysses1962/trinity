@@ -1,0 +1,24 @@
+--cpu Cortex-M0
+"activator\startup_stm32f072xb.o"
+"activator\main.o"
+"activator\stm32f0xx_it.o"
+"activator\stm32f0xx_hal_msp.o"
+"activator\stm32f0xx_hal_tim.o"
+"activator\stm32f0xx_hal_tim_ex.o"
+"activator\stm32f0xx_hal_rcc.o"
+"activator\stm32f0xx_hal_rcc_ex.o"
+"activator\stm32f0xx_hal.o"
+"activator\stm32f0xx_hal_i2c.o"
+"activator\stm32f0xx_hal_i2c_ex.o"
+"activator\stm32f0xx_hal_gpio.o"
+"activator\stm32f0xx_hal_dma.o"
+"activator\stm32f0xx_hal_cortex.o"
+"activator\stm32f0xx_hal_pwr.o"
+"activator\stm32f0xx_hal_pwr_ex.o"
+"activator\stm32f0xx_hal_flash.o"
+"activator\stm32f0xx_hal_flash_ex.o"
+"activator\system_stm32f0xx.o"
+--library_type=microlib --strict --scatter "activator\activator.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "activator.map" -o activator\activator.axf
