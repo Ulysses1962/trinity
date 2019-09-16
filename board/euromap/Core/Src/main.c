@@ -50,6 +50,8 @@ static void MX_GPIO_Init(void);
 static void MX_DMA_Init(void);
 static void MX_USART1_UART_Init(void);
 /* USER CODE BEGIN PFP */
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
+}
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/

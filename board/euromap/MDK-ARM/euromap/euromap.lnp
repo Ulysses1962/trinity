@@ -1,0 +1,26 @@
+--cpu Cortex-M0
+"euromap\startup_stm32f072xb.o"
+"euromap\main.o"
+"euromap\stm32f0xx_it.o"
+"euromap\stm32f0xx_hal_msp.o"
+"euromap\stm32f0xx_hal_tim.o"
+"euromap\stm32f0xx_hal_tim_ex.o"
+"euromap\stm32f0xx_hal_uart.o"
+"euromap\stm32f0xx_hal_uart_ex.o"
+"euromap\stm32f0xx_hal_rcc.o"
+"euromap\stm32f0xx_hal_rcc_ex.o"
+"euromap\stm32f0xx_hal.o"
+"euromap\stm32f0xx_hal_i2c.o"
+"euromap\stm32f0xx_hal_i2c_ex.o"
+"euromap\stm32f0xx_hal_gpio.o"
+"euromap\stm32f0xx_hal_dma.o"
+"euromap\stm32f0xx_hal_cortex.o"
+"euromap\stm32f0xx_hal_pwr.o"
+"euromap\stm32f0xx_hal_pwr_ex.o"
+"euromap\stm32f0xx_hal_flash.o"
+"euromap\stm32f0xx_hal_flash_ex.o"
+"euromap\system_stm32f0xx.o"
+--library_type=microlib --strict --scatter "euromap\euromap.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "euromap.map" -o euromap\euromap.axf
