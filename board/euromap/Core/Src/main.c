@@ -23,6 +23,10 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "stdlib.h"
+#include "string.h"
+#include "stdio.h"
+#include "stdbool.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -38,10 +42,39 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
+TIM_HandleTypeDef htim6;
 UART_HandleTypeDef huart1;
 DMA_HandleTypeDef hdma_usart1_rx;
+DMA_HandleTypeDef hdma_usart1_tx;
 
 /* USER CODE BEGIN PV */
+//==============================================================================
+// MACHINE STATE DEFINITION STRUCTURE
+//==============================================================================
+typedef struct {
+    // Machine state definitions
+    bool MACHINE_EMGS           : 1;
+    bool MOULD_OPEN             : 1;
+    bool MACHINE_SAFETY         : 1;
+    bool REJECT                 : 1;
+    bool DEVICE_OP_ENA          : 1;
+    bool MOULD_CLOSED           : 1;
+    bool INTER_MOULD_OPEN       : 1;
+    // Ejectors state definitions
+    bool EJECTOR_IN_BCK_POS     : 1;
+    bool EJECTOR_IN_FWD_POS     : 1;
+    // Core pullers state definitions
+    bool CORE_PULLERS_IN_POS1   : 1;
+    bool CORE_PULLERS_IN_POS2   : 1;
+} MACHINE_STATE;
+
+//==============================================================================
+// MACHINE STATE INTEGRAL INDICATOR
+//==============================================================================
+static MACHINE_STATE emap_state;
+static uint8_t machine_state_string[64];
+static uint8_t cmd_ack_string[10];
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -49,9 +82,93 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_DMA_Init(void);
 static void MX_USART1_UART_Init(void);
+static void MX_TIM6_Init(void);
+
 /* USER CODE BEGIN PFP */
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
+static void emap_state_check(void) {
+    GPIO_PinState line_state;
+    
+    // MACHINE_EMGS state check
+    line_state = HAL_GPIO_ReadPin(MACHINE_EMGS_GPIO_Port, MACHINE_EMGS_Pin);
+    if (line_state) emap_state.MACHINE_EMGS = true;
+    else            emap_state.MACHINE_EMGS = false;
+    
+    // MOULD_OPEN state check
+    line_state = HAL_GPIO_ReadPin(MOULD_OPEN_POS_GPIO_Port, MOULD_OPEN_POS_Pin);
+    if (line_state) emap_state.MOULD_OPEN = false;
+    else            emap_state.MOULD_OPEN = true;
+
+    // MACHINE_SAFETY state check
+    line_state = HAL_GPIO_ReadPin(MACHINE_SAFETY_GPIO_Port, MACHINE_SAFETY_Pin);
+    if (line_state) emap_state.MACHINE_SAFETY = false;
+    else            emap_state.MACHINE_SAFETY = true;
+
+    // REJECT state check
+    line_state = HAL_GPIO_ReadPin(REJECT_GPIO_Port, REJECT_Pin);
+    if (line_state) emap_state.REJECT = false;
+    else            emap_state.REJECT = true;
+
+    // DEVICE_OP_ENA state check
+    line_state = HAL_GPIO_ReadPin(DEVICE_OP_ENA_GPIO_Port, DEVICE_OP_ENA_Pin);
+    if (line_state) emap_state.DEVICE_OP_ENA = false;
+    else            emap_state.DEVICE_OP_ENA = true;
+    
+    // MOULD_CLOSED state check
+    line_state = HAL_GPIO_ReadPin(MOULD_CLOSED_GPIO_Port, MOULD_CLOSED_Pin);
+    if (line_state) emap_state.MOULD_CLOSED = false;
+    else            emap_state.MOULD_CLOSED = true;
+    
+    // INTER_MOULD_OPEN state check
+    line_state = HAL_GPIO_ReadPin(INTER_OPEN_POS_GPIO_Port, INTER_OPEN_POS_Pin);
+    if (line_state) emap_state.INTER_MOULD_OPEN = false;
+    else            emap_state.INTER_MOULD_OPEN = true;
+    
+    // EJECTOR_IN_BCK_POS state check
+    line_state = HAL_GPIO_ReadPin(EJECT_IN_BACK_POS_GPIO_Port, EJECT_IN_BACK_POS_Pin);
+    if (line_state) emap_state.EJECTOR_IN_BCK_POS = false;
+    else            emap_state.EJECTOR_IN_BCK_POS = true;
+    
+    // EJECTOR_IN_FWD_POS state check
+    line_state = HAL_GPIO_ReadPin(EJECT_IN_FWD_POS_GPIO_Port, EJECT_IN_FWD_POS_Pin);
+    if (line_state) emap_state.EJECTOR_IN_FWD_POS = false;
+    else            emap_state.EJECTOR_IN_FWD_POS = true;
+    
+    // CORE_PULLERS_IN_POS1 state check
+    line_state = HAL_GPIO_ReadPin(COREPULLER_POS1_GPIO_Port, COREPULLER_POS1_Pin);
+    if (line_state) emap_state.CORE_PULLERS_IN_POS1 = false;
+    else            emap_state.CORE_PULLERS_IN_POS1 = true;
+    
+    // CORE_PULLERS_IN_POS2 state check
+    line_state = HAL_GPIO_ReadPin(COREPULLER_POS2_GPIO_Port, COREPULLER_POS2_Pin);
+    if (line_state) emap_state.CORE_PULLERS_IN_POS2 = false;
+    else            emap_state.CORE_PULLERS_IN_POS2 = true;
 }
+
+static void emap_send_state(void) {
+    memset(machine_state_string, 0x00, 64);
+    sprintf((char*)machine_state_string, "%u, %u, %u, %u, %u, %u, %u, %u, %u, %u, %u\r\n",
+            emap_state.MACHINE_EMGS, emap_state.MOULD_OPEN, emap_state.MACHINE_SAFETY, emap_state.REJECT, emap_state.DEVICE_OP_ENA,
+            emap_state.MOULD_CLOSED, emap_state.INTER_MOULD_OPEN, emap_state.EJECTOR_IN_BCK_POS, emap_state.EJECTOR_IN_FWD_POS,
+            emap_state.CORE_PULLERS_IN_POS1, emap_state.CORE_PULLERS_IN_POS2);   
+    HAL_UART_Transmit_DMA(&huart1, machine_state_string, strlen((char*)machine_state_string));    
+}
+
+static void emap_cmd_ack(bool cmd_result) {
+    memset(cmd_ack_string, 0x00, 10);
+    if (cmd_result) sprintf((char*)cmd_ack_string, "OK\r\n");
+    else            sprintf((char*)cmd_ack_string, "ERROR\r\n");
+    HAL_UART_Transmit_DMA(&huart1, cmd_ack_string, strlen((char*)cmd_ack_string));    
+}
+
+static void emap_init(void) {
+    emap_state_check();
+    HAL_TIM_Base_Start_IT(&htim6);    
+}
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
+    if (htim->Instance == TIM6) emap_state_check();
+}
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -66,13 +183,13 @@ int main(void)
 {
   /* USER CODE BEGIN 1 */
   /* USER CODE END 1 */
-
+  
   /* MCU Configuration--------------------------------------------------------*/
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
   /* USER CODE BEGIN Init */
   /* USER CODE END Init */
-
+    
   /* Configure the system clock */
   SystemClock_Config();
   /* USER CODE BEGIN SysInit */
@@ -82,7 +199,10 @@ int main(void)
   MX_GPIO_Init();
   MX_DMA_Init();
   MX_USART1_UART_Init();
+  MX_TIM6_Init();
+  
   /* USER CODE BEGIN 2 */
+  emap_init();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -138,6 +258,44 @@ void SystemClock_Config(void)
 }
 
 /**
+  * @brief TIM6 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM6_Init(void)
+{
+
+  /* USER CODE BEGIN TIM6_Init 0 */
+
+  /* USER CODE END TIM6_Init 0 */
+
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM6_Init 1 */
+
+  /* USER CODE END TIM6_Init 1 */
+  htim6.Instance = TIM6;
+  htim6.Init.Prescaler = 479;
+  htim6.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim6.Init.Period = 9999;
+  htim6.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim6) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim6, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM6_Init 2 */
+
+  /* USER CODE END TIM6_Init 2 */
+
+}
+
+/**
   * @brief USART1 Initialization Function
   * @param None
   * @retval None
@@ -178,6 +336,7 @@ static void MX_USART1_UART_Init(void)
   */
 static void MX_DMA_Init(void) 
 {
+
   /* DMA controller clock enable */
   __HAL_RCC_DMA1_CLK_ENABLE();
 
@@ -205,8 +364,8 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOC, MOLD_CLOSE_ENA_Pin | MOLD_AREA_FREE_Pin | DEVICE_EMGS_Pin | EJECT_BACK_ENA_Pin | 
-                           EJECT_FORWARD_ENA_Pin | CPP2_MOV_ENA_Pin | CPP1_MOV_ENA_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOC, MOLD_CLOSE_ENA_Pin|MOLD_AREA_FREE_Pin|DEVICE_EMGS_Pin|EJECT_BACK_ENA_Pin 
+                          |EJECT_FORWARD_ENA_Pin|CPP2_MOV_ENA_Pin|CPP1_MOV_ENA_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(DEVICE_OP_MODE_GPIO_Port, DEVICE_OP_MODE_Pin, GPIO_PIN_RESET);
@@ -215,10 +374,9 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(FULL_MOLD_OPEN_ENA_GPIO_Port, FULL_MOLD_OPEN_ENA_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : MOLD_CLOSE_ENA_Pin MOLD_AREA_FREE_Pin DEVICE_EMGS_Pin EJECT_BACK_ENA_Pin 
-                          EJECT_FORWARD_ENA_Pin CPP2_MOV_ENA_Pin CPP1_MOV_ENA_Pin 
-  */
-  GPIO_InitStruct.Pin = MOLD_CLOSE_ENA_Pin | MOLD_AREA_FREE_Pin | DEVICE_EMGS_Pin | EJECT_BACK_ENA_Pin | 
-                        EJECT_FORWARD_ENA_Pin | CPP2_MOV_ENA_Pin | CPP1_MOV_ENA_Pin;
+                           EJECT_FORWARD_ENA_Pin CPP2_MOV_ENA_Pin CPP1_MOV_ENA_Pin */
+  GPIO_InitStruct.Pin = MOLD_CLOSE_ENA_Pin|MOLD_AREA_FREE_Pin|DEVICE_EMGS_Pin|EJECT_BACK_ENA_Pin 
+                          |EJECT_FORWARD_ENA_Pin|CPP2_MOV_ENA_Pin|CPP1_MOV_ENA_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -239,32 +397,24 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_Init(FULL_MOLD_OPEN_ENA_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : INTER_OPEN_POS_Pin DEVICE_OP_ENA_Pin COREPULLER_POS1_Pin */
-  GPIO_InitStruct.Pin = INTER_OPEN_POS_Pin | DEVICE_OP_ENA_Pin | COREPULLER_POS1_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pin = INTER_OPEN_POS_Pin|DEVICE_OP_ENA_Pin|COREPULLER_POS1_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
   /*Configure GPIO pin : MACHINE_SAFETY_Pin */
   GPIO_InitStruct.Pin = MACHINE_SAFETY_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(MACHINE_SAFETY_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : REJECT_Pin EJECT_IN_FWD_POS_Pin MOULD_OPEN_POS_Pin MOULD_CLOSED_Pin 
-                          COREPULLER_POS2_Pin EJECT_IN_BACK_POS_Pin MACHINE_EMGS_Pin 
-  */
-  GPIO_InitStruct.Pin = REJECT_Pin | EJECT_IN_FWD_POS_Pin | MOULD_OPEN_POS_Pin | MOULD_CLOSED_Pin | 
-                        COREPULLER_POS2_Pin | EJECT_IN_BACK_POS_Pin | MACHINE_EMGS_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+                           COREPULLER_POS2_Pin EJECT_IN_BACK_POS_Pin MACHINE_EMGS_Pin */
+  GPIO_InitStruct.Pin = REJECT_Pin|EJECT_IN_FWD_POS_Pin|MOULD_OPEN_POS_Pin|MOULD_CLOSED_Pin 
+                          |COREPULLER_POS2_Pin|EJECT_IN_BACK_POS_Pin|MACHINE_EMGS_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
-  /* EXTI interrupt init*/
-  HAL_NVIC_SetPriority(EXTI2_3_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(EXTI2_3_IRQn);
-
-  HAL_NVIC_SetPriority(EXTI4_15_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(EXTI4_15_IRQn);
 
 }
 

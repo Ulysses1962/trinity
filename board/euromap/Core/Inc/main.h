@@ -32,29 +32,24 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
-
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
 /* USER CODE BEGIN EC */
-
 /* USER CODE END EC */
 
 /* Exported macro ------------------------------------------------------------*/
 /* USER CODE BEGIN EM */
-
 /* USER CODE END EM */
 
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
-
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
@@ -82,37 +77,26 @@ void Error_Handler(void);
 #define EMAP_RX_GPIO_Port GPIOA
 #define INTER_OPEN_POS_Pin GPIO_PIN_10
 #define INTER_OPEN_POS_GPIO_Port GPIOC
-#define INTER_OPEN_POS_EXTI_IRQn EXTI4_15_IRQn
 #define DEVICE_OP_ENA_Pin GPIO_PIN_11
 #define DEVICE_OP_ENA_GPIO_Port GPIOC
-#define DEVICE_OP_ENA_EXTI_IRQn EXTI4_15_IRQn
 #define COREPULLER_POS1_Pin GPIO_PIN_12
 #define COREPULLER_POS1_GPIO_Port GPIOC
-#define COREPULLER_POS1_EXTI_IRQn EXTI4_15_IRQn
 #define MACHINE_SAFETY_Pin GPIO_PIN_2
 #define MACHINE_SAFETY_GPIO_Port GPIOD
-#define MACHINE_SAFETY_EXTI_IRQn EXTI2_3_IRQn
 #define REJECT_Pin GPIO_PIN_3
 #define REJECT_GPIO_Port GPIOB
-#define REJECT_EXTI_IRQn EXTI2_3_IRQn
 #define EJECT_IN_FWD_POS_Pin GPIO_PIN_4
 #define EJECT_IN_FWD_POS_GPIO_Port GPIOB
-#define EJECT_IN_FWD_POS_EXTI_IRQn EXTI4_15_IRQn
 #define MOULD_OPEN_POS_Pin GPIO_PIN_5
 #define MOULD_OPEN_POS_GPIO_Port GPIOB
-#define MOULD_OPEN_POS_EXTI_IRQn EXTI4_15_IRQn
 #define MOULD_CLOSED_Pin GPIO_PIN_6
 #define MOULD_CLOSED_GPIO_Port GPIOB
-#define MOULD_CLOSED_EXTI_IRQn EXTI4_15_IRQn
 #define COREPULLER_POS2_Pin GPIO_PIN_7
 #define COREPULLER_POS2_GPIO_Port GPIOB
-#define COREPULLER_POS2_EXTI_IRQn EXTI4_15_IRQn
 #define EJECT_IN_BACK_POS_Pin GPIO_PIN_8
 #define EJECT_IN_BACK_POS_GPIO_Port GPIOB
-#define EJECT_IN_BACK_POS_EXTI_IRQn EXTI4_15_IRQn
 #define MACHINE_EMGS_Pin GPIO_PIN_9
 #define MACHINE_EMGS_GPIO_Port GPIOB
-#define MACHINE_EMGS_EXTI_IRQn EXTI4_15_IRQn
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
