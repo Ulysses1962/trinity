@@ -23,6 +23,7 @@
 #include "stm32f0xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "process.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -157,6 +158,10 @@ void TIM6_DAC_IRQHandler(void)
 void USART1_IRQHandler(void)
 {
   /* USER CODE BEGIN USART1_IRQn 0 */
+  if (__HAL_UART_GET_IT(&huart1, UART_IT_CM)) {
+      __HAL_UART_CLEAR_IT(&huart1, UART_CLEAR_CMF);
+      onEmapCommandReceived();
+  } else HAL_UART_IRQHandler(&huart1);    
   /* USER CODE END USART1_IRQn 0 */
   HAL_UART_IRQHandler(&huart1);
   /* USER CODE BEGIN USART1_IRQn 1 */

@@ -32,6 +32,10 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "stdlib.h"
+#include "string.h"
+#include "stdio.h"
+#include "stdbool.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -97,7 +101,29 @@ void Error_Handler(void);
 #define EJECT_IN_BACK_POS_GPIO_Port GPIOB
 #define MACHINE_EMGS_Pin GPIO_PIN_9
 #define MACHINE_EMGS_GPIO_Port GPIOB
+
 /* USER CODE BEGIN Private defines */
+//==============================================================================
+// MACHINE STATE DEFINITION STRUCTURE
+//==============================================================================
+typedef struct {
+    // Machine state definitions
+    bool MACHINE_EMGS           : 1;
+    bool MOULD_OPEN             : 1;
+    bool MACHINE_SAFETY         : 1;
+    bool REJECT                 : 1;
+    bool DEVICE_OP_ENA          : 1;
+    bool MOULD_CLOSED           : 1;
+    bool INTER_MOULD_OPEN       : 1;
+    // Ejectors state definitions
+    bool EJECTOR_IN_BCK_POS     : 1;
+    bool EJECTOR_IN_FWD_POS     : 1;
+    // Core pullers state definitions
+    bool CORE_PULLERS_IN_POS1   : 1;
+    bool CORE_PULLERS_IN_POS2   : 1;
+} MACHINE_STATE;
+
+#define BUFFER_SIZE 32
 
 /* USER CODE END Private defines */
 

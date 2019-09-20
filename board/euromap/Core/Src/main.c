@@ -23,10 +23,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "stdlib.h"
-#include "string.h"
-#include "stdio.h"
-#include "stdbool.h"
+#include "process.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -48,33 +45,6 @@ DMA_HandleTypeDef hdma_usart1_rx;
 DMA_HandleTypeDef hdma_usart1_tx;
 
 /* USER CODE BEGIN PV */
-//==============================================================================
-// MACHINE STATE DEFINITION STRUCTURE
-//==============================================================================
-typedef struct {
-    // Machine state definitions
-    bool MACHINE_EMGS           : 1;
-    bool MOULD_OPEN             : 1;
-    bool MACHINE_SAFETY         : 1;
-    bool REJECT                 : 1;
-    bool DEVICE_OP_ENA          : 1;
-    bool MOULD_CLOSED           : 1;
-    bool INTER_MOULD_OPEN       : 1;
-    // Ejectors state definitions
-    bool EJECTOR_IN_BCK_POS     : 1;
-    bool EJECTOR_IN_FWD_POS     : 1;
-    // Core pullers state definitions
-    bool CORE_PULLERS_IN_POS1   : 1;
-    bool CORE_PULLERS_IN_POS2   : 1;
-} MACHINE_STATE;
-
-//==============================================================================
-// MACHINE STATE INTEGRAL INDICATOR
-//==============================================================================
-static MACHINE_STATE emap_state;
-static uint8_t machine_state_string[64];
-static uint8_t cmd_ack_string[10];
-
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -85,90 +55,6 @@ static void MX_USART1_UART_Init(void);
 static void MX_TIM6_Init(void);
 
 /* USER CODE BEGIN PFP */
-static void emap_state_check(void) {
-    GPIO_PinState line_state;
-    
-    // MACHINE_EMGS state check
-    line_state = HAL_GPIO_ReadPin(MACHINE_EMGS_GPIO_Port, MACHINE_EMGS_Pin);
-    if (line_state) emap_state.MACHINE_EMGS = true;
-    else            emap_state.MACHINE_EMGS = false;
-    
-    // MOULD_OPEN state check
-    line_state = HAL_GPIO_ReadPin(MOULD_OPEN_POS_GPIO_Port, MOULD_OPEN_POS_Pin);
-    if (line_state) emap_state.MOULD_OPEN = false;
-    else            emap_state.MOULD_OPEN = true;
-
-    // MACHINE_SAFETY state check
-    line_state = HAL_GPIO_ReadPin(MACHINE_SAFETY_GPIO_Port, MACHINE_SAFETY_Pin);
-    if (line_state) emap_state.MACHINE_SAFETY = false;
-    else            emap_state.MACHINE_SAFETY = true;
-
-    // REJECT state check
-    line_state = HAL_GPIO_ReadPin(REJECT_GPIO_Port, REJECT_Pin);
-    if (line_state) emap_state.REJECT = false;
-    else            emap_state.REJECT = true;
-
-    // DEVICE_OP_ENA state check
-    line_state = HAL_GPIO_ReadPin(DEVICE_OP_ENA_GPIO_Port, DEVICE_OP_ENA_Pin);
-    if (line_state) emap_state.DEVICE_OP_ENA = false;
-    else            emap_state.DEVICE_OP_ENA = true;
-    
-    // MOULD_CLOSED state check
-    line_state = HAL_GPIO_ReadPin(MOULD_CLOSED_GPIO_Port, MOULD_CLOSED_Pin);
-    if (line_state) emap_state.MOULD_CLOSED = false;
-    else            emap_state.MOULD_CLOSED = true;
-    
-    // INTER_MOULD_OPEN state check
-    line_state = HAL_GPIO_ReadPin(INTER_OPEN_POS_GPIO_Port, INTER_OPEN_POS_Pin);
-    if (line_state) emap_state.INTER_MOULD_OPEN = false;
-    else            emap_state.INTER_MOULD_OPEN = true;
-    
-    // EJECTOR_IN_BCK_POS state check
-    line_state = HAL_GPIO_ReadPin(EJECT_IN_BACK_POS_GPIO_Port, EJECT_IN_BACK_POS_Pin);
-    if (line_state) emap_state.EJECTOR_IN_BCK_POS = false;
-    else            emap_state.EJECTOR_IN_BCK_POS = true;
-    
-    // EJECTOR_IN_FWD_POS state check
-    line_state = HAL_GPIO_ReadPin(EJECT_IN_FWD_POS_GPIO_Port, EJECT_IN_FWD_POS_Pin);
-    if (line_state) emap_state.EJECTOR_IN_FWD_POS = false;
-    else            emap_state.EJECTOR_IN_FWD_POS = true;
-    
-    // CORE_PULLERS_IN_POS1 state check
-    line_state = HAL_GPIO_ReadPin(COREPULLER_POS1_GPIO_Port, COREPULLER_POS1_Pin);
-    if (line_state) emap_state.CORE_PULLERS_IN_POS1 = false;
-    else            emap_state.CORE_PULLERS_IN_POS1 = true;
-    
-    // CORE_PULLERS_IN_POS2 state check
-    line_state = HAL_GPIO_ReadPin(COREPULLER_POS2_GPIO_Port, COREPULLER_POS2_Pin);
-    if (line_state) emap_state.CORE_PULLERS_IN_POS2 = false;
-    else            emap_state.CORE_PULLERS_IN_POS2 = true;
-}
-
-static void emap_send_state(void) {
-    memset(machine_state_string, 0x00, 64);
-    sprintf((char*)machine_state_string, "%u, %u, %u, %u, %u, %u, %u, %u, %u, %u, %u\r\n",
-            emap_state.MACHINE_EMGS, emap_state.MOULD_OPEN, emap_state.MACHINE_SAFETY, emap_state.REJECT, emap_state.DEVICE_OP_ENA,
-            emap_state.MOULD_CLOSED, emap_state.INTER_MOULD_OPEN, emap_state.EJECTOR_IN_BCK_POS, emap_state.EJECTOR_IN_FWD_POS,
-            emap_state.CORE_PULLERS_IN_POS1, emap_state.CORE_PULLERS_IN_POS2);   
-    HAL_UART_Transmit_DMA(&huart1, machine_state_string, strlen((char*)machine_state_string));    
-}
-
-static void emap_cmd_ack(bool cmd_result) {
-    memset(cmd_ack_string, 0x00, 10);
-    if (cmd_result) sprintf((char*)cmd_ack_string, "OK\r\n");
-    else            sprintf((char*)cmd_ack_string, "ERROR\r\n");
-    HAL_UART_Transmit_DMA(&huart1, cmd_ack_string, strlen((char*)cmd_ack_string));    
-}
-
-static void emap_init(void) {
-    emap_state_check();
-    HAL_TIM_Base_Start_IT(&htim6);    
-}
-
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
-    if (htim->Instance == TIM6) emap_state_check();
-}
-
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -202,13 +88,18 @@ int main(void)
   MX_TIM6_Init();
   
   /* USER CODE BEGIN 2 */
-  emap_init();
+  EmapInit();
+  EmapCommandRead();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+      if (EmapIsCommandReceived()) {
+          EmapCommandProcessing();
+          EmapCommandRead();
+      }
     /* USER CODE END WHILE */
     /* USER CODE BEGIN 3 */
   }
