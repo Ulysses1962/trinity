@@ -33,11 +33,13 @@ void onEmapCommandReceived(void);
 bool EmapIsCommandReceived(void);
 uint8_t EmapGetCommandCode(void);
 void EmapCommandProcessing(void);
-
+void EmapInit(void);
 static void EmapCommandAck(bool cmd_result);
 static void EmapStateCheck(void); 
+
+#ifdef MOULDING_TEST_MODE
 static void EmapSendState(void);
-static void EmapInit(void);
+#endif
 
 static void E000(void);
 static void E001(void);

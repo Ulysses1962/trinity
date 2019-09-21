@@ -7,7 +7,10 @@ static void (*process[31])(void) = {E000, E001, E002, E003, E004, E005, E006, E0
 // MACHINE STATE INTEGRAL INDICATOR
 //=============================================================================
 static MACHINE_STATE emap_state;
+
+#ifdef MOULDING_TEST_MODE
 static uint8_t machine_state_string[64];
+#endif
 
 //=============================================================================
 // Common use data
@@ -111,6 +114,7 @@ static void EmapStateCheck(void) {
     else            emap_state.CORE_PULLERS_IN_POS2 = true;
 }
 
+#ifdef MOULDING_TEST_MODE
 static void EmapSendState(void) {
     memset(machine_state_string, 0x00, 64);
     sprintf((char*)machine_state_string, "%u, %u, %u, %u, %u, %u, %u, %u, %u, %u, %u\r\n",
@@ -119,7 +123,9 @@ static void EmapSendState(void) {
             emap_state.CORE_PULLERS_IN_POS1, emap_state.CORE_PULLERS_IN_POS2);   
     HAL_UART_Transmit_DMA(&huart1, machine_state_string, strlen((char*)machine_state_string));    
 }
-static void EmapInit(void) {
+#endif
+
+void EmapInit(void) {
     // Enabling handling device operation, setting mould area free and dropping emergency conditions
     E000();
     E005();
@@ -143,20 +149,22 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 void EmapCommandProcessing(void) {
     EmapCommandParse();
     process[EmapGetCommandCode()]();
+    EmapCommandAck(true);
 }
 
+// Device OP MODE ENABLE
 static void E000(void) {
     HAL_GPIO_WritePin(DEVICE_OP_MODE_GPIO_Port, DEVICE_OP_MODE_Pin, GPIO_PIN_SET);
     HAL_Delay(COMMAND_TIMEOUT);
-    EmapCommandAck(true);
 }
 
+// Device OP MODE DISABLE
 static void E001(void) {
     HAL_GPIO_WritePin(DEVICE_OP_MODE_GPIO_Port, DEVICE_OP_MODE_Pin, GPIO_PIN_RESET);
     HAL_Delay(COMMAND_TIMEOUT);
-    EmapCommandAck(true);
 }
 
+// Start handling device operation cycle
 static void E002(void) {
     // Wait until mould is open
     while (!emap_state.MOULD_OPEN);
@@ -164,70 +172,95 @@ static void E002(void) {
     E011();
     E013();
     HAL_Delay(COMMAND_TIMEOUT);
-    EmapCommandAck(true);
 }
 
+// Finish handling device operation cycle
 static void E003(void) {
     E012();
     E010();
+    HAL_Delay(COMMAND_TIMEOUT);
 }
 
+// Set device emergency condition
 static void E004(void) {
     HAL_GPIO_WritePin(DEVICE_EMGS_GPIO_Port, DEVICE_EMGS_Pin, GPIO_PIN_SET);  
     HAL_Delay(COMMAND_TIMEOUT);    
-    EmapCommandAck(true);
 }
 
+// Drop device emergency condition
 static void E005(void) {
     HAL_GPIO_WritePin(DEVICE_EMGS_GPIO_Port, DEVICE_EMGS_Pin, GPIO_PIN_SET);   
     HAL_Delay(COMMAND_TIMEOUT);    
-    EmapCommandAck(true);
 }
 
+// Move ejector in forward position
 static void E006(void) {
-    
+    HAL_GPIO_WritePin(EJECT_FORWARD_ENA_GPIO_Port, EJECT_FORWARD_ENA_Pin, GPIO_PIN_SET);
+    // Waiting until ejector in forward position
+    while (!emap_state.EJECTOR_IN_FWD_POS);
+    // Release signal
+    HAL_GPIO_WritePin(EJECT_FORWARD_ENA_GPIO_Port, EJECT_FORWARD_ENA_Pin, GPIO_PIN_RESET);
+    HAL_Delay(COMMAND_TIMEOUT);
 }
 
+// Move ejector in back position
 static void E007(void) {
-    
+    HAL_GPIO_WritePin(EJECT_BACK_ENA_GPIO_Port, EJECT_BACK_ENA_Pin, GPIO_PIN_SET);
+    // Waiting until ejector in back position
+    while (!emap_state.EJECTOR_IN_BCK_POS);
+    // Release signal
+    HAL_GPIO_WritePin(EJECT_BACK_ENA_GPIO_Port, EJECT_BACK_ENA_Pin, GPIO_PIN_RESET);
+    HAL_Delay(COMMAND_TIMEOUT);    
 }
 
+// Set core pullers in position 2 (free moulding and enable it removal)
 static void E008(void) {
-    
+    HAL_GPIO_WritePin(CPP2_MOV_ENA_GPIO_Port, CPP2_MOV_ENA_Pin, GPIO_PIN_SET);
+    // Waiting until core pullers are in pos 2
+    while (!emap_state.CORE_PULLERS_IN_POS2);
+    // Release signal
+    HAL_GPIO_WritePin(CPP2_MOV_ENA_GPIO_Port, CPP2_MOV_ENA_Pin, GPIO_PIN_RESET);
+    HAL_Delay(COMMAND_TIMEOUT);    
 }
 
+// Set core pullers in position 1
 static void E009(void) {
-    
+    HAL_GPIO_WritePin(CPP1_MOV_ENA_GPIO_Port, CPP1_MOV_ENA_Pin, GPIO_PIN_SET);
+    // Waiting until core pullers are in pos 2
+    while (!emap_state.CORE_PULLERS_IN_POS1);
+    // Release signal
+    HAL_GPIO_WritePin(CPP1_MOV_ENA_GPIO_Port, CPP1_MOV_ENA_Pin, GPIO_PIN_RESET);
+    HAL_Delay(COMMAND_TIMEOUT);    
 }
 
+// Enable mould closure (for internal use only)
 static void E010(void) {
     // Enabling mould closure
     HAL_GPIO_WritePin(MOLD_CLOSE_ENA_GPIO_Port, MOLD_CLOSE_ENA_Pin, GPIO_PIN_RESET);    
     while (!emap_state.MOULD_CLOSED);
     HAL_Delay(COMMAND_TIMEOUT);
-    HAL_GPIO_WritePin(MOLD_CLOSE_ENA_GPIO_Port, MOLD_CLOSE_ENA_Pin, GPIO_PIN_SET);       
-    EmapCommandAck(true);    
+    HAL_GPIO_WritePin(MOLD_CLOSE_ENA_GPIO_Port, MOLD_CLOSE_ENA_Pin, GPIO_PIN_SET);        
 }
 
+// Disable mould closure (for internal use only)
 static void E011(void) {
     // Disabling mould closure
     HAL_GPIO_WritePin(MOLD_CLOSE_ENA_GPIO_Port, MOLD_CLOSE_ENA_Pin, GPIO_PIN_SET);     
-    HAL_Delay(COMMAND_TIMEOUT);
-    EmapCommandAck(true);    
+    HAL_Delay(COMMAND_TIMEOUT); 
 }
 
+// Set MOULD AREA FREE condition (for internal use only)
 static void E012(void) {
     // Mould area IS FREE!
     HAL_GPIO_WritePin(MOLD_AREA_FREE_GPIO_Port, MOLD_AREA_FREE_Pin, GPIO_PIN_RESET);      
-    HAL_Delay(COMMAND_TIMEOUT);
-    EmapCommandAck(true);    
+    HAL_Delay(COMMAND_TIMEOUT);  
 }
 
+// Drop MOULD AREA FREE condition (for internal use only)
 static void E013(void) {
     // Mould area IS OCCUPIED BY HANDLING DEVICE!
     HAL_GPIO_WritePin(MOLD_AREA_FREE_GPIO_Port, MOLD_AREA_FREE_Pin, GPIO_PIN_SET);   
-    HAL_Delay(COMMAND_TIMEOUT);
-    EmapCommandAck(true);    
+    HAL_Delay(COMMAND_TIMEOUT);   
 }
 
 

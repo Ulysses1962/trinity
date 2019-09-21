@@ -33,3 +33,4 @@ euromap\main.o: ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart_ex.h
 euromap\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 euromap\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 euromap\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+euromap\main.o: ../Core/Inc/process.h

@@ -3,6 +3,7 @@
 "euromap\main.o"
 "euromap\stm32f0xx_it.o"
 "euromap\stm32f0xx_hal_msp.o"
+"euromap\process.o"
 "euromap\stm32f0xx_hal_tim.o"
 "euromap\stm32f0xx_hal_tim_ex.o"
 "euromap\stm32f0xx_hal_uart.o"

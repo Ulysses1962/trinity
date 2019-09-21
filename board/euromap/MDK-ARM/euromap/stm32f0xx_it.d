@@ -30,4 +30,8 @@ euromap\stm32f0xx_it.o: ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim.h
 euromap\stm32f0xx_it.o: ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim_ex.h
 euromap\stm32f0xx_it.o: ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h
 euromap\stm32f0xx_it.o: ../Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart_ex.h
+euromap\stm32f0xx_it.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+euromap\stm32f0xx_it.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+euromap\stm32f0xx_it.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 euromap\stm32f0xx_it.o: ../Core/Inc/stm32f0xx_it.h
+euromap\stm32f0xx_it.o: ../Core/Inc/process.h
