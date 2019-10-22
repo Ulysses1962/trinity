@@ -417,6 +417,16 @@
               <FileType>1</FileType>
               <FilePath>../Core/Src/stm32f7xx_hal_msp.c</FilePath>
             </File>
+            <File>
+              <FileName>memory.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\memory.c</FilePath>
+            </File>
+            <File>
+              <FileName>memory.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Core\Inc\memory.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

@@ -1,10 +1,5 @@
 cpu\stm32f7xx_hal_msp.o: ../Core/Src/stm32f7xx_hal_msp.c
 cpu\stm32f7xx_hal_msp.o: ../Core/Inc/main.h
-cpu\stm32f7xx_hal_msp.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h
-cpu\stm32f7xx_hal_msp.o: ../Core/Inc/stm32f7xx_hal_conf.h
-cpu\stm32f7xx_hal_msp.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h
-cpu\stm32f7xx_hal_msp.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h
-cpu\stm32f7xx_hal_msp.o: ../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h
 cpu\stm32f7xx_hal_msp.o: ../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f745xx.h
 cpu\stm32f7xx_hal_msp.o: ../Drivers/CMSIS/Include/core_cm7.h
 cpu\stm32f7xx_hal_msp.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
@@ -13,6 +8,11 @@ cpu\stm32f7xx_hal_msp.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
 cpu\stm32f7xx_hal_msp.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
 cpu\stm32f7xx_hal_msp.o: ../Drivers/CMSIS/Include/mpu_armv7.h
 cpu\stm32f7xx_hal_msp.o: ../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h
+cpu\stm32f7xx_hal_msp.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h
+cpu\stm32f7xx_hal_msp.o: ../Core/Inc/stm32f7xx_hal_conf.h
+cpu\stm32f7xx_hal_msp.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h
+cpu\stm32f7xx_hal_msp.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h
+cpu\stm32f7xx_hal_msp.o: ../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h
 cpu\stm32f7xx_hal_msp.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h
 cpu\stm32f7xx_hal_msp.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
 cpu\stm32f7xx_hal_msp.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
@@ -38,3 +38,7 @@ cpu\stm32f7xx_hal_msp.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart_
 cpu\stm32f7xx_hal_msp.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pcd.h
 cpu\stm32f7xx_hal_msp.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h
 cpu\stm32f7xx_hal_msp.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pcd_ex.h
+cpu\stm32f7xx_hal_msp.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+cpu\stm32f7xx_hal_msp.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+cpu\stm32f7xx_hal_msp.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+cpu\stm32f7xx_hal_msp.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h

@@ -4,6 +4,7 @@
 "cpu\main.o"
 "cpu\stm32f7xx_it.o"
 "cpu\stm32f7xx_hal_msp.o"
+"cpu\memory.o"
 "cpu\usb_device.o"
 "cpu\usbd_desc.o"
 "cpu\usbd_cdc_if.o"

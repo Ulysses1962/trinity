@@ -32,6 +32,12 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "stdlib.h"
+#include "stdbool.h"
+#include "string.h"
+#include "math.h"
+#include "stdint.h"
+
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -149,6 +155,7 @@ void Error_Handler(void);
 #define SERVO_REFERENCE_FREQ    1000000L
 #define SERVO_PULSE_FREQ        200000L
 
+#define MEM_COMMAND_SIZE        512
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

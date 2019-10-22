@@ -43,6 +43,8 @@ cpu\usbd_conf.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 cpu\usbd_conf.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 cpu\usbd_conf.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 cpu\usbd_conf.o: ../Core/Inc/main.h
+cpu\usbd_conf.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+cpu\usbd_conf.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 cpu\usbd_conf.o: ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h
 cpu\usbd_conf.o: ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h
 cpu\usbd_conf.o: ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h

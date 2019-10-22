@@ -64,17 +64,20 @@ DMA_HandleTypeDef hdma_usart3_rx;
 DMA_HandleTypeDef hdma_usart3_tx;
 
 /* USER CODE BEGIN PV */
-static uint16_t SERVO_X_CTL_PRESCALER = (uint16_t)(SYS_REFERENCE_APB2_FREQ / SERVO_REFERENCE_FREQ - 1);
-static uint16_t SERVO_Y_CTL_PRESCALER = (uint16_t)(SYS_REFERENCE_APB2_FREQ / SERVO_REFERENCE_FREQ - 1);
-static uint16_t SERVO_Z_CTL_PRESCALER = (uint16_t)(SYS_REFERENCE_APB1_FREQ / SERVO_REFERENCE_FREQ - 1);
-static uint16_t SERVO_A_CTL_PRESCALER = (uint16_t)(SYS_REFERENCE_APB2_FREQ / SERVO_REFERENCE_FREQ - 1);
+uint16_t SERVO_X_CTL_PRESCALER = (uint16_t)(SYS_REFERENCE_APB2_FREQ / SERVO_REFERENCE_FREQ - 1);
+uint16_t SERVO_Y_CTL_PRESCALER = (uint16_t)(SYS_REFERENCE_APB2_FREQ / SERVO_REFERENCE_FREQ - 1);
+uint16_t SERVO_Z_CTL_PRESCALER = (uint16_t)(SYS_REFERENCE_APB1_FREQ / SERVO_REFERENCE_FREQ - 1);
+uint16_t SERVO_A_CTL_PRESCALER = (uint16_t)(SYS_REFERENCE_APB2_FREQ / SERVO_REFERENCE_FREQ - 1);
 
 static uint16_t SERVO_X_TRG_PRESCALER = (uint16_t)(SYS_REFERENCE_APB1_FREQ / SERVO_PULSE_FREQ - 1);
 static uint16_t SERVO_Y_TRG_PRESCALER = (uint16_t)(SYS_REFERENCE_APB1_FREQ / SERVO_PULSE_FREQ - 1);
 static uint16_t SERVO_Z_TRG_PRESCALER = (uint16_t)(SYS_REFERENCE_APB1_FREQ / SERVO_PULSE_FREQ - 1);
 static uint16_t SERVO_A_TRG_PRESCALER = (uint16_t)(SYS_REFERENCE_APB2_FREQ / SERVO_PULSE_FREQ - 1);
 
-static uint16_t SERVO_PULSE_PERIOD    = (uint16_t)(SERVO_REFERENCE_FREQ / SERVO_PULSE_FREQ - 1);
+static uint16_t SERVO_X_PULSE_PERIOD  = (uint16_t)(SERVO_REFERENCE_FREQ / SERVO_PULSE_FREQ - 1);
+static uint16_t SERVO_Y_PULSE_PERIOD  = (uint16_t)(SERVO_REFERENCE_FREQ / SERVO_PULSE_FREQ - 1);
+static uint16_t SERVO_Z_PULSE_PERIOD  = (uint16_t)(SERVO_REFERENCE_FREQ / SERVO_PULSE_FREQ - 1);
+static uint16_t SERVO_A_PULSE_PERIOD  = (uint16_t)(SERVO_REFERENCE_FREQ / SERVO_PULSE_FREQ - 1);
 
 /* USER CODE END PV */
 
@@ -375,7 +378,7 @@ static void MX_TIM1_Init(void)
   htim1.Instance                = TIM1;
   htim1.Init.Prescaler          = SERVO_Y_CTL_PRESCALER;
   htim1.Init.CounterMode        = TIM_COUNTERMODE_UP;
-  htim1.Init.Period             = SERVO_PULSE_PERIOD;
+  htim1.Init.Period             = SERVO_Y_PULSE_PERIOD;
   htim1.Init.ClockDivision      = TIM_CLOCKDIVISION_DIV1;
   htim1.Init.RepetitionCounter  = 0;
   htim1.Init.AutoReloadPreload  = TIM_AUTORELOAD_PRELOAD_DISABLE;
@@ -412,7 +415,7 @@ static void MX_TIM1_Init(void)
   }
   
   sConfigOC.OCMode          = TIM_OCMODE_PWM1;
-  sConfigOC.Pulse           = SERVO_PULSE_PERIOD / 2;
+  sConfigOC.Pulse           = SERVO_Y_PULSE_PERIOD / 2;
   sConfigOC.OCPolarity      = TIM_OCPOLARITY_HIGH;
   sConfigOC.OCNPolarity     = TIM_OCNPOLARITY_HIGH;
   sConfigOC.OCFastMode      = TIM_OCFAST_DISABLE;
@@ -465,7 +468,7 @@ static void MX_TIM2_Init(void)
   htim2.Instance                = TIM2;
   htim2.Init.Prescaler          = SERVO_Z_CTL_PRESCALER;
   htim2.Init.CounterMode        = TIM_COUNTERMODE_UP;
-  htim2.Init.Period             = SERVO_PULSE_PERIOD;
+  htim2.Init.Period             = SERVO_Z_PULSE_PERIOD;
   htim2.Init.ClockDivision      = TIM_CLOCKDIVISION_DIV1;
   htim2.Init.AutoReloadPreload  = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
@@ -499,7 +502,7 @@ static void MX_TIM2_Init(void)
   }
   
   sConfigOC.OCMode      = TIM_OCMODE_PWM1;
-  sConfigOC.Pulse       = SERVO_PULSE_PERIOD / 2;
+  sConfigOC.Pulse       = SERVO_Z_PULSE_PERIOD / 2;
   sConfigOC.OCPolarity  = TIM_OCPOLARITY_HIGH;
   sConfigOC.OCFastMode  = TIM_OCFAST_DISABLE;
   if (HAL_TIM_PWM_ConfigChannel(&htim2, &sConfigOC, TIM_CHANNEL_3) != HAL_OK)
@@ -666,7 +669,7 @@ static void MX_TIM8_Init(void)
   htim8.Instance                = TIM8;
   htim8.Init.Prescaler          = SERVO_X_CTL_PRESCALER;
   htim8.Init.CounterMode        = TIM_COUNTERMODE_UP;
-  htim8.Init.Period             = SERVO_PULSE_PERIOD;
+  htim8.Init.Period             = SERVO_X_PULSE_PERIOD;
   htim8.Init.ClockDivision      = TIM_CLOCKDIVISION_DIV1;
   htim8.Init.RepetitionCounter  = 0;
   htim8.Init.AutoReloadPreload  = TIM_AUTORELOAD_PRELOAD_DISABLE;
@@ -702,7 +705,7 @@ static void MX_TIM8_Init(void)
   }
   
   sConfigOC.OCMode          = TIM_OCMODE_PWM1;
-  sConfigOC.Pulse           = SERVO_PULSE_PERIOD / 2;
+  sConfigOC.Pulse           = SERVO_X_PULSE_PERIOD / 2;
   sConfigOC.OCPolarity      = TIM_OCPOLARITY_HIGH;
   sConfigOC.OCNPolarity     = TIM_OCNPOLARITY_HIGH;
   sConfigOC.OCFastMode      = TIM_OCFAST_DISABLE;
@@ -754,7 +757,7 @@ static void MX_TIM9_Init(void)
   htim9.Instance                = TIM9;
   htim9.Init.Prescaler          = SERVO_A_CTL_PRESCALER;
   htim9.Init.CounterMode        = TIM_COUNTERMODE_UP;
-  htim9.Init.Period             = SERVO_PULSE_PERIOD;
+  htim9.Init.Period             = SERVO_A_PULSE_PERIOD;
   htim9.Init.ClockDivision      = TIM_CLOCKDIVISION_DIV1;
   htim9.Init.AutoReloadPreload  = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim9) != HAL_OK)
@@ -781,7 +784,7 @@ static void MX_TIM9_Init(void)
   }
   
   sConfigOC.OCMode      = TIM_OCMODE_PWM1;
-  sConfigOC.Pulse       = SERVO_PULSE_PERIOD / 2;
+  sConfigOC.Pulse       = SERVO_A_PULSE_PERIOD / 2;
   sConfigOC.OCPolarity  = TIM_OCPOLARITY_HIGH;
   sConfigOC.OCFastMode  = TIM_OCFAST_DISABLE;
   if (HAL_TIM_PWM_ConfigChannel(&htim9, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)

@@ -1,9 +1,4 @@
 #include "main.h"
-#include "stdlib.h"
-#include "string.h"
-#include "math.h"
-#include "stdbool.h"
-
 
 #ifndef __COMMAND_H__
 #define __COMMAND_H__
@@ -14,146 +9,204 @@ extern SPI_HandleTypeDef hspi1;
 extern SPI_HandleTypeDef hspi2;
 extern SPI_HandleTypeDef hspi3;
 
+//-----------------------------------------------------------------------------
+// GENERAL DATA TYPES
+//-----------------------------------------------------------------------------
+typedef enum {FORWARD, BACKWARD} TRINITY_SERVO_DIRECTION;
+typedef enum {CH_X, CH_Y, CH_Z, CH_A} TRINITY_AXIS;
+typedef enum {INIT, PROGRAMMING, RUN} TRINITY_STATE;
+typedef enum {ABSOLUTE, RELATIVE} TRINITY_COORD_SYSTEM;
+
+//-----------------------------------------------------------------------------
+// CONTROL STRUCTURES
+//-----------------------------------------------------------------------------
+// SERVO control signals (for use with DELTA ASDA-B2 sero controller)
+typedef struct {
+    uint32_t A_AXIS_EMGS: 1;
+    uint32_t A_AXIS_CCLR: 1;
+    uint32_t A_AXIS_SPD0: 1;
+    TRINITY_SERVO_DIRECTION A_AXIS_DIR : 1;
+    uint32_t A_AXIS_SON : 1;
+    uint32_t A_AXIS_S_P : 1;
+    uint32_t A_AXIS_SPD1: 1;
+    uint32_t A_AXIS_IND : 1;
+
+    uint32_t Z_AXIS_EMGS: 1;
+    uint32_t Z_AXIS_CCLR: 1;
+    uint32_t Z_AXIS_SPD0: 1;
+    TRINITY_SERVO_DIRECTION Z_AXIS_DIR : 1;
+    uint32_t Z_AXIS_SON : 1;
+    uint32_t Z_AXIS_S_P : 1;
+    uint32_t Z_AXIS_SPD1: 1;
+    uint32_t Z_AXIS_IND : 1;
+
+    uint32_t Y_AXIS_EMGS: 1;
+    uint32_t Y_AXIS_CCLR: 1;
+    uint32_t Y_AXIS_SPD0: 1;
+    TRINITY_SERVO_DIRECTION Y_AXIS_DIR : 1;
+    uint32_t Y_AXIS_SON : 1;
+    uint32_t Y_AXIS_S_P : 1;
+    uint32_t Y_AXIS_SPD1: 1;
+    uint32_t Y_AXIS_IND : 1;
+
+    uint32_t X_AXIS_EMGS: 1;
+    uint32_t X_AXIS_CCLR: 1;
+    uint32_t X_AXIS_SPD0: 1;
+    TRINITY_SERVO_DIRECTION X_AXIS_DIR : 1;
+    uint32_t X_AXIS_SON : 1;
+    uint32_t X_AXIS_S_P : 1;
+    uint32_t X_AXIS_SPD1: 1;
+    uint32_t X_AXIS_IND : 1;
+} SERVO_CONTROL_STRUCTURE;  
+
+// TRINITY SETTINGS STRUCTURE
+typedef struct {
+    uint8_t  preset_valid;
+    double   X_AXIS_RESOLUTION;
+    double   Y_AXIS_RESOLUTION;
+    double   Z_AXIS_RESOLUTION;
+    double   A_AXIS_RESOLUTION;
+
+    uint16_t X_MAX_POS_SENSOR_MASK;
+    uint16_t X_MIN_POS_SENSOR_MASK;
+    uint16_t Y_MAX_POS_SENSOR_MASK;
+    uint16_t Y_MIN_POS_SENSOR_MASK;
+    uint16_t Z_MAX_POS_SENSOR_MASK;
+    uint16_t Z_MIN_POS_SENSOR_MASK;
+    uint16_t A_MAX_POS_SENSOR_MASK;
+    uint16_t A_MIN_POS_SENSOR_MASK;
+
+    uint32_t X_REF_COORD;  
+    uint32_t Y_REF_COORD;      
+    uint32_t Z_REF_COORD;    
+    uint32_t A_REF_COORD;   
+
+    TRINITY_COORD_SYSTEM C_SYSTEM;      
+} TRINITY_SETTINGS;
+
 /** ------------------------------------------------------------------------------------------------
     COMMAND LIST
     ------------------------------------------------------------------------------------------------
-    A. AXIS MOVEMENT COMMANDS
+    A. SERVO CONTROL COMMANDS (IMPORTANT!!! TRYNITY USES ONLY CARTESIAN METRIC COORDINATE SYSTEM!)
     ------------------------------------------------------------------------------------------------
-    1. G0000:+000.000 - move along X-axis in specified direcrion on set distance
-    2. G0001:+000.000 - move along Y-axis in specified direcrion on set distance
-    3. G0002:+000.000 - move along Z-axis in specified direcrion on set distance
-    4. G0003:+000.000 - move along A-axis in specified direcrion on set distance
-    
+    1. G00      - fast feed to specified pos (params: Xmmm.nnn Ymmm.nnn Zmmm.nnn Ammm.nnn) 
+    2. G01      - linear interpolation to specified pos (params: Xmmm.nnn Ymmm.nnn Zmmm.nnn Ammm.nnn Fm.n)
+    3. G02      - circular interpolation CW (params: Xmmm.nnn Ymmm.nnn Zmmm.nnn Rmmm.nnn Fm.n) 
+                  R - interpolation radius F - interpolation speed
+    4. G03      - circular interpolation CCW. Parameters are just the same
+    5. G04      - programm execution delay (params: Pmmmmm (mmmm - in milliseconds) Xmmmm (mmmm - in seconds))
+    6. G20      - set reference point position (params: Xmmm.nnn Ymmm.nnn Zmmm.nnn Ammm.nnn)
+    7. G21      - set resolution for axis (params: Xmmm.nnn Ymmm.nnn Zmmm.nnn Ammm.nnn)
+    8. G28      - return to reference point (params: Xmmm.nnn Ymmm.nnn Zmmm.nnn Ammm.nnn - these are intermediate point coordinates)
+    9. G90      - use absolute coordinates
+    a. G91      - use relative coordinates
+    b. M30      - programm end and rewind (cycle close)
+
     ------------------------------------------------------------------------------------------------
-    B. EUROMAP INTERFACE COMMANDS
+    B. EUROMAP INTERFACE COMMANDS (NO PARAMETERS NEEDED)
     ------------------------------------------------------------------------------------------------
-    1. G0004 - E000 (device op mode enable)
-    2. G0005 - E001 (device op mode disable)
-    3. G0006 - E002 (start handling device operation cycle) 
-    4. G0007 - E003 (finish handling device operation cycle) 
-    5. G0008 - E004 (set device emergency condition)
-    6. G0009 - E005 (drop device emergency condition)
-    7. G0010 - E006 (move ejector in forward position)
-    8. G0011 - E007 (move ejector in back position)
-    9. G0012 - E008 (enable moulding removal (set core pullers to position 2))
-    A. G0013 - E009 (prepare next moulding cycle (set core pullers to position 1))
-    B. G0014 - E010 (enabling mould closure)
-    C. G0015 - E011 (disabling mould closure)
-    D. G0016 - E012 (set mould area free)
-    E. G0017 - E013 (set mould area occupied)
+    1. E00      - (device op mode enable)
+    2. E01      - (device op mode disable)
+    3. E02      - (start handling device operation cycle) 
+    4. E03      - (finish handling device operation cycle) 
+    5. E04      - (set device emergency condition)
+    6. E05      - (drop device emergency condition)
+    7. E06      - (move ejector in forward position)
+    8. E07      - (move ejector in back position)
+    9. E08      - (enable moulding removal (set core pullers to position 2))
+    A. E09      - (prepare next moulding cycle (set core pullers to position 1))
+    B. E10      - (enabling mould closure)
+    C. E11      - (disabling mould closure)
+    D. E12      - (set mould area free)
+    E. E13      - (set mould area occupied)
 
     ------------------------------------------------------------------------------------------------
     C. TECHNOLOGICAL SIGNALS COMMANDS
     ------------------------------------------------------------------------------------------------
-    1. G0018 - set TS state
-    2. G0019 - check sensor state
-     
+    1. M06      - set TS state (params: Tnn STm, where nn - signal line number, m - state. 0 - signal inactive, 1 - active)
+
     ------------------------------------------------------------------------------------------------
     D. EXTERNAL MACHINERY CONTROL COMMANDS (RS-485)
     ------------------------------------------------------------------------------------------------
-    1. G0020:XXXXXX@MMMM - send XXXXXX command to 0xMMMM adressed device via RS-485 
+    1. C00      - send external machinery control command via RS-485 (params: ADDRxxxx CMDyyyyyy) 
+    2. C01      - get external machinery responce (response is written to default RS-485 buffer)
 
     ------------------------------------------------------------------------------------------------
     D. PROGRAMMING COMMANDS
     ------------------------------------------------------------------------------------------------
-    1. G0021:XXXXXXXX@MMMMMMMM - save XXXXXXXX command at 0xMMMMMMMM EEPROM address
-    2. G0022:MMMMMMMM          - start programm from 0xMMMMMMMM address   
+    1. W00      - start programming (params: Bnnn Smm Pxx, where nnn, mm and xx are starting block, sector and page)
+                  all data, received after that considered to be programm codes and has to be written to FLASH memory
+    2. W01      - stop programming procedure
+    3. M98      - programm start (params: Onnnmmxx Nxxxxxx, where nnnmmxx - is programm code, constructed from
+                  block, sector and page number, xxxxxx - is the number of cycles (infinite cysle when 000000)) 
+    4. w02-W05  - set axis bindings (params: Xn | Yn |Zn | An Tmm, where n = 0, 1, 2 (0 means we set binding for MIN position
+                  for axis, 1 - we bind MAX position), mm is sensor line which is binded)     
+    5. W06      - set axis activity (params: Xn Yn Zn An, where n - axis activity (1 - active, 0 - inactive)) 
+    6. W07      - set emergency stop condition for axis (params are just the same)  
+    7. W08      - check sensor line (params: SENxx, xx - sensor line number)   
 
-    ------------------------------------------------------------------------------------------------
-    E. SERVO SUBSYSTEM CONTROL COMMANDS
-    ------------------------------------------------------------------------------------------------
-    1. G0023  - X-AXIS SON ON
-    2. G0024  - X-AXIS SON OFF
-    3. G0025  - Y-AXIS SON ON
-    4. G0026  - Y-AXIS SON OFF
-    5. G0027  - Z-AXIS SON ON
-    6. G0028  - Z-AXIS SON OFF
-    7. G0029  - A-AXIS SON ON
-    8. G0030  - A-AXIS SON OFF
-    
-    9. G0031  - X-AXIS EMGS OFF
-    A. G0032  - X-AXIS EMGS OFF
-    B. G0033  - Y-AXIS EMGS OFF
-    C. G0034  - Y-AXIS EMGS OFF
-    D. G0035  - Z-AXIS EMGS OFF
-    E. G0036  - Z-AXIS EMGS OFF
-    F. G0037  - A-AXIS EMGS OFF
-    G. G0038  - A-AXIS EMGS OFF
-    
-    H. G0039:x  - set X-AXIS direction
-    I. G0040:x  - set Y-AXIS direction
-    J. G0041:x  - set Z-AXIS direction
-    K. G0042:x  - set A-AXIS direction
-    
-    L. G0043  - move X-AXIS to home position
-    M. G0044  - move Y-AXIS to home position
-    N. G0045  - move Z-AXIS to home position
-    o. G0046  - move A-AXIS to home position
-
-
-    
 */
 // Command processor initialization sequence
 void TrinityCPInit(void);
-
 // Command execution routine
-void TrinityCommandExec(char* command);
-
+void TrinityProgrammExec(char* command);
 // Command parser
-static void TrinityGetCommandCode(char* command);
-static void TrinityGetCommandArgs(char* command);
+static void TrinityCommandParser(char* command);
 
-// Command utilities
-static uint8_t G0000(void);
-static uint8_t G0001(void);
-static uint8_t G0002(void);
-static uint8_t G0003(void);
+//=============================================================================
+// Utility routines
+//=============================================================================
+static uint32_t TrinitySetAxisDirection(TRINITY_AXIS axis, TRINITY_SERVO_DIRECTION dir);
+static uint32_t TrinitySetAxisSpeed(TRINITY_AXIS axis, uint16_t speed);
+static uint32_t TrinitySaveSettings(void);
+static uint32_t TrinityLoadSettings(void);
+static uint32_t TrinityMoveToZero(void);
 
-static uint8_t G0004(void);
-static uint8_t G0005(void);
-static uint8_t G0006(void);
-static uint8_t G0007(void);
-static uint8_t G0008(void);
-static uint8_t G0009(void);
-static uint8_t G0010(void);
-static uint8_t G0011(void);
-static uint8_t G0012(void);
-static uint8_t G0013(void);
-static uint8_t G0014(void);
-static uint8_t G0015(void);
-static uint8_t G0016(void);
-static uint8_t G0017(void);
+//=============================================================================
+// Command routines
+//=============================================================================
+static void G00 (double x, double y, double z, double a); 
+static void G01 (double x, double y, double z, double a, double feed);
+static void G02 (double x, double y, double z, double r, double feed); 
+static void G03 (double x, double y, double z, double r, double feed);
+static void G04 (uint32_t m_delay, uint32_t s_delay);
+static void G20 (double x, double y, double z, double a);
+static void G21 (double res_x, double res_y, double res_z, double res_a);
+static void G28 (double x, double y, double z, double a);
+static void G90 (void);
+static void G91 (void);
+static void M30 (void);
 
-static uint8_t G0018(void);
-static uint8_t G0019(void);
+static void E00 (void);
+static void E01 (void);
+static void E02 (void); 
+static void E03 (void); 
+static void E04 (void);
+static void E05 (void);
+static void E06 (void);
+static void E07 (void);
+static void E08 (void);
+static void E09 (void);
+static void E10 (void);
+static void E11 (void);
+static void E12 (void);
+static void E13 (void);
 
-static uint8_t G0020(void);
-static uint8_t G0021(void);
-static uint8_t G0022(void);
+static void M06 (uint16_t line, uint8_t state);
 
-static uint8_t G0023(void);
-static uint8_t G0024(void);
-static uint8_t G0025(void);
-static uint8_t G0026(void);
-static uint8_t G0027(void);
-static uint8_t G0028(void);
-static uint8_t G0029(void);
-static uint8_t G0030(void);
-static uint8_t G0031(void);
-static uint8_t G0032(void);
-static uint8_t G0033(void);
-static uint8_t G0034(void);
-static uint8_t G0035(void);
-static uint8_t G0036(void);
-static uint8_t G0037(void);
-static uint8_t G0038(void);
-static uint8_t G0039(void);
-static uint8_t G0040(void);
-static uint8_t G0041(void);
-static uint8_t G0042(void);
-static uint8_t G0043(void);
-static uint8_t G0044(void);
-static uint8_t G0045(void);
-static uint8_t G0046(void);
+static void C00 (uint16_t addr, char* command);
+static void C01 (void);
+
+static void W00 (uint16_t start_block, uint16_t start_sector, uint16_t start_page);
+static void W01 (void);
+static void M98 (uint32_t start_addr, uint32_t num_cycles);
+static void W02 (uint8_t selector, uint16_t sens_line);
+static void W03 (uint8_t selector, uint16_t sens_line);
+static void W04 (uint8_t selector, uint16_t sens_line);
+static void W05 (uint8_t selector, uint16_t sens_line);
+static void W06 (uint8_t x_active, uint8_t y_active, uint8_t z_active, uint8_t a_active);
+static void W07 (uint8_t x_emgs, uint8_t y_emgs, uint8_t z_emgs, uint8_t a_emgs);
+static bool W08 (uint16_t sens_line);
+
 
 #endif

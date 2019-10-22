@@ -44,6 +44,8 @@ cpu\usb_device.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 cpu\usb_device.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 cpu\usb_device.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 cpu\usb_device.o: ../Core/Inc/main.h
+cpu\usb_device.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+cpu\usb_device.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 cpu\usb_device.o: ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h
 cpu\usb_device.o: ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h
 cpu\usb_device.o: ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h
