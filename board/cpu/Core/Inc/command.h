@@ -67,6 +67,11 @@ typedef struct {
     double   Z_AXIS_RESOLUTION;
     double   A_AXIS_RESOLUTION;
 
+    double   X_MAX_FEED;
+    double   Y_MAX_FEED;
+    double   Z_MAX_FEED;
+    double   A_MAX_FEED;
+
     uint16_t X_MAX_POS_SENSOR_MASK;
     uint16_t X_MIN_POS_SENSOR_MASK;
     uint16_t Y_MAX_POS_SENSOR_MASK;
@@ -76,10 +81,10 @@ typedef struct {
     uint16_t A_MAX_POS_SENSOR_MASK;
     uint16_t A_MIN_POS_SENSOR_MASK;
 
-    uint32_t X_REF_COORD;  
-    uint32_t Y_REF_COORD;      
-    uint32_t Z_REF_COORD;    
-    uint32_t A_REF_COORD;   
+    double X_REF_COORD;  
+    double Y_REF_COORD;      
+    double Z_REF_COORD;    
+    double A_REF_COORD;   
 
     TRINITY_COORD_SYSTEM C_SYSTEM;      
 } TRINITY_SETTINGS;
@@ -143,7 +148,7 @@ typedef struct {
                   for axis, 1 - we bind MAX position), mm is sensor line which is binded)     
     5. W06      - set axis activity (params: Xn Yn Zn An, where n - axis activity (1 - active, 0 - inactive)) 
     6. W07      - set emergency stop condition for axis (params are just the same)  
-    7. W08      - check sensor line (params: SENxx, xx - sensor line number)   
+    7. W08      - wait for sensor line become active (params: SENxx, xx - sensor line number)   
 
 */
 // Command processor initialization sequence
@@ -157,25 +162,30 @@ static void TrinityCommandParser(char* command);
 // Utility routines
 //=============================================================================
 static uint32_t TrinitySetAxisDirection(TRINITY_AXIS axis, TRINITY_SERVO_DIRECTION dir);
-static uint32_t TrinitySetAxisSpeed(TRINITY_AXIS axis, uint16_t speed);
+static uint32_t TrinitySetAxisSpeed(TRINITY_AXIS axis, double feed);
 static uint32_t TrinitySaveSettings(void);
 static uint32_t TrinityLoadSettings(void);
+static bool TrinityIsPresetsValid(void);
 static uint32_t TrinityMoveToZero(void);
+static void TrinityDeviceAlarm(bool alarm);
 
 //=============================================================================
 // Command routines
 //=============================================================================
-static void G00 (double x, double y, double z, double a); 
+static void G00 (double x, double y, double z, double a);
+static void G00_X (double x, double feed); 
+static void G00_Y (double y, double feed); 
+static void G00_Z (double z, double feed); 
+static void G00_A (double a, double feed); 
 static void G01 (double x, double y, double z, double a, double feed);
 static void G02 (double x, double y, double z, double r, double feed); 
 static void G03 (double x, double y, double z, double r, double feed);
-static void G04 (uint32_t m_delay, uint32_t s_delay);
+static void G04 (uint32_t m_delay);
 static void G20 (double x, double y, double z, double a);
 static void G21 (double res_x, double res_y, double res_z, double res_a);
 static void G28 (double x, double y, double z, double a);
 static void G90 (void);
 static void G91 (void);
-static void M30 (void);
 
 static void E00 (void);
 static void E01 (void);
@@ -191,6 +201,7 @@ static void E10 (void);
 static void E11 (void);
 static void E12 (void);
 static void E13 (void);
+static bool TrinityGetEMAPAck(void);
 
 static void M06 (uint16_t line, uint8_t state);
 
@@ -208,5 +219,9 @@ static void W06 (uint8_t x_active, uint8_t y_active, uint8_t z_active, uint8_t a
 static void W07 (uint8_t x_emgs, uint8_t y_emgs, uint8_t z_emgs, uint8_t a_emgs);
 static bool W08 (uint16_t sens_line);
 
+//-----------------------------------------------------------------------------
+// INTERRUPT SERVICE CALLBACKS
+//-----------------------------------------------------------------------------
+void onEmapCommandReceived(void);
 
 #endif

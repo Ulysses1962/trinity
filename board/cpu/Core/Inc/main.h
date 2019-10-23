@@ -37,6 +37,7 @@ extern "C" {
 #include "string.h"
 #include "math.h"
 #include "stdint.h"
+#include "stdio.h"
 
 /* USER CODE END Includes */
 
