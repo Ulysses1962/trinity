@@ -22,6 +22,7 @@
 #include "main.h"
 #include "stm32f7xx_it.h"
 #include "command.h"
+#include "wifi.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 /* USER CODE END Includes */
@@ -297,8 +298,11 @@ void USART2_IRQHandler(void)
 void USART3_IRQHandler(void)
 {
   /* USER CODE BEGIN USART3_IRQn 0 */
+  if (__HAL_UART_GET_IT(&huart3, UART_IT_CM)) {
+      __HAL_UART_CLEAR_IT(&huart3, UART_CLEAR_CMF); 
+      wifi_state_checker();
+  } else HAL_UART_IRQHandler(&huart3);    
   /* USER CODE END USART3_IRQn 0 */
-  HAL_UART_IRQHandler(&huart3);
   /* USER CODE BEGIN USART3_IRQn 1 */
   /* USER CODE END USART3_IRQn 1 */
 }

@@ -6,6 +6,11 @@ cpu\usbd_ioreq.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 cpu\usbd_ioreq.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 cpu\usbd_ioreq.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 cpu\usbd_ioreq.o: ../Core/Inc/main.h
+cpu\usbd_ioreq.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h
+cpu\usbd_ioreq.o: ../Core/Inc/stm32f7xx_hal_conf.h
+cpu\usbd_ioreq.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h
+cpu\usbd_ioreq.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h
+cpu\usbd_ioreq.o: ../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h
 cpu\usbd_ioreq.o: ../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f745xx.h
 cpu\usbd_ioreq.o: ../Drivers/CMSIS/Include/core_cm7.h
 cpu\usbd_ioreq.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
@@ -14,11 +19,6 @@ cpu\usbd_ioreq.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
 cpu\usbd_ioreq.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
 cpu\usbd_ioreq.o: ../Drivers/CMSIS/Include/mpu_armv7.h
 cpu\usbd_ioreq.o: ../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h
-cpu\usbd_ioreq.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h
-cpu\usbd_ioreq.o: ../Core/Inc/stm32f7xx_hal_conf.h
-cpu\usbd_ioreq.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h
-cpu\usbd_ioreq.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h
-cpu\usbd_ioreq.o: ../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h
 cpu\usbd_ioreq.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h
 cpu\usbd_ioreq.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
 cpu\usbd_ioreq.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h

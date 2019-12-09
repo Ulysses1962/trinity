@@ -1,5 +1,10 @@
 cpu\main.o: ../Core/Src/main.c
 cpu\main.o: ../Core/Inc/main.h
+cpu\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h
+cpu\main.o: ../Core/Inc/stm32f7xx_hal_conf.h
+cpu\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h
+cpu\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h
+cpu\main.o: ../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h
 cpu\main.o: ../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f745xx.h
 cpu\main.o: ../Drivers/CMSIS/Include/core_cm7.h
 cpu\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
@@ -8,11 +13,6 @@ cpu\main.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
 cpu\main.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
 cpu\main.o: ../Drivers/CMSIS/Include/mpu_armv7.h
 cpu\main.o: ../Drivers/CMSIS/Device/ST/STM32F7xx/Include/system_stm32f7xx.h
-cpu\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h
-cpu\main.o: ../Core/Inc/stm32f7xx_hal_conf.h
-cpu\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h
-cpu\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h
-cpu\main.o: ../Drivers/CMSIS/Device/ST/STM32F7xx/Include/stm32f7xx.h
 cpu\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h
 cpu\main.o: ../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h
 cpu\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
@@ -42,7 +42,11 @@ cpu\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 cpu\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 cpu\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 cpu\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+cpu\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 cpu\main.o: ../USB_DEVICE/App/usb_device.h
 cpu\main.o: ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h
 cpu\main.o: ../USB_DEVICE/Target/usbd_conf.h
-cpu\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+cpu\main.o: ../Core/Inc/console.h
+cpu\main.o: ../Core/Inc/wifi.h
+cpu\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\ctype.h
+cpu\main.o: ../Core/Inc/interpreter.h

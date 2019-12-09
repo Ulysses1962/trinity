@@ -148,8 +148,10 @@ void Error_Handler(void);
 #define TS_MOSI_GPIO_Port GPIOC
 
 /* USER CODE BEGIN Private defines */
-#define PGM_BUFFER_SIZE 64
-#define INF_BUFFER_SIZE 128
+#define PGM_BUFFER_SIZE  64
+#define INF_BUFFER_SIZE  128
+#define WIFI_BUFFER_SIZE 128
+#define CMD_BUFFER_SIZE  128
 
 #define SYS_REFERENCE_APB1_FREQ 108000000L
 #define SYS_REFERENCE_APB2_FREQ 216000000L
@@ -157,6 +159,9 @@ void Error_Handler(void);
 #define SERVO_PULSE_FREQ        200000L
 
 #define MEM_COMMAND_SIZE        512
+
+enum receiver_state {START, CHAR_RECEIVED, WAIT_INFO_LF, INFO_RDY, WAIT_ECHO_LF, ECHO_RDY, STATUS_BEGIN, WAIT_LF, DATA_BLOCK_COMPLETE, MSG_BEGIN, TCP_INFO_BEGIN, SEND_PROMPT};
+
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

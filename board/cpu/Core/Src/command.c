@@ -1,5 +1,46 @@
 #include "command.h"
 #include "memory.h"
+#include "ctype.h"
+
+#define func_name(n) f_##n
+#define func_definition(container, type, func) container.name = #func; container.proc_type = type; container.f_##type = func;
+
+#define FUNCTION_NUM 42
+#define TYPES_NUM 9
+
+//=============================================================================
+// INTERPRETER FINISHED STATE MACHINE STATES ANT PROC TYPES
+//=============================================================================
+typedef enum {OP_NAME, ARGS} INTERPRETER_STATE;
+
+typedef void (*type_0)(void);
+typedef void (*type_1)(double, double, double, double);
+typedef void (*type_2)(double, double, double, double, double);
+typedef void (*type_3)(int);
+typedef void (*type_4)(int, int);
+typedef void (*type_5)(int, int, int);
+typedef void (*type_6)(int, int, int, int);
+typedef void (*type_7)(int, char*);
+typedef void (*type_8)(double, double);
+
+typedef struct {
+    char* name;
+    uint8_t proc_type;
+    union {
+        type_0 f_0;
+        type_1 f_1;
+        type_2 f_2;
+        type_3 f_3;
+        type_4 f_4;
+        type_5 f_5;
+        type_6 f_6;
+        type_7 f_7;
+        type_8 f_8;
+    };
+} EXEC_INFO;
+
+EXEC_INFO exec_tbl[FUNCTION_NUM];
+
 
 UART_HandleTypeDef* emap_port = &huart1;
 UART_HandleTypeDef* extm_port = &huart2;
@@ -60,15 +101,21 @@ static const uint8_t SETTINGS_SECTOR        = 0;
 static const uint8_t SERVO_SGS_EXISTS_PAGE  = 0;
 static const uint8_t SETTINGS_PAGE          = 1;
 
-static const uint8_t PROGRAMM_BLOCK         = 1;
-static const uint8_t PROGRAMM_SECTOR        = 0;
-static const uint8_t PROGRAMM_PAGE          = 0;                             
+static uint8_t  PROGRAMM_BLOCK  = 1;
+static uint8_t  PROGRAMM_SECTOR = 0;
+static uint8_t  PROGRAMM_PAGE   = 0; 
+static uint16_t const PAGE_SIZE = 256;
+
+static uint16_t p_length     = 0;                            
+static char page_buffer[PAGE_SIZE];
+static bool page_complete    = false;
 
 //-----------------------------------------------------------------------------
 // TRINITY common interface routines
 //-----------------------------------------------------------------------------
 void TrinityCPInit(void) {
     device_command  = (char*)calloc(PGM_BUFFER_SIZE, sizeof(uint8_t));
+    memset (page_buffer, 0x00, PAGE_SIZE);
     /**
      * ------------------------------------------------------------------------
      * DEFAULT SERVO CONTROL SIGNALS STATE
@@ -120,6 +167,8 @@ void TrinityCPInit(void) {
 
     HAL_SPI_Transmit(srvo_port, (uint8_t*)&control_struct, sizeof(SERVO_CONTROL_STRUCTURE), 200);
 
+    TrinityInitExecTbl();
+    
     // LOAD PRESETS
     TrinityLoadSettings();
     if (TrinityIsPresetsValid()) {
@@ -140,646 +189,143 @@ void TrinityProgrammExec(char* command) {
     
 }
 
-void TrinityCommandParser(char* command) {
-    
-}
 
-uint32_t TrinitySaveSettings(void) {
-    return TrinityWritePage(SETTINGS_BLOCK, SETTINGS_SECTOR, SETTINGS_PAGE, (uint8_t*)&controller_settings, sizeof(TRINITY_SETTINGS));
-}
-
-uint32_t TrinityLoadSettings(void) {
-    return TrinityReadPage(SETTINGS_BLOCK, SETTINGS_SECTOR, SETTINGS_PAGE, (uint8_t*)&controller_settings, sizeof(TRINITY_SETTINGS));
-}
-
-bool TrinityIsPresetsValid(void) {
-    return controller_settings.preset_valid == SERVO_SETTINGS_EXISTS;
-}
-
-static void TrinityDeviceAlarm(bool alarm) {
-    DEVICE_ALARM = alarm;
-    // to do.. Alarm indication
-}
 
 //=============================================================================
-// Utility routines
+// COMMAND EXTRACTING AND PARSING ROUTINES
 //=============================================================================
-uint32_t TrinitySetAxisDirection(TRINITY_AXIS axis, TRINITY_SERVO_DIRECTION dir) {
-    HAL_StatusTypeDef res = HAL_OK;
+void TrinityInitExecTbl(void) {
+    for (int t = 0; t < TYPES_NUM; ++t) {
+        switch (t) {
+            case 0: 
+            func_definition(exec_tbl[0], 0, G90); 
+            func_definition(exec_tbl[1], 0, G91); 
+            func_definition(exec_tbl[2], 0, E00); 
+            func_definition(exec_tbl[3], 0, E01); 
+            func_definition(exec_tbl[4], 0, E02); 
+            func_definition(exec_tbl[5], 0, E03); 
+            func_definition(exec_tbl[6], 0, E04); 
+            func_definition(exec_tbl[7], 0, E05); 
+            func_definition(exec_tbl[8], 0, E06); 
+            func_definition(exec_tbl[9], 0, E07); 
+            func_definition(exec_tbl[10], 0, E08); 
+            func_definition(exec_tbl[11], 0, E09); 
+            func_definition(exec_tbl[12], 0, E10); 
+            func_definition(exec_tbl[13], 0, E11); 
+            func_definition(exec_tbl[14], 0, E12); 
+            func_definition(exec_tbl[15], 0, E13); 
+            func_definition(exec_tbl[16], 0, C01); 
+            func_definition(exec_tbl[17], 0, W01); 
+            break;
 
-    switch (axis) {
-        case CH_A: control_struct.A_AXIS_DIR = dir; break;
-        case CH_Z: control_struct.Z_AXIS_DIR = dir; break;
-        case CH_Y: control_struct.Y_AXIS_DIR = dir; break;
-        case CH_X: control_struct.X_AXIS_DIR = dir; break;
-    }
-    res = HAL_SPI_Transmit(tsgl_port, (uint8_t*)&control_struct, sizeof(SERVO_CONTROL_STRUCTURE), 200);
+            case 1: 
+            func_definition(exec_tbl[18], 1, G00); 
+            func_definition(exec_tbl[19], 1, G20); 
+            func_definition(exec_tbl[20], 1, G21); 
+            func_definition(exec_tbl[21], 1, G28); 
+            break;
 
-    return (uint32_t)res;
-}
-
-/**
- *  @param axis  - axis to operate 
- *  @param speed - axis speed 1..100
- */
-uint32_t TrinitySetAxisSpeed(TRINITY_AXIS axis, double feed) {
-    HAL_StatusTypeDef res = HAL_OK;
-    uint16_t speed;
-
-    switch (axis) {
-        case CH_X: 
-            HAL_TIM_Base_Stop_IT(&htim8);
-            HAL_TIM_Base_Stop_IT(&htim5);
+            case 2: 
+            func_definition(exec_tbl[22], 2, G01); 
+            func_definition(exec_tbl[23], 2, G02); 
+            func_definition(exec_tbl[24], 2, G03); 
+            break;
             
-            speed = (uint16_t)ceil(feed / (controller_settings.X_AXIS_RESOLUTION * 60 * SERVO_PULSE_FREQ));
-            if (speed < 1 || speed > 100) return (uint32_t)HAL_ERROR;
+            case 3: 
+            func_definition(exec_tbl[25], 3, G04); 
+            func_definition(exec_tbl[26], 3, W08); 
+            func_definition(exec_tbl[27], 3, W09); 
+            break;
             
-            TIM8->ARR  = (uint16_t)(SERVO_REFERENCE_FREQ / SERVO_PULSE_FREQ * 0.1 * speed - 1);
-            TIM5->PSC  = (uint16_t)(SYS_REFERENCE_APB1_FREQ / SERVO_PULSE_FREQ * 0.1 * speed - 1);
+            case 4: 
+            func_definition(exec_tbl[28], 4, M06); 
+            func_definition(exec_tbl[29], 4, M98); 
+            func_definition(exec_tbl[30], 4, W02); 
+            func_definition(exec_tbl[31], 4, W03); 
+            func_definition(exec_tbl[32], 4, W04); 
+            func_definition(exec_tbl[33], 4, W05); 
             break;
-        case CH_Y:
-            HAL_TIM_Base_Stop_IT(&htim1);
-            HAL_TIM_Base_Stop_IT(&htim4);
-
-            speed = (uint16_t)ceil(feed / (controller_settings.Y_AXIS_RESOLUTION * 60 * SERVO_PULSE_FREQ));
-            if (speed < 1 || speed > 100) return (uint32_t)HAL_ERROR;
-
-            TIM1->ARR  = (uint16_t)(SERVO_REFERENCE_FREQ / SERVO_PULSE_FREQ * 0.1 * speed - 1);
-            TIM4->PSC  = (uint16_t)(SYS_REFERENCE_APB1_FREQ / SERVO_PULSE_FREQ * 0.1 * speed - 1);
+            
+            case 5: 
+            func_definition(exec_tbl[34], 5, W00); 
             break;
-        case CH_Z: 
-            HAL_TIM_Base_Stop_IT(&htim2);
-            HAL_TIM_Base_Stop_IT(&htim3);
-
-            speed = (uint16_t)ceil(feed / (controller_settings.Z_AXIS_RESOLUTION * 60 * SERVO_PULSE_FREQ));
-            if (speed < 1 || speed > 100) return (uint32_t)HAL_ERROR;
-
-            TIM2->ARR  = (uint16_t)(SERVO_REFERENCE_FREQ / SERVO_PULSE_FREQ * 0.1 * speed - 1);
-            TIM3->PSC  = (uint16_t)(SYS_REFERENCE_APB1_FREQ / SERVO_PULSE_FREQ * 0.1 * speed - 1);
+            
+            case 6: 
+            func_definition(exec_tbl[35], 6, W06); 
+            func_definition(exec_tbl[36], 6, W07); 
             break;
-        case CH_A: 
-            HAL_TIM_Base_Stop_IT(&htim9);
-            HAL_TIM_Base_Stop_IT(&htim10);
-
-            speed = (uint16_t)ceil(feed / (controller_settings.A_AXIS_RESOLUTION * 60 * SERVO_PULSE_FREQ));
-            if (speed < 1 || speed > 100) return (uint32_t)HAL_ERROR;
-
-            TIM9->ARR  = (uint16_t)(SERVO_REFERENCE_FREQ / SERVO_PULSE_FREQ * 0.1 * speed - 1);
-            TIM10->PSC = (uint16_t)(SYS_REFERENCE_APB2_FREQ / SERVO_PULSE_FREQ * 0.1 * speed - 1);
+            
+            case 7: 
+            func_definition(exec_tbl[37], 7, C00); 
             break;
+
+            case 8: 
+            func_definition(exec_tbl[38], 8, G00_X); 
+            func_definition(exec_tbl[39], 8, G00_Y); 
+            func_definition(exec_tbl[40], 8, G00_Z); 
+            func_definition(exec_tbl[41], 8, G00_A); 
+            break;
+            
+            default: break;
+        }   
     }
-    HAL_Delay(100);
-
-    return (uint32_t)res;
 }
 
-//=============================================================================
-// SERVO PULSE TIMERS interrupt serving callback
-//=============================================================================
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
-    HAL_TIM_Base_Stop_IT(htim);
+void TrinityCommandInterpreter(char* command) {
+    INTERPRETER_STATE state = OP_NAME;
+
+    char sym, *name, *args[5];
+    int  current_arg = 0, iter = 0;
+
+    // Initialization sequence
+    name = (char *)calloc(10, sizeof(char));
+    for (int i = 0; i < 5; ++i) {
+        args[i] = (char *)calloc(10, sizeof(char));
+    }
+
+    while ((sym = *command++) != '\r') {
+        switch (state) {
+            case OP_NAME: 
+                if (sym != 0x20) *(name + iter++) = sym;     
+                else {
+                    iter = 0;
+                    state = ARGS;
+                }
+            break;
+            
+            case ARGS:
+                if (isdigit(sym) || sym == '.' || sym == '"') *(args[current_arg] + iter++) = sym;
+                else if (sym == 0x20) {
+                    iter = 0;
+                    current_arg++;
+                }
+            break;
+            default: break;    
+        }
+    }
     
-    if (htim->Instance == TIM5) {
-    // X-AXIS processing    
-        op_complete_X = true;
-    } else if (htim->Instance == TIM4) {
-    // Y-AXIS processing
-        op_complete_Y = true;
-    } else if (htim->Instance == TIM3) {
-    // Z-AXIS processing
-        op_complete_Z = true;
-    } else if (htim->Instance == TIM10) {
-    // A-AXIS processing
-        op_complete_A = true;
-    }        
-}
-
-//=============================================================================
-// SERVO COMMAND UTILITIES
-//=============================================================================
-/**
- *  @brief  Fast feed to specified position
- *  @param x    - x coordinate of destination point
- *  @param y    - y coordinate of destination point
- *  @param z    - z coordinate of destination point
- *  @param a    - a coordinate of destination point 
- */
-static void G00 (double x, double y, double z, double a) {
-    if (!DEVICE_ALARM) return;
-
-    G00_X(x, controller_settings.X_MAX_FEED);
-    G00_Y(y, controller_settings.Y_MAX_FEED);
-    G00_Z(z, controller_settings.Z_MAX_FEED);
-    G00_A(a, controller_settings.A_MAX_FEED);
-}
-
-/** 
- * @brief Moves along X-axis to specified position with specified feed in mm/min
- * @param x    - X-coord of specified point
- * @param feed - movement feed in mm/min
- */
-static void G00_X (double x, double feed) {
-    if (!DEVICE_ALARM) return;
-
-    uint16_t n_pulse;
-    double dx;
-    TRINITY_SERVO_DIRECTION dir;
-
-    TrinitySetAxisSpeed(CH_X, feed);
-
-    if (coord_system == ABSOLUTE) {
-        dx = curr_x - x;
-        curr_x = x;    
-    } else dx = x;
+    // Parsing complete! Start execution..
+    iter = 0;
+    bool success = true;
+    while (strcmp(name, exec_tbl[iter].name)) {
+        iter++;
+        if (iter == FUNCTION_NUM) { success = false; break; }
+    }    
     
-    dir = (dx > 0) ? FORWARD : BACKWARD;
-    n_pulse = (uint16_t)fabs(dx / controller_settings.X_AXIS_RESOLUTION);
-    TrinitySetAxisDirection(CH_X, dir);
+    if (success) {
+        if (exec_tbl[iter].proc_type == 0) exec_tbl[iter].func_name(0)();
+        else if (exec_tbl[iter].proc_type == 1) exec_tbl[iter].func_name(1)(atof(args[0]), atof(args[1]), atof(args[2]), atof(args[3]));
+        else if (exec_tbl[iter].proc_type == 2) exec_tbl[iter].func_name(2)(atof(args[0]), atof(args[1]), atof(args[2]), atof(args[3]), atof(args[4]));
+        else if (exec_tbl[iter].proc_type == 3) exec_tbl[iter].func_name(3)(atoi(args[0]));
+        else if (exec_tbl[iter].proc_type == 4) exec_tbl[iter].func_name(4)(atoi(args[0]), atoi(args[1]));
+        else if (exec_tbl[iter].proc_type == 5) exec_tbl[iter].func_name(5)(atoi(args[0]), atoi(args[1]), atoi(args[2]));
+        else if (exec_tbl[iter].proc_type == 6) exec_tbl[iter].func_name(6)(atoi(args[0]), atoi(args[1]), atoi(args[2]), atoi(args[3]));
+        else if (exec_tbl[iter].proc_type == 7) exec_tbl[iter].func_name(7)(atoi(args[0]), args[1]);
+        else if (exec_tbl[iter].proc_type == 8) exec_tbl[iter].func_name(8)(atof(args[0]), atof(args[1]));       
+    }
 
-    TIM5->ARR  = n_pulse;
-    op_complete_X = false;
-    HAL_TIM_Base_Start_IT(&htim5);
+    free(name);
+    for (int i = 0; i < 5; ++i) free(args[i]);
 }
 
-/** 
- * @brief Moves along Y-axis to specified position with specified feed in mm/min
- * @param y    - Y-coord of specified point
- * @param feed - movement feed in mm/min
- */
-static void G00_Y (double y, double feed) {
-    if (!DEVICE_ALARM) return;
-
-    uint16_t n_pulse;
-    double dy;
-    TRINITY_SERVO_DIRECTION dir;
-
-    TrinitySetAxisSpeed(CH_Y, feed);
-    
-    if (coord_system == ABSOLUTE) {
-        dy = curr_y - y;
-        curr_y = y;
-    } else dy = y;
-
-    dir = (dy > 0) ? FORWARD : BACKWARD;
-    n_pulse = (uint16_t)fabs(dy / controller_settings.Y_AXIS_RESOLUTION);
-    TrinitySetAxisDirection(CH_Y, dir);
-
-    TIM4->ARR  = n_pulse;
-    op_complete_X = false;
-    HAL_TIM_Base_Start_IT(&htim4);
-} 
-
-/** 
- * @brief Moves along Z-axis to specified position with specified feed in mm/min
- * @param z    - Z-coord of specified point
- * @param feed - movement feed in mm/min
- */
-static void G00_Z (double z, double feed) {
-    if (!DEVICE_ALARM) return;
-
-    uint16_t n_pulse;
-    double dz;
-    TRINITY_SERVO_DIRECTION dir;
-
-    TrinitySetAxisSpeed(CH_Z, feed);
-
-    if ( coord_system == ABSOLUTE) {
-        dz = curr_z - z;
-        curr_z = z;
-    } else dz = z;
-
-    dir = (dz > 0) ? FORWARD : BACKWARD;
-    n_pulse = (uint16_t)fabs(dz / controller_settings.Z_AXIS_RESOLUTION);
-    TrinitySetAxisDirection(CH_Z, dir);
-
-    TIM3->ARR  = n_pulse;
-    op_complete_X = false;
-    HAL_TIM_Base_Start_IT(&htim3);
-} 
-
-/** 
- * @brief Moves along A-axis to specified position with specified feed in mm/min
- * @param a    - A-coord of specified point
- * @param feed - movement feed in mm/min
- */
-static void G00_A (double a, double feed) {
-    if (!DEVICE_ALARM) return;
-
-    uint16_t n_pulse;
-    double da;
-    TRINITY_SERVO_DIRECTION dir;
-
-    TrinitySetAxisSpeed(CH_A, feed);
-
-    if (coord_system == ABSOLUTE) {
-        da = curr_a - a;
-        curr_a = a;
-    } else da = a;
-
-    dir = (da > 0) ? FORWARD : BACKWARD;
-    n_pulse = (uint16_t)fabs(da / controller_settings.A_AXIS_RESOLUTION);
-    TrinitySetAxisDirection(CH_A, dir);
-
-    TIM10->ARR  = n_pulse;
-    op_complete_X = false;
-    HAL_TIM_Base_Start_IT(&htim10);
-} 
-
-
-/**
- *  @brief  Linear interpolation to specified position with specified speed
- *  @param x    - x coordinate of destination point
- *  @param y    - y coordinate of destination point
- *  @param z    - z coordinate of destination point
- *  @param a    - a coordinate of destination point 
- *  @param feed - feed speed mm/min
- */
-static void G01 (double x, double y, double z, double a, double feed) {
-    if (!DEVICE_ALARM) return;
-
-    G00_X(x, feed);
-    G00_Y(y, feed);
-    G00_Z(z, feed);
-    G00_A(a, feed);    
-}
-
-/**
- *  @brief  Circular CW interpolation to specified point using specified radius and speed
- *  @param x    - x coordinate of destination point
- *  @param y    - y coordinate of destination point
- *  @param z    - z coordinate of destination point
- *  @param r    - interpolation radius 
- *  @param feed - feed speed mm/min
- *  Reserved for future use
- */
-static void G02 (double x, double y, double z, double r, double feed) {}
-
-/**
- *  @brief  Circular CCW interpolation to specified point using specified radius and speed
- *  @param x    - x coordinate of destination point
- *  @param y    - y coordinate of destination point
- *  @param z    - z coordinate of destination point
- *  @param r    - interpolation radius 
- *  @param feed - feed speed mm/min
- *  Reserved for future use
- */
-static void G03 (double x, double y, double z, double r, double feed) {}
-
-/**
- *  @brief  Programm delay for specified duration
- *  @param m_delay - delay in milliseconds
- */
-static void G04 (uint32_t m_delay) {
-    while (!(op_complete_A && op_complete_X && op_complete_Y && op_complete_Z));
-    HAL_Delay(m_delay);
-}
-
-/**
- *  @brief  Set reference point
- *  @param x    - x-coordinate of reference point
- *  @param y    - y-coordinate of reference point
- *  @param z    - z-coordinate of reference point
- *  @param a    - a-coordinate of reference point
- */
-static void G20 (double x, double y, double z, double a) {
-    controller_settings.X_REF_COORD = x;
-    controller_settings.Y_REF_COORD = y;
-    controller_settings.Z_REF_COORD = z;
-    controller_settings.A_REF_COORD = a;
-
-    TrinitySaveSettings();
-}
-
-/**
- *  @brief  Set axis resolutions
- *  @param res_x    - x axis resolution
- *  @param res_y    - y axis resolution
- *  @param res_z    - z axis resolution
- *  @param res_a    - a axis resolution
- */
-static void G21 (double res_x, double res_y, double res_z, double res_a) {
-    controller_settings.X_AXIS_RESOLUTION = res_x;
-    controller_settings.Y_AXIS_RESOLUTION = res_y;
-    controller_settings.Z_AXIS_RESOLUTION = res_z;
-    controller_settings.A_AXIS_RESOLUTION = res_a;
-
-    TrinitySaveSettings(); 
-}
-
-/**
- *  @brief Return to reference point via the intermediate point
- *  @param x    - x axis intermediate coordinate
- *  @param y    - y axis intermediate coordinate
- *  @param z    - z axis intermediate coordinate
- *  @param a    - a axis intermediate coordinate
- */
-static void G28 (double x, double y, double z, double a) {
-    G00(x, y, z, a);
-    G00(controller_settings.X_REF_COORD, controller_settings.Y_REF_COORD, controller_settings.Z_REF_COORD, controller_settings.A_REF_COORD);
-}
-
-/**
- * @brief Use absolute coordinates
- */
-static void G90 (void) {
-    coord_system = ABSOLUTE;
-}
-
-/**
- * @brief Use relative coordinates
- */
-static void G91 (void) {
-    coord_system = RELATIVE;
-}
-
-bool TrinityGetEMAPAck(void) {
-   uint8_t resp[10];
-   HAL_UART_Receive_IT(&huart1, resp, 10);
-
-   while (!EMAP_ACK_RECEIVED);
-
-   if (strstr(resp, "OK")) return true;
-   else return false;
-}
-
-/**
- * @brief Device operation mode disable
- */
-static void E01 (void) {
-    memset(device_command, 0x00, PGM_BUFFER_SIZE);
-    sprintf(device_command, "%s\r\n", "E001");
-    HAL_UART_Transmit_DMA(&huart1, device_command, strlen(device_command));
-
-    bool emap_ack = TrinityGetEMAPAck();
-    if (!emap_ack) TrinityDeviceAlarm(true);
-}
-
-/**
- * @brief Start handling device operation cycle
- */
-static void E02 (void) {
-    memset(device_command, 0x00, PGM_BUFFER_SIZE);
-    sprintf(device_command, "%s\r\n", "E002");
-    HAL_UART_Transmit_DMA(&huart1, device_command, strlen(device_command));
-
-    bool emap_ack = TrinityGetEMAPAck();
-    if (!emap_ack) TrinityDeviceAlarm(true);
-}
-
-/**
- * @brief Finish handling device operation cycle
- */
-static void E03 (void) {
-    memset(device_command, 0x00, PGM_BUFFER_SIZE);
-    sprintf(device_command, "%s\r\n", "E003");
-    HAL_UART_Transmit_DMA(&huart1, device_command, strlen(device_command));
-
-    bool emap_ack = TrinityGetEMAPAck();
-    if (!emap_ack) TrinityDeviceAlarm(true);
-}
-
-/**
- * @brief Set device emergency condition
- */
-static void E04 (void) {
-    memset(device_command, 0x00, PGM_BUFFER_SIZE);
-    sprintf(device_command, "%s\r\n", "E004");
-    HAL_UART_Transmit_DMA(&huart1, device_command, strlen(device_command));
-
-    TrinityDeviceAlarm(true);
-}
-
-/**
- * @brief Drop device emergency condition
- */
-static void E05 (void) {
-    memset(device_command, 0x00, PGM_BUFFER_SIZE);
-    sprintf(device_command, "%s\r\n", "E005");
-    HAL_UART_Transmit_DMA(&huart1, device_command, strlen(device_command));
-
-    bool emap_ack = TrinityGetEMAPAck();
-    if (emap_ack) TrinityDeviceAlarm(true);
-}
-
-/**
- * @brief Move ejector to forward position
- */
-static void E06 (void) {
-    memset(device_command, 0x00, PGM_BUFFER_SIZE);
-    sprintf(device_command, "%s\r\n", "E006");
-    HAL_UART_Transmit_DMA(&huart1, device_command, strlen(device_command));
-
-    bool emap_ack = TrinityGetEMAPAck();
-    if (!emap_ack) TrinityDeviceAlarm(true);
-}
-
-/**
- * @brief Move ejector to back position
- */
-static void E07 (void) {
-    memset(device_command, 0x00, PGM_BUFFER_SIZE);
-    sprintf(device_command, "%s\r\n", "E007");
-    HAL_UART_Transmit_DMA(&huart1, device_command, strlen(device_command));
-
-    bool emap_ack = TrinityGetEMAPAck();
-    if (!emap_ack) TrinityDeviceAlarm(true);
-}
-
-/**
- * @brief Set core pullers to position 2
- */
-static void E08 (void) {
-    memset(device_command, 0x00, PGM_BUFFER_SIZE);
-    sprintf(device_command, "%s\r\n", "E008");
-    HAL_UART_Transmit_DMA(&huart1, device_command, strlen(device_command));
-
-    bool emap_ack = TrinityGetEMAPAck();
-    if (!emap_ack) TrinityDeviceAlarm(true);
-}
-
-/**
- * @brief Set core pullers to position 1
- */
-static void E09 (void) {
-    memset(device_command, 0x00, PGM_BUFFER_SIZE);
-    sprintf(device_command, "%s\r\n", "E009");
-    HAL_UART_Transmit_DMA(&huart1, device_command, strlen(device_command));
-
-    bool emap_ack = TrinityGetEMAPAck();
-    if (!emap_ack) TrinityDeviceAlarm(true);
-}
-
-/**
- * @brief Mould closure enable
- */
-static void E10 (void) {
-    memset(device_command, 0x00, PGM_BUFFER_SIZE);
-    sprintf(device_command, "%s\r\n", "E010");
-    HAL_UART_Transmit_DMA(&huart1, device_command, strlen(device_command));
-
-    bool emap_ack = TrinityGetEMAPAck();
-    if (!emap_ack) TrinityDeviceAlarm(true);
-}
-
-/**
- * @brief Mould closure disable
- */
-static void E11 (void) {
-    memset(device_command, 0x00, PGM_BUFFER_SIZE);
-    sprintf(device_command, "%s\r\n", "E011");
-    HAL_UART_Transmit_DMA(&huart1, device_command, strlen(device_command));
-
-    bool emap_ack = TrinityGetEMAPAck();
-    if (!emap_ack) TrinityDeviceAlarm(true);
-}
-
-/**
- * @brief Set mould area free
- */
-static void E12 (void) {
-    memset(device_command, 0x00, PGM_BUFFER_SIZE);
-    sprintf(device_command, "%s\r\n", "E012");
-    HAL_UART_Transmit_DMA(&huart1, device_command, strlen(device_command));
-
-    bool emap_ack = TrinityGetEMAPAck();
-    if (!emap_ack) TrinityDeviceAlarm(true);
-}
-
-/**
- * @brief Set mould area occupied
- */
-static void E13 (void) {
-    memset(device_command, 0x00, PGM_BUFFER_SIZE);
-    sprintf(device_command, "%s\r\n", "E013");
-    HAL_UART_Transmit_DMA(&huart1, device_command, strlen(device_command));
-
-    bool emap_ack = TrinityGetEMAPAck();
-    if (!emap_ack) TrinityDeviceAlarm(true);
-}
-
-/**
- * @brief Set technological signal state
- * @param line  - signal line number
- * @param state - signal state
- */
-static void M06 (uint16_t line, uint8_t state) {
-
-}
-
-/**
- * @brief Send command via rs-485 interface to external device
- * @param addr    - device address
- * @param command - command to send
- */
-static void C00 (uint16_t addr, char* command) {
-    
-}
-
-/**
- * @brief Receive answer via rs-485 interface
- */
-static void C01 (void) {
-
-}
-
-/**
- * @brief Start programming sequence
- * @param start_block    - start block number to place programm
- * @param start_sector   - start sector number 
- * @param start_page     - start page number
- */
-static void W00 (uint16_t start_block, uint16_t start_sector, uint16_t start_page) {
-
-}
-
-/**
- * @brief Stop programming sequence
- */
-static void W01 (void) {
-
-}
-
-/**
- * @brief Start programm from specified address for specified cycles
- * @param start_addr   - starting address
- * @param num_cycles   - desired cycles of programm execution
- */
-static void M98 (uint32_t start_addr, uint32_t num_cycles) {
-
-}
-
-/**
- * @brief Bind X-axis to sensor line
- * @param selector  - specifies what position is binded (0 - min position, 1 - max position)
- * @param sens_line - sensor line binded
- */
-static void W02 (uint8_t selector, uint16_t sens_line) {
-
-}
-
-/**
- * @brief Bind Y-axis to sensor line
- * @param selector  - specifies what position is binded (0 - min position, 1 - max position)
- * @param sens_line - sensor line binded
- */
-static void W03 (uint8_t selector, uint16_t sens_line) {
-
-}
-
-/**
- * @brief Bind Z-axis to sensor line
- * @param selector  - specifies what position is binded (0 - min position, 1 - max position)
- * @param sens_line - sensor line binded
- */
-static void W04 (uint8_t selector, uint16_t sens_line) {
-
-}
-
-/**
- * @brief Bind A-axis to sensor line
- * @param selector  - specifies what position is binded (0 - min position, 1 - max position)
- * @param sens_line - sensor line binded
- */
-static void W05 (uint8_t selector, uint16_t sens_line) {
-
-}
-
-/**
- * @brief Set axises activities
- * @param x_active - X activity to be set
- * @param y_active - y activity to be set
- * @param z_active - z activity to be set
- * @param a_active - a activity to be set
- */
-static void W06 (uint8_t x_active, uint8_t y_active, uint8_t z_active, uint8_t a_active) {
-
-}
-
-/**
- * @brief Set axises emergency conditions
- * @param x_active - X emergemcy condition
- * @param y_active - y emergency condition
- * @param z_active - z emergency condition
- * @param a_active - a emergency condition
- */
-static void W07 (uint8_t x_emgs, uint8_t y_emgs, uint8_t z_emgs, uint8_t a_emgs) {
-
-}
-
-/**
- * @brief Wait for specified sensor line become active
- * @param sens_line - sensor line number to be checked
- * @return sensor state (true - sensor activated, false - sensor passive)
- */
-static bool W08 (uint16_t sens_line) {
-
-}
-
-//-----------------------------------------------------------------------------
-// INTERRUPT SERVICE CALLBACKS
-//-----------------------------------------------------------------------------
-void onEmapCommandReceived(void) {
-    HAL_UART_AbortReceive_IT(&huart1);
-    EMAP_ACK_RECEIVED = true;
-}
 

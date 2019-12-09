@@ -99,7 +99,7 @@ typedef struct {
     3. G02      - circular interpolation CW (params: Xmmm.nnn Ymmm.nnn Zmmm.nnn Rmmm.nnn Fm.n) 
                   R - interpolation radius F - interpolation speed
     4. G03      - circular interpolation CCW. Parameters are just the same
-    5. G04      - programm execution delay (params: Pmmmmm (mmmm - in milliseconds) Xmmmm (mmmm - in seconds))
+    5. G04      - programm execution delay (params: Pmmmmm (mmmm - in milliseconds)
     6. G20      - set reference point position (params: Xmmm.nnn Ymmm.nnn Zmmm.nnn Ammm.nnn)
     7. G21      - set resolution for axis (params: Xmmm.nnn Ymmm.nnn Zmmm.nnn Ammm.nnn)
     8. G28      - return to reference point (params: Xmmm.nnn Ymmm.nnn Zmmm.nnn Ammm.nnn - these are intermediate point coordinates)
@@ -128,7 +128,7 @@ typedef struct {
     ------------------------------------------------------------------------------------------------
     C. TECHNOLOGICAL SIGNALS COMMANDS
     ------------------------------------------------------------------------------------------------
-    1. M06      - set TS state (params: Tnn STm, where nn - signal line number, m - state. 0 - signal inactive, 1 - active)
+    1. M06      - set TS state (params: Tnn Sm, where nn - signal line number, m - state. 0 - signal inactive, 1 - active)
 
     ------------------------------------------------------------------------------------------------
     D. EXTERNAL MACHINERY CONTROL COMMANDS (RS-485)
@@ -149,6 +149,7 @@ typedef struct {
     5. W06      - set axis activity (params: Xn Yn Zn An, where n - axis activity (1 - active, 0 - inactive)) 
     6. W07      - set emergency stop condition for axis (params are just the same)  
     7. W08      - wait for sensor line become active (params: SENxx, xx - sensor line number)   
+    8. W09      - wait until specified line become inactive. Params are just the same
 
 */
 // Command processor initialization sequence
@@ -156,7 +157,7 @@ void TrinityCPInit(void);
 // Command execution routine
 void TrinityProgrammExec(char* command);
 // Command parser
-static void TrinityCommandParser(char* command);
+static void TrinityCommandInterpreter(char* command);
 
 //=============================================================================
 // Utility routines
@@ -168,6 +169,8 @@ static uint32_t TrinityLoadSettings(void);
 static bool TrinityIsPresetsValid(void);
 static uint32_t TrinityMoveToZero(void);
 static void TrinityDeviceAlarm(bool alarm);
+static bool TrinityGetSensorState(uint8_t sens_line);
+static void TrinityInitExecTbl(void);
 
 //=============================================================================
 // Command routines
@@ -217,7 +220,8 @@ static void W04 (uint8_t selector, uint16_t sens_line);
 static void W05 (uint8_t selector, uint16_t sens_line);
 static void W06 (uint8_t x_active, uint8_t y_active, uint8_t z_active, uint8_t a_active);
 static void W07 (uint8_t x_emgs, uint8_t y_emgs, uint8_t z_emgs, uint8_t a_emgs);
-static bool W08 (uint16_t sens_line);
+static void W08 (uint16_t sens_line);
+static void W09 (uint16_t sens_line);
 
 //-----------------------------------------------------------------------------
 // INTERRUPT SERVICE CALLBACKS

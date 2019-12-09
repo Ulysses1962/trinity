@@ -22,70 +22,136 @@ Dialog DLL:      TCM.DLL V1.36.1.0
  
 <h2>Project:</h2>
 C:\Users\h_wil\Projects\embedded\trinity\board\cpu\MDK-ARM\cpu.uvprojx
-Project File Date:  10/08/2019
+Project File Date:  11/29/2019
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'cpu'
+compiling stm32f7xx_it.c...
 compiling memory.c...
 ../Core/Inc/memory.h(13): warning:  #1-D: last line of file ends without a newline
   #endif
 ..\Core\Src\memory.c: 1 warning, 0 errors
-compiling main.c...
-compiling command.c...
-..\Core\Src\command.c(53): warning:  #177-D: function "TrinityCommandParser"  was declared but never referenced
-  void TrinityCommandParser(char* command) {
-..\Core\Src\command.c(12): warning:  #550-D: variable "device_command"  was set but never used
-  static char* device_command;
-..\Core\Src\command.c(14): warning:  #550-D: variable "op_complete_X"  was set but never used
-  static bool op_complete_X = false;
-..\Core\Src\command.c(15): warning:  #550-D: variable "op_complete_Y"  was set but never used
-  static bool op_complete_Y = false;
-..\Core\Src\command.c(16): warning:  #550-D: variable "op_complete_Z"  was set but never used
-  static bool op_complete_Z = false;
-..\Core\Src\command.c(17): warning:  #550-D: variable "op_complete_A"  was set but never used
-  static bool op_complete_A = false;
-..\Core\Src\command.c(19): warning:  #177-D: variable "ts_state"  was declared but never referenced
-  static uint16_t ts_state     = 0x0000;
-..\Core\Src\command.c(20): warning:  #177-D: variable "sensor_state"  was declared but never referenced
+compiling console.c...
+compiling interpreter.c...
+../Core/Inc/memory.h(13): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\Core\Src\interpreter.c(159): warning:  #223-D: function "TrinityIsPresetsValid" declared implicitly
+      if (!TrinityIsPresetsValid()) return;
+..\Core\Src\interpreter.c(168): error:  #167: argument of type "char (*)[20]" is incompatible with parameter of type "char **"
+      TrinityRun(args);
+..\Core\Src\interpreter.c(225): warning:  #223-D: function "TrinityLoadSettings" declared implicitly
+      TrinityLoadSettings();
+..\Core\Src\interpreter.c(230): warning:  #223-D: function "TrinityIsPresetsValid" declared implicitly
+      if (TrinityIsPresetsValid()) {
+..\Core\Src\interpreter.c(304): error:  #167: argument of type "char (*)[10]" is incompatible with parameter of type "char **"
+      if (success) interpreter->exec_tbl[--iter].func(args);
+..\Core\Src\interpreter.c(399): error:  #65: expected a ";"
+      uint8_t mask = 0b00000001;
+..\Core\Src\interpreter.c(401): warning:  #188-D: enumerated type mixed with another type
+      HAL_GPIO_WritePin(SENS_ADDR0_GPIO_Port, SENS_ADDR0_Pin, GPIO_PIN_SET & (sens_line & mask));
+..\Core\Src\interpreter.c(402): warning:  #188-D: enumerated type mixed with another type
+      HAL_GPIO_WritePin(SENS_ADDR1_GPIO_Port, SENS_ADDR1_Pin, GPIO_PIN_SET & (sens_line & mask << 1));
+..\Core\Src\interpreter.c(403): warning:  #188-D: enumerated type mixed with another type
+      HAL_GPIO_WritePin(SENS_ADDR2_GPIO_Port, SENS_ADDR2_Pin, GPIO_PIN_SET & (sens_line & mask << 2));
+..\Core\Src\interpreter.c(417): error:  #159: declaration is incompatible with previous "TrinityLoadSettings"  (declared at line 225)
+  uint32_t TrinityLoadSettings(void) {
+..\Core\Src\interpreter.c(421): error:  #159: declaration is incompatible with previous "TrinityIsPresetsValid"  (declared at line 159)
+  bool TrinityIsPresetsValid(void) {
+..\Core\Src\interpreter.c(536): error:  #167: argument of type "char (*)[10]" is incompatible with parameter of type "char **"
+      G00_X(args_m);
+..\Core\Src\interpreter.c(540): error:  #167: argument of type "char (*)[10]" is incompatible with parameter of type "char **"
+      G00_Y(args_m);
+..\Core\Src\interpreter.c(544): error:  #167: argument of type "char (*)[10]" is incompatible with parameter of type "char **"
+      G00_Z(args_m);
+..\Core\Src\interpreter.c(548): error:  #167: argument of type "char (*)[10]" is incompatible with parameter of type "char **"
+      G00_A(args_m);
+..\Core\Src\interpreter.c(677): error:  #167: argument of type "char (*)[10]" is incompatible with parameter of type "char **"
+      G00_X(args_m);
+..\Core\Src\interpreter.c(680): error:  #167: argument of type "char (*)[10]" is incompatible with parameter of type "char **"
+      G00_Y(args_m);
+..\Core\Src\interpreter.c(683): error:  #167: argument of type "char (*)[10]" is incompatible with parameter of type "char **"
+      G00_Z(args_m);
+..\Core\Src\interpreter.c(686): error:  #167: argument of type "char (*)[10]" is incompatible with parameter of type "char **"
+      G00_A(args_m);
+..\Core\Src\interpreter.c(792): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "const char *"
+     if (strstr(resp, "OK")) return true;
+..\Core\Src\interpreter.c(802): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+      HAL_UART_Transmit_DMA(&huart1, device_cmd, strlen(device_cmd));
+..\Core\Src\interpreter.c(814): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+      HAL_UART_Transmit_DMA(&huart1, device_cmd, strlen(device_cmd));
+..\Core\Src\interpreter.c(826): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+      HAL_UART_Transmit_DMA(&huart1, device_cmd, strlen(device_cmd));
+..\Core\Src\interpreter.c(838): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+      HAL_UART_Transmit_DMA(&huart1, device_cmd, strlen(device_cmd));
+..\Core\Src\interpreter.c(850): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+      HAL_UART_Transmit_DMA(&huart1, device_cmd, strlen(device_cmd));
+..\Core\Src\interpreter.c(861): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+      HAL_UART_Transmit_DMA(&huart1, device_cmd, strlen(device_cmd));
+..\Core\Src\interpreter.c(873): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+      HAL_UART_Transmit_DMA(&huart1, device_cmd, strlen(device_cmd));
+..\Core\Src\interpreter.c(885): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+      HAL_UART_Transmit_DMA(&huart1, device_cmd, strlen(device_cmd));
+..\Core\Src\interpreter.c(897): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+      HAL_UART_Transmit_DMA(&huart1, device_cmd, strlen(device_cmd));
+..\Core\Src\interpreter.c(909): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+      HAL_UART_Transmit_DMA(&huart1, device_cmd, strlen(device_cmd));
+..\Core\Src\interpreter.c(921): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+      HAL_UART_Transmit_DMA(&huart1, device_cmd, strlen(device_cmd));
+..\Core\Src\interpreter.c(933): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+      HAL_UART_Transmit_DMA(&huart1, device_cmd, strlen(device_cmd));
+..\Core\Src\interpreter.c(945): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+      HAL_UART_Transmit_DMA(&huart1, device_cmd, strlen(device_cmd));
+..\Core\Src\interpreter.c(957): warning:  #167-D: argument of type "char *" is incompatible with parameter of type "uint8_t *"
+      HAL_UART_Transmit_DMA(&huart1, device_cmd, strlen(device_cmd));
+..\Core\Src\interpreter.c(1136): error:  #118: a void function may not return a value
+      return (uint32_t)res;
+..\Core\Src\interpreter.c(1156): error:  #118: a void function may not return a value
+      return (uint32_t)res;
+..\Core\Src\interpreter.c(23): warning:  #550-D: variable "servo_x_ready"  was set but never used
+  static bool servo_x_ready = false;
+..\Core\Src\interpreter.c(24): warning:  #550-D: variable "servo_y_ready"  was set but never used
+  static bool servo_y_ready = false;
+..\Core\Src\interpreter.c(25): warning:  #550-D: variable "servo_z_ready"  was set but never used
+  static bool servo_z_ready = false;
+..\Core\Src\interpreter.c(26): warning:  #550-D: variable "servo_a_ready"  was set but never used
+  static bool servo_a_ready = false;
+..\Core\Src\interpreter.c(36): warning:  #177-D: variable "sensor_state"  was declared but never referenced
   static uint16_t sensor_state = 0x0000;
-..\Core\Src\command.c(23): warning:  #177-D: variable "control_struct"  was declared but never referenced
-  static SERVO_CONTROL_STRUCTURE control_struct;
-..\Core\Src\command.c(24): warning:  #177-D: variable "controller_state"  was declared but never referenced
-  static TRINITY_STATE controller_state       = INIT;
-..\Core\Src\command.c(25): warning:  #177-D: variable "SERVO_SETTINGS_EXISTS"  was declared but never referenced
-  static const uint8_t SERVO_SETTINGS_EXISTS  = 0xae;
-..\Core\Src\command.c(26): warning:  #177-D: variable "controller_settings"  was declared but never referenced
-  static TRINITY_SETTINGS controller_settings;
-..\Core\Src\command.c(31): warning:  #177-D: variable "SETTINGS_BLOCK"  was declared but never referenced
-  static const uint8_t SETTINGS_BLOCK         = 0;
-..\Core\Src\command.c(32): warning:  #177-D: variable "SETTINGS_SECTOR"  was declared but never referenced
-  static const uint8_t SETTINGS_SECTOR        = 0;
-..\Core\Src\command.c(33): warning:  #177-D: variable "SERVO_SGS_EXISTS_PAGE"  was declared but never referenced
+..\Core\Src\interpreter.c(54): warning:  #177-D: variable "SERVO_SGS_EXISTS_PAGE"  was declared but never referenced
   static const uint8_t SERVO_SGS_EXISTS_PAGE  = 0;
-..\Core\Src\command.c(34): warning:  #177-D: variable "SETTINGS_PAGE"  was declared but never referenced
-  static const uint8_t SETTINGS_PAGE          = 1;
-..\Core\Src\command.c(36): warning:  #177-D: variable "PROGRAMM_BLOCK"  was declared but never referenced
-  static const uint8_t PROGRAMM_BLOCK         = 1;
-..\Core\Src\command.c(37): warning:  #177-D: variable "PROGRAMM_SECTOR"  was declared but never referenced
-  static const uint8_t PROGRAMM_SECTOR        = 0;
-..\Core\Src\command.c(38): warning:  #177-D: variable "PROGRAMM_PAGE"  was declared but never referenced
-  static const uint8_t PROGRAMM_PAGE          = 0;                             
-..\Core\Src\command.c: 19 warnings, 0 errors
-compiling usbd_cdc_if.c...
-compiling stm32f7xx_it.c...
+..\Core\Src\interpreter.c(57): warning:  #177-D: variable "STARTUP_BLOCK"  was declared but never referenced
+  static const uint8_t STARTUP_BLOCK          = 0;
+..\Core\Src\interpreter.c(58): warning:  #177-D: variable "STARTUP_SECTOR"  was declared but never referenced
+  static const uint8_t STARTUP_SECTOR         = 0;
+..\Core\Src\interpreter.c(59): warning:  #177-D: variable "STARTUP_PAGE"  was declared but never referenced
+  static const uint8_t STARTUP_PAGE           = 1;
+..\Core\Src\interpreter.c(65): warning:  #177-D: variable "PROGRAM_CYCLES"  was declared but never referenced
+  static uint32_t PROGRAM_CYCLES;
+..\Core\Src\interpreter.c(67): warning:  #177-D: variable "p_length"  was declared but never referenced
+  static uint16_t p_length     = 0;                            
+..\Core\Src\interpreter.c(69): warning:  #177-D: variable "page_complete"  was declared but never referenced
+  static bool page_complete    = false;
+..\Core\Src\interpreter.c(321): warning:  #177-D: function "command_extract"  was declared but never referenced
+  static bool command_extract(TRINITY_INTERPRETER* interpreter) {
+..\Core\Src\interpreter.c(385): warning:  #177-D: function "TrinityNextPage"  was declared but never referenced
+  static void TrinityNextPage(void) {
+..\Core\Src\interpreter.c: 36 warnings, 15 errors
 compiling usb_device.c...
-compiling usbd_desc.c...
+compiling main.c...
+../Core/Src/main.c(108): warning:  #177-D: function "TrinityServoControlInit"  was declared but never referenced
+  static void TrinityServoControlInit(void) {
+../Core/Src/main.c: 1 warning, 0 errors
+compiling wifi.c...
 compiling stm32f7xx_hal_msp.c...
-compiling usbd_conf.c...
-compiling usbd_ioreq.c...
+compiling usbd_cdc_if.c...
+compiling usbd_desc.c...
 compiling usbd_ctlreq.c...
+compiling usbd_ioreq.c...
 compiling usbd_cdc.c...
 compiling usbd_core.c...
-linking...
-Program Size: Code=22640 RO-data=520 RW-data=440 ZI-data=9616  
-FromELF: creating hex file...
-"cpu\cpu.axf" - 0 Error(s), 20 Warning(s).
+compiling usbd_conf.c...
+"cpu\cpu.axf" - 15 Error(s), 38 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -108,7 +174,8 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.2.0
-Build Time Elapsed:  00:00:16
+Target not created.
+Build Time Elapsed:  00:00:17
 </pre>
 </body>
 </html>

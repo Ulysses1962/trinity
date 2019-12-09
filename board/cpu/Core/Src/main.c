@@ -24,6 +24,9 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "console.h"
+#include "wifi.h"
+#include "interpreter.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -170,13 +173,19 @@ int main(void)
   MX_SPI2_Init();
   
   /* USER CODE BEGIN 2 */
-  TrinityServoControlInit();
+  wifi_init();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  char* command = (char*)calloc(CMD_BUFFER_SIZE, sizeof(char));
   while (1)
   {
+      if (console_is_data_ready()) {
+          memset(command, 0x00, CMD_BUFFER_SIZE);
+          console_read(command);
+          reset_data_ready();
+      }
     /* USER CODE END WHILE */
     /* USER CODE BEGIN 3 */
   }
@@ -983,9 +992,9 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOD_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOC, SENS_STROBE_Pin|SENS_ADDR0_Pin|SENS_ADDR1_Pin|SENS_ADDR2_Pin 
-                          |USB_RESET_Pin|EMAP_RESET_Pin, GPIO_PIN_RESET);
-
+  HAL_GPIO_WritePin(GPIOC, SENS_ADDR0_Pin | SENS_ADDR1_Pin | SENS_ADDR2_Pin | USB_RESET_Pin | EMAP_RESET_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOC, SENS_STROBE_Pin, GPIO_PIN_SET);
+  
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(WIFI_RESET_GPIO_Port, WIFI_RESET_Pin, GPIO_PIN_RESET);
 

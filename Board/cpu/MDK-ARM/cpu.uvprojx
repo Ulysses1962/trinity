@@ -393,16 +393,6 @@
           <GroupName>Application/User/Core</GroupName>
           <Files>
             <File>
-              <FileName>command.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\Core\Inc\command.h</FilePath>
-            </File>
-            <File>
-              <FileName>command.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Core\Src\command.c</FilePath>
-            </File>
-            <File>
               <FileName>main.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Core/Src/main.c</FilePath>
@@ -426,6 +416,21 @@
               <FileName>memory.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\Core\Inc\memory.h</FilePath>
+            </File>
+            <File>
+              <FileName>console.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\console.c</FilePath>
+            </File>
+            <File>
+              <FileName>interpreter.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\interpreter.c</FilePath>
+            </File>
+            <File>
+              <FileName>wifi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\wifi.c</FilePath>
             </File>
           </Files>
         </Group>
